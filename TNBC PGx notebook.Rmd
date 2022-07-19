@@ -1,0 +1,973 @@
+---
+title: "TNBC Pharmacogenomic analysis"
+---
+This section initiallizes the R environment and loads custom R functions throughput the pipeline.
+```{r message=FALSE, warning=FALSE, include=FALSE}
+rm(list=ls())
+library("glmnet")
+library("doMC")
+library("reticulate")
+library("plotly")
+library("matrixStats")
+library("ComplexHeatmap")
+library("seriation")
+library("dplyr")
+library("glmnet")
+library("Hmisc")
+
+plot_AvP = function(AVP_mat){
+  library("ggpubr")
+  library("ModelMetrics")
+  
+  temp = as.data.frame(AVP_mat[,c('actual','predicted')])
+  temp[] <- lapply(temp, function(x) {if(is.factor(x)) as.numeric(as.character(x)) else x})
+  sapply(temp, class)
+  
+  sp = ggscatter(temp,
+                  x="actual",
+                  y="predicted",
+                  color = "lightgray",
+                  add = "reg.line",
+                  add.params = list(color = "black"),
+                  conf.int = TRUE,
+                  cor.coef = TRUE,
+                  cor.method = "pearson",)
+  
+  sp + geom_density_2d()
+}
+```
+
+This section initiallizes the Python environment and loads custom Python functions throughput the pipeline.
+Portions of this code are taken from: https://github.com/KnowEnG/ProGENI (Paper: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5554409/)
+```{python}
+import os
+import sys
+import argparse
+import warnings
+import numpy as np
+from numpy import mean
+import pandas as pd
+import scipy.stats as ss
+from scipy import sparse
+from scipy.stats.mstats import zscore
+from scipy.stats.mstats import gmean
+from scipy.sparse import SparseEfficiencyWarning
+from sklearn.preprocessing import normalize
+
+def is_number(num):
+  try:
+      float(num)
+      return True
+  except ValueError:
+      return False
+
+###############################################################################
+def spread_match_network(expr_df_in, node_names_in):
+  node_names_in_set = set(node_names_in)
+  gene_names_in_set = set(expr_df_in.columns.values)
+  
+  nodes_genes_intersect = sorted(list(gene_names_in_set & node_names_in_set))
+  nodes_minus_genes = sorted(list(node_names_in_set - gene_names_in_set))
+  genes_minus_nodes = sorted(list(gene_names_in_set - node_names_in_set))
+  
+  genes_names_out = nodes_genes_intersect + genes_minus_nodes
+  nodes_names_out = nodes_genes_intersect + nodes_minus_genes
+  expr_df_out = expr_df_in[genes_names_out]
+  return(expr_df_out, nodes_names_out, nodes_genes_intersect)
+
+###############################################################################
+def rwr_matrix(node_names, network_matrix, restart_matrix, restart_prob, max_iter, tolerance):
+  no_restart_prob = 1 - restart_prob
+  init_prob = 1/len(node_names)
+  # Create the vector of probabilities for the nodes
+  steady_prob_old = np.empty(np.shape(restart_matrix))
+  steady_prob_old.fill(init_prob)
+  residual = 100
+  num_iter_tmp = 0
+  while (residual > tolerance) and (num_iter_tmp < max_iter):
+      steady_prob_new = (sparse.csr_matrix.dot(steady_prob_old, network_matrix) \
+                          * no_restart_prob + restart_prob \
+                          * restart_matrix)
+      residual = max(abs(steady_prob_new - steady_prob_old).sum(axis=1))
+      print('iteration = ', num_iter_tmp)
+      num_iter_tmp += 1
+      steady_prob_old = steady_prob_new.copy()
+  return(num_iter_tmp, residual, steady_prob_new)
+
+def import_network(address_net, delimiter):
+  """
+  Imports the network and generates a dataframe.
+  Input:
+      address_net: The address of the network
+      delimiter: The delimiter used to import the network
+  """
+  default_column_headers = ['n_alias_1', 'n_alias_2', 'weight', 'type']
+  # Step 1: Read the input
+  with open(address_net, 'r') as fin:
+      # Check whether the first line is data or headers
+      first_line = fin.readline().strip()
+      fin.seek(0)   #go back to the beginning of the file
+      fields = first_line.split(sep=delimiter)
+      # data
+      if is_number(fields[2]):
+          net_df = pd.read_csv(fin, sep=delimiter, names=default_column_headers)
+      # headers
+      else:
+          net_df = pd.read_csv(fin, sep=delimiter, header=0)
+  
+  # Get the column headers
+  node1 = net_df.columns[0]
+  node2 = net_df.columns[1]
+  weight = net_df.columns[2]
+  #t = net_df.columns[3]
+  
+  # Get the unique nodes -- the first two columns of the input data,
+  nodes1 = net_df.iloc[:, 0]
+  nodes2 = net_df.iloc[:, 1]
+  nodes = set(nodes1) | set(nodes2)
+  node_names = sorted(nodes)
+  num_nodes = len(node_names)
+  
+  # Output some info about the input data
+  print("Number of rows in the network file:", len(net_df))
+  print("Number of unique nodes in the network:", num_nodes)
+  
+  return(node_names, net_df, node1, node2, weight)
+
+###############################################################################
+def gen_network_matrix(num_nodes, net_df, node1, node2, weight, node2index):
+  """Generates network adjacency matrix and normalizes it"""
+  # Transform the first two columns of the DataFrame -- the nodes -- to their indexes
+  net_df[node1] = net_df[node1].apply(lambda x: node2index[x])
+  net_df[node2] = net_df[node2].apply(lambda x: node2index[x])
+  # Create the sparse matrix
+  network_matrix = sparse.csr_matrix((net_df[weight].values,(net_df[node1].values, net_df[node2].values)),shape=(num_nodes, num_nodes), dtype=float)
+  # Make the ajdacency matrix symmetric
+  network_matrix = (network_matrix + network_matrix.T)
+  network_matrix.setdiag(0)
+  # Normalize the rows of network_matrix because we are multiplying vector by matrix (from left)
+  network_matrix = normalize(network_matrix, norm='l1', axis=1)
+  return(net_df, network_matrix)
+```
+
+Set working directory and read in the experimental data frames
+```{r message=FALSE, warning=FALSE}
+library("readxl")
+Base_dir = "Q:\\MDA_Helen PiwnicaWorms\\TNBC_PGx"
+knitr::opts_knit$set(root.dir = Base_dir)
+setwd(Base_dir)
+
+Drug_all <- read.csv("./data/Drug_AUC.csv",row.names=1)
+Drug_meta <- read.csv("./data/Drug_metadata.csv",row.names=1)
+RNA_all <- read.csv("./data/RNAseq_COMBAT.csv",row.names=1)
+Meta_all <- read_excel("./data/PDX_metadata.xlsx")
+PPI = "./data/STRING.csv"
+
+row.names(Meta_all) = Meta_all$PDX_ID
+```
+
+```{r}
+RNA_means = rowMeans(as.matrix(RNA_all))
+RNA_stdDev = rowSds(as.matrix(RNA_all))
+plot(RNA_means,RNA_stdDev)
+
+RNA_filter = which(RNA_means >= .5)
+RNA_filtered = RNA_all[RNA_filter,]
+```
+
+```{r, warning=FALSE}
+library("RColorBrewer")
+
+nsamples <- ncol(RNA_filtered)
+col <- brewer.pal(nsamples, "Paired")
+par(mfrow=c(1,2))
+plot(density(as.matrix(RNA_filtered[,1])), col=col[1], lwd=2, ylim=c(0,1), las=2, main="", xlab="")
+title(main="Filtered data", xlab="RNAseq")
+#abline(v=lcpm.cutoff, lty=3)
+for (i in 2:nsamples){
+  den <- density(as.matrix(RNA_filtered[,i]))
+  lines(den$x, den$y, col=col[i], lwd=2)
+}
+
+boxplot(RNA_filtered[,], las=2, col=col, main="")
+title(main="Filtered data",ylab="RNAseq")
+```
+This section used RWR network-diffusion algorithm to smooth gene expression data using the human STRING-PPI network.
+```{python}
+#n_rcg = 100
+restart_prob_trans = 0.5
+restart_prob = 0.5
+tolerance = 1e-8
+max_iter = 100
+n_boot = 1
+percent_boot = 100/100
+
+address_net = r["PPI"]
+
+expr_df = r["RNA_all"].T
+delimiter_net = ','
+(node_names, net_df, node1, node2, weight) = import_network(address_net, delimiter_net)
+
+###############################################################################
+# Reorder gene column names of expression spreadsheet and gene node names of network
+# such that both name lists start with the intersection of the two list ordered alphabetically
+(expr_df, node_names, nodes_genes_intersect) = spread_match_network(expr_df, node_names)
+ccl_names = expr_df.axes[0].tolist()
+
+
+expr_all = zscore(expr_df.values, axis=0)
+gene_names = list(expr_df.columns.values)
+if len(set(gene_names)) != len(gene_names):
+    sys.exit("Duplicate gene names!")
+    
+node2index = {node_names[i]:i for i in range(len(node_names))}
+index2node = node_names.copy()
+
+num_nodes = len(node_names)
+print('Number of genes in the expression file:', len(gene_names))
+
+###############################################################################
+#Perform network transformation on the gene expression matrix
+(net_df, network_matrix) = gen_network_matrix(num_nodes, net_df, node1, node2, weight, node2index)
+restart_matrix = np.eye(len(node_names), len(nodes_genes_intersect)).T
+print('Obtaining the network transformed gene expressions:')
+
+(num_iter, residual, gene_similarity_smooth) = rwr_matrix(node_names, network_matrix, restart_matrix, restart_prob_trans, max_iter, tolerance)
+gene_similarity_smooth = gene_similarity_smooth[:, 0:np.size(gene_similarity_smooth, axis=0)]
+gene_similarity_smooth = normalize(gene_similarity_smooth, norm='l1', axis=1)
+expr_all = zscore(expr_all[:, 0:len(nodes_genes_intersect)].dot(gene_similarity_smooth.T), axis=0)
+```
+
+```{r include=FALSE, paged.print=TRUE}
+#Read smooetheed RWR df back in from python env
+RNA_filtered_RWR = t(py$expr_all)
+colnames(RNA_filtered_RWR) = py$ccl_names
+row.names(RNA_filtered_RWR) = py$nodes_genes_intersect
+```
+
+We aimed to identify specific drug mechanisms and functional targets that are associated with chemo-resistant TNBC. Accordingly, we filter out longitudinal matched sets from "orphan" treatment niave PDX models.
+```{r warning=FALSE}
+pairsOnly = T
+cellLine_drug = colnames(Drug_all)
+drugnames = row.names(Drug_all)
+
+cellLine_RNA = colnames(RNA_filtered_RWR)
+genenames = row.names(RNA_filtered_RWR)
+
+all_samples = intersect(cellLine_drug,cellLine_RNA)
+
+Pairs = Meta_all %>% count(PiD)
+Pairs = Pairs[which(Pairs$n >= 2),]
+Meta_pairsOnly = Meta_all[which(Meta_all$PiD %in% Pairs$PiD),]
+row.names(Meta_pairsOnly) = Meta_pairsOnly$PDX_ID
+
+if (pairsOnly){
+  train_samples = intersect(all_samples,Meta_pairsOnly$PDX_ID)
+} else{train_samples = all_samples}
+train_samples
+
+tmp = setdiff(colnames(RNA_filtered_RWR),train_samples)
+test_samples = intersect(colnames(Drug_all),tmp)
+unknown_samples = setdiff(tmp,colnames(Drug_all))
+
+with_held_RNA = RNA_filtered_RWR[,test_samples]
+with_held_Drug = Drug_all[,test_samples]
+with_held_common = intersect(colnames(with_held_RNA),colnames(with_held_Drug))
+
+with_held_RNA = with_held_RNA[,with_held_common]
+with_held_Drug = with_held_Drug[,with_held_common]
+```
+
+```{r}
+library("TNBC.CMS")
+TNBCtype = predictCMS(RNA_all)
+table(TNBCtype)
+```
+
+```{r}
+resultGES <- computeGES(expr = RNA_all, pred = TNBCtype,rnaseq = TRUE)
+```
+
+```{r}
+resultGSVA <- performGSVA(expr = RNA_all, pred = TNBCtype,gene.set = NULL)
+```
+
+```{r}
+resultDS <- computeDS(expr = RNA_all, pred = TNBCtype)
+```
+
+We then qualitatively visualized the conversion of TNBC subtypes over time in those matched pairs. 
+```{r echo=FALSE}
+library(tidyr)
+library(dplyr)
+library(networkD3)
+
+tmp = as.data.frame(Meta_pairsOnly)[,c("PiD","TNBCtype","Time")]
+tmp = reshape(tmp, direction = "wide", idvar = "PiD", timevar = "Time")
+colnames(tmp) = c('ID','Pre','Mid','Pst')
+tmp = tmp[,c('Pre','Mid','Pst')]
+
+links <-
+  tmp %>% 
+  mutate(row = row_number()) %>%  # add a row id
+  pivot_longer(-row, names_to = "col", values_to = "source") %>%  # gather all columns
+  mutate(col = match(col, names(tmp))) %>%  # convert col names to col ids
+  mutate(source = paste0(source, '_', col)) %>%  # add col id to node names
+  group_by(row) %>%
+  mutate(target = lead(source, order_by = col)) %>%  # get target from following node in row
+  ungroup() %>% 
+  filter(!is.na(target)) %>%  # remove links from last column in original data
+  group_by(source, target) %>% 
+  summarise(value = n(), .groups = "drop")  # aggregate and count similar links
+
+# create nodes data frame from unque nodes found in links data frame
+nodes <- data.frame(id = unique(c(links$source, links$target)),
+                    stringsAsFactors = FALSE)
+
+# remove column id from node names
+nodes$name <- sub('_[0-9]*$', '', nodes$id)
+nodes[nodes=="NA"] = NA
+
+# create node ids in links data to the 0-based index of the nodes in the nodes data frame
+links$source_id <- match(links$source, nodes$id) - 1
+links$target_id <- match(links$target, nodes$id) - 1
+
+sn = sankeyNetwork(Links = links,
+                         Nodes = nodes,
+                         Source = 'source_id',
+                         Target = 'target_id',
+                         Value = 'value',
+                         NodeID = 'name',
+                         fontSize = 12,
+                         iterations = 5)
+sn
+```
+
+Next, we evaluated the similarity of the matched pairs to determine whether individual patients or time points tended to associate with one another. From this analysis we found that individual patients tended to co-cluster over timepoints. Thus recapitulating a strong degree of patient heterogeneity.
+```{r echo=FALSE}
+CCL_corr = cor(as.matrix(RNA_filtered_RWR[,train_samples]),method = c("pearson"))
+df_anno = Meta_all[train_samples,]%>%select("Time","PiD")
+
+library("dendextend")
+row_dend = as.dendrogram(hclust(dist(CCL_corr)))
+row_dend = color_branches(row_dend, k = 8)
+
+hm_anno = HeatmapAnnotation(df = as.data.frame(df_anno),
+                            annotation_name_side = "left",
+                            col=list(
+                              Time=c("X0"="darkolivegreen",
+                                          "X1"="darkorange",
+                                          "XS"="darkorchid"
+                                          ),
+                              PiD =c("2"="yellow3",
+                                     "3"="wheat3",
+                                     "11"="violetred3",
+                                     "14"="turquoise3",
+                                     "16"="tomato3",
+                                     "18"="thistle3",
+                                     "19"="tan3",
+                                     "20"="steelblue3",
+                                     "21"="springgreen3",
+                                     "22"="snow3"
+                                     )
+                              )
+                            )
+HM = Heatmap(CCL_corr,
+             name = "Pearson",
+             cluster_rows = row_dend,
+             cluster_columns = row_dend,
+             top_annotation = hm_anno,
+             show_row_names = FALSE)
+HM
+```
+
+```{r echo=FALSE, warning=FALSE}
+library(apcluster)
+library(dplyr)
+library(crosstable)
+
+apclust = apcluster(s = CCL_corr,
+                    p=NA,
+                    q=NA,
+                    maxits=1000,
+                    convits=100,
+                    lam=0.9,
+                    includeSim=FALSE,
+                    details=FALSE,
+                    nonoise=FALSE,
+                    seed=NA)
+show(apclust)
+
+clusters <- attr(apclust, "clusters")
+centers <- attr(apclust, "exemplars")
+nclust <- length(centers)
+
+res <- NULL
+for (i in 1:nclust) {
+	mems <- clusters[[i]]
+	clus <- rep(i, length(mems))
+	ctr <- ifelse(mems == centers[i], i, 0)
+	df <- data.frame(mems, clus, ctr)
+	res <- rbind(res, df)
+}
+
+df_anno_clust = cbind(df_anno,res)
+chisq.test(df_anno_clust$PiD, df_anno_clust$clus, correct=FALSE)
+table(df_anno_clust$PiD, df_anno_clust$clus)
+```
+We then perform differential gene expression analysis that accounted for the individual patient matched pairs. 
+
+Pull out 254/311 pair...
+```{r}
+library("edgeR")
+metadata = Meta_all[train_samples,]
+metadata[] <- lapply(metadata, factor)
+
+design = model.matrix(~0+Time+PiD,metadata)
+DEG_fit = lmFit(RNA_all[,train_samples],design)
+cm = makeContrasts(Mid_v_Pre=TimeX1-TimeX0,levels=design)
+DEG_fit_cm = contrasts.fit(DEG_fit,cm)
+DEG_fit_cm_eBayesfit = eBayes(DEG_fit_cm,trend = FALSE,robust = FALSE)
+DEG_top = topTable(DEG_fit_cm_eBayesfit,adjust.method="fdr", number=Inf)
+
+DEG_top
+```
+
+Method2 for matched pair differential gene expression analysis (Mid v Pre only)
+```{r}
+tmp1 = Meta_all$PiD[which(Meta_all$Time == "X0")]
+tmp2 = Meta_all$PiD[which(Meta_all$Time == "X1")]
+cohort = intersect(tmp1,tmp2)
+
+Pre_samples = Meta_all$PDX_ID[which(Meta_all$Time == "X0" & Meta_all$PiD %in% cohort)]
+Mid_samples = Meta_all$PDX_ID[which(Meta_all$Time == "X1" & Meta_all$PiD %in% cohort)]
+
+Pre = RNA_all[,Pre_samples]
+Mid = RNA_all[,Mid_samples]
+
+DEG = c()
+for(i in 1:nrow(Pre)){
+  res <- t.test(t(Pre[i,]), t(Mid[i,]), paired = TRUE)
+  tmp = unlist(res)
+  DEG = rbind(DEG,tmp)
+}
+
+row.names(DEG) = row.names(Pre)
+DEG = as.data.frame(DEG)
+i = 1:8
+DEG[,i] <- apply(DEG[, i], 2,function(x) as.numeric(as.character(x)))
+
+p.adjust(DEG$p.value,method="BH")
+```
+
+```{r}
+fig <- plot_ly(data = DEG_top, x = ~logFC, y = ~-1*log10(P.Value),color = ~logFC, colors="RdBu")%>%
+  layout(xaxis = list(title = "log(FC)"),yaxis = list(title = "-log(p-value)")) %>%
+  add_trace(text=row.names(DEG_top))
+fig
+```
+
+```{r}
+tmp = DEG_top[which(DEG_top$P.Value <= 0.05),]
+up = as.integer(length(which(tmp$logFC > 0)))
+down =  as.integer(length(which(tmp$logFC <= 0)))
+print(paste("Total DEG: ", up+down))
+print(paste("Sigificantly up-reglated genes: ", up))
+print(paste("Sigificantly down-reglated genes: ", down))
+
+rm("tmp","up","down")
+```
+
+```{r}
+library("pathfindR")
+pfR_input = DEG_top[,c("logFC","P.Value"),]
+Gene_symbol = row.names(pfR_input)
+pfR_input = cbind(Gene_symbol,pfR_input)
+
+unlink("DEG_pathfindR", recursive = TRUE)
+
+DEG_pathfindR <- run_pathfindR(pfR_input,
+                               iterations = 10,
+                               p_val_threshold = 0.05,
+                               search_method = "GR",
+                               plot_enrichment_chart = FALSE,
+                               visualize_enriched_terms = FALSE,
+                               output_dir = "DEG_pathfindR",
+                               silent_option = TRUE)
+DEG_pathfindR
+```
+
+```{r fig.height=12, fig.width=12}
+enrichment_chart(
+  DEG_pathfindR,
+  top_terms = 25,
+  plot_by_cluster = TRUE,
+  num_bubbles = 5,
+  even_breaks = TRUE
+)
+```
+
+```{r fig.height=4, fig.width=14}
+term_gene_heatmap(DEG_pathfindR,
+                  use_description = TRUE,
+                  num_terms = 25,
+                  low = "red",
+                  mid = "black",
+                  high = "green")
+```
+```{r fig.height=12, fig.width=18}
+term_gene_graph(DEG_pathfindR,
+                use_description = TRUE,
+                num_terms = 25,
+                node_size = "num_genes",
+                layout = "stress")
+```
+Next, we looked at differential drug susceptibilities identified by the high throughput chemical screening assays. 
+```{r}
+library(matrixStats)
+drug_range = rowRanges(as.matrix(Drug_all),useNames = TRUE)
+drug_range[drug_range < 0] <- 0
+drug_range = drug_range[,2]-drug_range[,1]
+
+drug_filter = which(drug_range >= 0.5)
+```
+
+From the differential gene expression analysis comparing matched pairs, we observed enrichment of cell cycle related genes. This observation is consistent with the growth analysis performed on the ex vivo cultures from the high throughput screens, which show increases in growth rates when comparing the postNACT to the preNACT PDX models. It is also well established that alterations in growth rate and confound PGx associations. Accordingly, in this section we perfromed a correlative analysis of the growth data to the AUC activities.
+```{r}
+ord = colnames(Drug_all)
+gr = Meta_all[ord,]
+test = cor(gr$Log2_FC_3day,t(Drug_all))
+r2 = test^2
+
+#get list of correlated and variable drug names
+growth_corr = names(r2[,which(r2 > 0.25)])
+variable_drugs = names(drug_filter)
+x = list(Growth_correlated_drugs = growth_corr,
+         Variable_drug_response = variable_drugs)
+
+library(ggvenn)
+ggvenn(x,
+       fill_color = c("#0073C2FF","#CD534CFF"),
+       stroke_size = 0.5, set_name_size = 4)
+```
+This is the list of variable drugs that are potentially confounded by the rate of growth
+```{r}
+intersect(growth_corr,variable_drugs)
+```
+And this is the list of drugs that are not correlated with growth.
+```{r}
+drug_filter = variable_drugs[!(variable_drugs %in% growth_corr)]
+drug_filter
+```
+```{r}
+CCL_corr = cor(as.matrix(t(scale(t(Drug_all[drug_filter,train_samples]),center=TRUE, scale=TRUE))),method = c("pearson"))
+df_anno = Meta_all[train_samples,]%>%select("Time","PiD")
+
+hm_anno = HeatmapAnnotation(df = as.data.frame(df_anno),
+                            annotation_name_side = "left",
+                            col=list(
+                              Time=c("X0"="darkolivegreen",
+                                          "X1"="darkorange",
+                                          "XS"="darkorchid"
+                                          ),
+                              PiD =c("2"="yellow3",
+                                     "3"="wheat3",
+                                     "11"="violetred3",
+                                     "14"="turquoise3",
+                                     "16"="tomato3",
+                                     "18"="thistle3",
+                                     "19"="tan3",
+                                     "20"="steelblue3",
+                                     "21"="springgreen3",
+                                     "22"="snow3"
+                                     )
+                              )
+                            )
+HM = Heatmap(CCL_corr,
+             name = "Pearson",
+             top_annotation = hm_anno,
+             show_row_names = FALSE)
+HM
+```
+
+```{r}
+metadata = Meta_all[train_samples,]
+metadata[] <- lapply(metadata, factor)
+
+design = model.matrix(~0+Time+PiD,metadata)
+Rx_fit = lmFit(Drug_all[drug_filter,train_samples],design)
+Rx_fit_eBayesfit = eBayes(Rx_fit,trend = TRUE,robust = TRUE)
+Rx_top = topTable(Rx_fit_eBayesfit,coef = "TimeX0" ,adjust.method="fdr",p.value = 0.01, number=Inf)
+# cm = makeContrasts(Mid_v_Pre=TimeX1-TimeX0,levels=design)
+# Rx_fit_cm = contrasts.fit(Rx_fit,cm)
+# Rx_fit_cm_eBayesfit = eBayes(Rx_fit_cm,trend = TRUE,robust = TRUE)
+# Rx_top = topTable(Rx_fit_cm_eBayesfit,adjust.method="fdr", number=Inf)
+Rx_top
+```
+
+
+```{r fig.height=42, fig.width=16}
+Mid_v_Pre = c()
+Pst_v_Pre = c()
+for (i in 1:nrow(Drug_all)){
+  tmp1 = t(Drug_all[i,train_samples])
+  colnames(tmp1) = "Active"
+  
+  tmp2 = Meta_all[train_samples,]
+  tmp3 = cbind(tmp1,tmp2)
+  tmp4 = tmp3[,c("Active","Time","PiD")]
+  
+  tmp5 = reshape(tmp4, direction = "wide", idvar = "PiD", timevar = "Time")
+  tmp6 = tmp5$Active.X1-tmp5$Active.X0
+  tmp7 = tmp5$Active.XS-tmp5$Active.X0
+  names(tmp6) = tmp5$PiD
+  names(tmp7) = tmp5$PiD
+  
+  Mid_v_Pre = rbind(Mid_v_Pre,tmp6)
+  Pst_v_Pre = rbind(Pst_v_Pre,tmp7)
+}
+
+rm(list = c("tmp1","tmp2","tmp3","tmp4","tmp5","tmp6","tmp7"))
+
+rownames(Mid_v_Pre) = row.names(Drug_all)
+Mid_v_Pre = Mid_v_Pre[ , colSums(is.na(Mid_v_Pre)) == 0]
+Mid_v_Pre = Mid_v_Pre[rownames(Rx_top),]
+
+rownames(Pst_v_Pre) = row.names(Drug_all)
+Pst_v_Pre = Pst_v_Pre[ , colSums(is.na(Pst_v_Pre)) == 0]
+Pst_v_Pre = Pst_v_Pre[rownames(Rx_top),]
+
+anno_df = as.data.frame(Drug_meta[row.names(Rx_top),] %>% select("Class","Target"))
+rAnno = rowAnnotation(df = anno_df)
+
+hm1 = Heatmap(Mid_v_Pre,
+              name = "dAUC",
+              clustering_method_rows = "ward.D2",
+              column_title = "postNACT-preNACT",
+              column_title_gp=gpar(fontsize=20,fontface = "bold"),
+              row_split = anno_df$Class,
+              row_title_rot = 0,
+              row_title_gp=gpar(fontsize=24,fontface = "bold"),
+              heatmap_legend_param = list(direction = "vertical"))
+
+hm2 = Heatmap(Pst_v_Pre,
+              name = "dAUC",
+              column_title = "Surgery-preNACT",
+              column_title_gp=gpar(fontsize=20,fontface = "bold"),
+              heatmap_legend_param = list(direction = "vertical"))
+
+ht_list = hm1+hm2+rAnno
+
+draw(ht_list,
+     row_title = "dAUC",
+     row_title_gp = gpar(col = "black"),
+     #column_title = "Differential drug susceptability",
+     #column_title_gp = gpar(fontsize = 24),
+     heatmap_legend_side = "right",
+     annotation_legend_side = "right")
+```
+```{r}
+tmp = cbind(anno_df,Mid_v_Pre,Pst_v_Pre)
+write.csv(tmp,"Differential drug actvities.csv")
+```
+
+
+```{r}
+library(apcluster)
+library(dplyr)
+library(crosstable)
+
+apclust = apcluster(s = CCL_corr,
+                    p=NA,
+                    q=NA,
+                    maxits=1000,
+                    convits=100,
+                    lam=0.9,
+                    includeSim=FALSE,
+                    details=FALSE,
+                    nonoise=FALSE,
+                    seed=NA)
+show(apclust)
+
+clusters <- attr(apclust, "clusters")
+centers <- attr(apclust, "exemplars")
+nclust <- length(centers)
+
+res <- NULL
+for (i in 1:nclust) {
+	mems <- clusters[[i]]
+	clus <- rep(i, length(mems))
+	ctr <- ifelse(mems == centers[i], i, 0)
+	df <- data.frame(mems, clus, ctr)
+	res <- rbind(res, df)
+}
+
+df_anno_clust = cbind(df_anno,res)
+chisq.test(df_anno_clust$PiD, df_anno_clust$clus, correct=FALSE)
+table(df_anno_clust$PiD, df_anno_clust$clus)
+```
+
+```{r}
+Y_all = t(Drug_all[drug_filter,train_samples])
+drugnames = colnames(Y_all)
+
+#X_all = t(RNA_filtered[,common])
+X_all = t(RNA_filtered_RWR[,train_samples])
+```
+
+
+```{r}
+library(mRMRe)
+featureSelection <- function(x, y, method, features.no, shrink=T, x_raw=NULL){
+  if(is.null(x_raw)){
+    x_raw <- x
+  }
+  switch(method,
+         "mRMR"={
+           if(shrink){
+             var_features <- apply(x_raw, MARGIN=2, sd, na.rm=T)
+             mad_features <- apply(x_raw, MARGIN=2, mad, na.rm=T)
+             temp <- which(var_features > quantile(var_features, .75, na.rm=T) & 
+                             mad_features > quantile(mad_features, .75, na.rm=T))
+             if(length(temp) > features.no){
+               x <- x[, temp, drop=FALSE]
+             }
+           }
+           
+           f_data <- mRMR.data(data=as.data.frame(cbind(x, y), stringAsFactor=FALSE))
+           features <- mRMR.ensemble(data=f_data,
+                                     target_indices=ncol(x) + 1,
+                                     feature_count=features.no,
+                                     solution_count=1)
+           features <- features@feature_names[unlist(features@filters)]
+         },
+         "variance"={
+           var_features <- apply(x_raw, MARGIN=2, var, na.rm=T)
+           features <- names(sort(var_features, decreasing=T))[1:features.no]
+         },
+         "mad"={
+           var_features <- apply(x_raw, MARGIN=2, mad, na.rm=T)
+           features <- names(sort(var_features, decreasing=T))[1:features.no]
+         }
+         ,
+         "r_sq"={
+           var_features <- cor(x_raw,y,method="pearson")^2
+           features <- row.names(var_features[order(var_features[,1], decreasing = T),,drop=F])[1:features.no]
+         })
+  return(features)
+}
+```
+
+Random forest trained with Leave-one-out-cross-validation
+```{r}
+library("caret")
+library("ranger")
+library("randomForest")
+library("doParallel")
+cl <- makePSOCKcluster(30)
+registerDoParallel(cl)
+
+Model_out = "MODEL_20220713a"
+
+Model_out = file.path(Base_dir,Model_out)
+save_importance = file.path(Model_out, "Importance")
+save_QC = file.path(Model_out, "QC")
+save_binary = file.path(Model_out, "bin")
+
+dir.create(Model_out, showWarnings = FALSE)
+dir.create(save_importance, showWarnings = FALSE)
+dir.create(save_binary, showWarnings = FALSE)
+dir.create(save_QC, showWarnings = FALSE)
+
+Act_v_Pred_boot = c()
+Act_v_Pred_withheld = c()
+
+for (active_drug in 1:ncol(Y_all)){
+feat = featureSelection(x=X_all,
+             y=Y_all[,active_drug],
+             method="r_sq",
+             features.no = 2000,
+             shrink = T)
+  
+  df = as.data.frame(cbind(Cmpd=Y_all[,active_drug],X_all[,feat]))
+  active_drug_name = drugnames[active_drug]
+  
+  set.seed(1536)
+  # Fit random forest: model
+  model <- train(
+    Cmpd ~.,
+    tuneLength = 10,
+    data = df, 
+    method = "ranger",
+    importance = 'permutation',
+    metric = "RMSE",
+    trControl = trainControl(method = "LOOCV",
+                             number = 1,
+                             verboseIter = FALSE))
+    
+    #Get iteratative performance data
+    predicted <- unlist(model[["finalModel"]][["predictions"]])
+    actual = df$Cmpd
+
+    #Actual vs predicted from model bootstrap
+    temp = cbind(active_drug_name,actual,predicted)
+    row.names(temp) = train_samples
+    Act_v_Pred_boot = rbind(Act_v_Pred_boot,temp)
+
+    #Actual vs predicted from the with-held dataset
+    act = unlist(as.list(with_held_Drug[active_drug_name,]))
+    final_gene_names = colnames(X_all)
+    input = t(with_held_RNA[final_gene_names,])
+    pred = predict(model,input)
+    temp = cbind(active_drug_name,act,pred,interval="confidence", level=0.90, type="response")
+    Act_v_Pred_withheld = rbind(Act_v_Pred_withheld,temp)
+    
+    #Export RANGER importance
+    imp_p = importance_pvalues(model$finalModel,method=c("janitza","altmann"),num.permutations = 100)
+    temp = cbind(varImp(model)[["importance"]],imp_p)
+    write.csv(temp,
+              file=paste(save_importance,"/",active_drug_name,".csv",sep=""),
+              row.names=TRUE)
+    
+    #Save model
+    save(model, file=paste(save_binary,"/",active_drug_name,".RData",sep=""))
+}
+
+stopCluster(cl)
+
+flnm = 'Act_v_Pred_cv.csv'
+write.csv(Act_v_Pred_boot,
+          file=paste(save_QC,flnm,sep="/"))
+
+flnm = 'Act_v_Pred_withheld.csv'
+write.csv(Act_v_Pred_withheld,
+          file=paste(save_QC,flnm,sep="/"))
+```
+
+Heatmaps/materials for PGx figure
+```{r}
+Heatmap(RNA_all[,train_samples],
+        show_row_names = F,
+        show_row_dend = F,
+        #cluster_rows = F,
+        #cluster_columns = F,
+        show_column_names = F,
+        show_column_dend = F)
+```
+
+```{r}
+Heatmap(RNA_filtered_RWR[,train_samples],
+        show_row_names = F,
+        show_row_dend = F,
+        #cluster_rows = F,
+        #cluster_columns = F,
+        show_column_names = F,
+        show_column_dend = F)
+```
+```{r}
+Heatmap(Drug_all[drug_filter,train_samples],
+        show_row_names = F,
+        show_row_dend = F,
+        #cluster_rows = F,
+        #cluster_columns = F,
+        show_column_names = F,
+        show_column_dend = F)
+```
+
+
+Actual_v_predicted for bootstrapped sample
+```{r}
+temp = transform(Act_v_Pred_boot,
+                 actual = as.numeric(as.character(actual)),
+                 predicted = as.numeric(as.character(predicted))
+                 )
+cor.test(temp$actual,temp$predicted,method="pearson")
+
+temp %>%
+  ggplot(aes(x=actual,y=predicted))+
+  geom_point()+
+  geom_smooth(method="lm")+
+  theme(text = element_text(size = 24))
+```
+
+Actuval_v_predicted for all samples
+```{r}
+temp = transform(Act_v_Pred_withheld,
+                 actual = as.numeric(as.character(act)),
+                 predicted = as.numeric(as.character(pred))
+                 )
+
+cor(temp$actual,temp$predicted,method="pearson")
+
+temp %>%
+  ggplot(aes(x=actual,y=predicted))+
+  geom_point()+
+  geom_smooth(method="lm")+
+  theme(text = element_text(size = 24))
+```
+
+```{r}
+library("stringr")
+library("pathfindR")
+
+pathfindR_drug_list = list()
+
+files = list.files(path="./MODEL_20220713a/Importance/",
+           pattern = ".csv",
+           full.names = TRUE)
+
+for(file in files){
+  flnm = str_replace(str_remove(basename(file),".csv"),' ','')
+  save_as = paste("./MODEL_20220713a/pathfindR",flnm,sep="/")
+
+  drug_of_interest <- read.csv(file)
+  drug_of_interest = drug_of_interest[,c("X","Overall","pvalue")]
+  
+  unlink(save_as, recursive = TRUE)
+
+  tmp = run_pathfindR(drug_of_interest,iterations = 10,
+                      p_val_threshold = 0.05,
+                      search_method = "GR", #"GR" = Greedy algorythm (Default). "SA" = Simulated annealing, "GA" = Genetic algorythm
+                      plot_enrichment_chart = FALSE,
+                      visualize_enriched_terms = FALSE,
+                      output_dir = save_as,
+                      silent_option = TRUE)
+  pathfindR_drug_list[[flnm]] = tmp
+}
+```
+
+```{r}
+selected_drug = pathfindR_drug_list[["PEVONEDISTAT_Broad"]]
+```
+
+```{r fig.height=16, fig.width=12}
+enrichment_chart(
+  selected_drug,
+  top_terms = 50,
+  plot_by_cluster = TRUE,
+  num_bubbles = 5,
+  even_breaks = TRUE
+)
+```
+```{r fig.height=6, fig.width=14}
+term_gene_heatmap(selected_drug,
+                  use_description = TRUE,
+                  num_terms = 25,
+                  low = "red",
+                  mid = "black",
+                  high = "green")
+```
+
+
+```{r fig.height=8, fig.width=20}
+term_gene_graph(selected_drug,
+                use_description = TRUE,
+                num_terms = 25,
+                node_size = "p_val",
+                layout = "stress")
+```
+
+```{r}
+save.image(file='TNBC-PGx_analysis.RData')
+sessionInfo()
+```
