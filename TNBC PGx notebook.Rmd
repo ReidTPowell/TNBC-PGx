@@ -167,6 +167,7 @@ row.names(Meta_all) = Meta_all$PDX_ID
 ```
 
 ```{r}
+library("matrixStats")
 RNA_means = rowMeans(as.matrix(RNA_all))
 RNA_stdDev = rowSds(as.matrix(RNA_all))
 plot(RNA_means,RNA_stdDev)
@@ -192,6 +193,7 @@ for (i in 2:nsamples){
 boxplot(RNA_filtered[,], las=2, col=col, main="")
 title(main="Filtered data",ylab="RNAseq")
 ```
+
 This section used RWR network-diffusion algorithm to smooth gene expression data using the human STRING-PPI network.
 ```{python}
 #n_rcg = 100
@@ -276,9 +278,10 @@ with_held_common = intersect(colnames(with_held_RNA),colnames(with_held_Drug))
 
 with_held_RNA = with_held_RNA[,with_held_common]
 with_held_Drug = with_held_Drug[,with_held_common]
+rm("tmp")
 ```
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 library("TNBC.CMS")
 TNBCtype = predictCMS(RNA_all)
 table(TNBCtype)
@@ -343,21 +346,31 @@ sn = sankeyNetwork(Links = links,
 sn
 ```
 
-Next, we evaluated the similarity of the matched pairs to determine whether individual patients or time points tended to associate with one another. From this analysis we found that individual patients tended to co-cluster over timepoints. Thus recapitulating a strong degree of patient heterogeneity.
+Next, we evaluated the similarity of the matched pairs to determine whether individual patients or time points tended to associate with one another. From this analysis we found that individual patients tended to co-cluster over time points. Thus recapitulating a strong degree of patient heterogeneity.
 ```{r echo=FALSE}
+library("dendextend")
+library("ComplexHeatmap")
+
 CCL_corr = cor(as.matrix(RNA_filtered_RWR[,train_samples]),method = c("pearson"))
 df_anno = Meta_all[train_samples,]%>%select("Time","PiD")
 
-library("dendextend")
-row_dend = as.dendrogram(hclust(dist(CCL_corr)))
-row_dend = color_branches(row_dend, k = 8)
+K = 9
+hc = hclust(dist(CCL_corr))
+clus = cutree(hc,k=K)
+
+df_anno_clust = cbind(df_anno,clus)
+chisq.test(df_anno_clust$PiD, df_anno_clust$clus, correct=FALSE)
+table(df_anno_clust$PiD, df_anno_clust$clus)
+
+row_dend = as.dendrogram(hc)
+row_dend = color_branches(row_dend, k = K)
 
 hm_anno = HeatmapAnnotation(df = as.data.frame(df_anno),
                             annotation_name_side = "left",
                             col=list(
-                              Time=c("X0"="darkolivegreen",
-                                          "X1"="darkorange",
-                                          "XS"="darkorchid"
+                              Time=c("PRE"="grey80",
+                                     "MID"="grey40",
+                                     "POST"="grey0"
                                           ),
                               PiD =c("2"="yellow3",
                                      "3"="wheat3",
@@ -415,9 +428,8 @@ df_anno_clust = cbind(df_anno,res)
 chisq.test(df_anno_clust$PiD, df_anno_clust$clus, correct=FALSE)
 table(df_anno_clust$PiD, df_anno_clust$clus)
 ```
-We then perform differential gene expression analysis that accounted for the individual patient matched pairs. 
 
-Pull out 254/311 pair...
+We then perform differential gene expression analysis that accounted for the individual patient matched pairs. 
 ```{r}
 library("edgeR")
 metadata = Meta_all[train_samples,]
@@ -425,7 +437,7 @@ metadata[] <- lapply(metadata, factor)
 
 design = model.matrix(~0+Time+PiD,metadata)
 DEG_fit = lmFit(RNA_all[,train_samples],design)
-cm = makeContrasts(Mid_v_Pre=TimeX1-TimeX0,levels=design)
+cm = makeContrasts(Mid_v_Pre=TimeMID-TimePRE,levels=design)
 DEG_fit_cm = contrasts.fit(DEG_fit,cm)
 DEG_fit_cm_eBayesfit = eBayes(DEG_fit_cm,trend = FALSE,robust = FALSE)
 DEG_top = topTable(DEG_fit_cm_eBayesfit,adjust.method="fdr", number=Inf)
@@ -433,34 +445,9 @@ DEG_top = topTable(DEG_fit_cm_eBayesfit,adjust.method="fdr", number=Inf)
 DEG_top
 ```
 
-Method2 for matched pair differential gene expression analysis (Mid v Pre only)
-```{r}
-tmp1 = Meta_all$PiD[which(Meta_all$Time == "X0")]
-tmp2 = Meta_all$PiD[which(Meta_all$Time == "X1")]
-cohort = intersect(tmp1,tmp2)
 
-Pre_samples = Meta_all$PDX_ID[which(Meta_all$Time == "X0" & Meta_all$PiD %in% cohort)]
-Mid_samples = Meta_all$PDX_ID[which(Meta_all$Time == "X1" & Meta_all$PiD %in% cohort)]
-
-Pre = RNA_all[,Pre_samples]
-Mid = RNA_all[,Mid_samples]
-
-DEG = c()
-for(i in 1:nrow(Pre)){
-  res <- t.test(t(Pre[i,]), t(Mid[i,]), paired = TRUE)
-  tmp = unlist(res)
-  DEG = rbind(DEG,tmp)
-}
-
-row.names(DEG) = row.names(Pre)
-DEG = as.data.frame(DEG)
-i = 1:8
-DEG[,i] <- apply(DEG[, i], 2,function(x) as.numeric(as.character(x)))
-
-p.adjust(DEG$p.value,method="BH")
-```
-
-```{r}
+```{r message=FALSE, warning=FALSE}
+library("plotly")
 fig <- plot_ly(data = DEG_top, x = ~logFC, y = ~-1*log10(P.Value),color = ~logFC, colors="RdBu")%>%
   layout(xaxis = list(title = "log(FC)"),yaxis = list(title = "-log(p-value)")) %>%
   add_trace(text=row.names(DEG_top))
@@ -484,7 +471,9 @@ pfR_input = DEG_top[,c("logFC","P.Value"),]
 Gene_symbol = row.names(pfR_input)
 pfR_input = cbind(Gene_symbol,pfR_input)
 
-unlink("DEG_pathfindR", recursive = TRUE)
+name = "20220916_DEG_pathfindR"
+
+unlink(name, recursive = TRUE)
 
 DEG_pathfindR <- run_pathfindR(pfR_input,
                                iterations = 10,
@@ -492,7 +481,7 @@ DEG_pathfindR <- run_pathfindR(pfR_input,
                                search_method = "GR",
                                plot_enrichment_chart = FALSE,
                                visualize_enriched_terms = FALSE,
-                               output_dir = "DEG_pathfindR",
+                               output_dir = name,
                                silent_option = TRUE)
 DEG_pathfindR
 ```
@@ -500,11 +489,76 @@ DEG_pathfindR
 ```{r fig.height=12, fig.width=12}
 enrichment_chart(
   DEG_pathfindR,
-  top_terms = 25,
+  top_terms = Inf,
   plot_by_cluster = TRUE,
   num_bubbles = 5,
   even_breaks = TRUE
 )
+```
+```{r}
+library("visNetwork")
+
+result_df = DEG_pathfindR
+result_df <- result_df[order(result_df$lowest_p, decreasing = FALSE), ]
+
+ID_column <- "Term_Description"
+
+edges <- data.frame()
+all_up = c()
+all_down = c()
+for (i in base::seq_len(nrow(result_df))) {
+  up_genes <- unlist(strsplit(result_df$Up_regulated[i],", "))
+  all_up = unique(c(all_up,up_genes))
+  down_genes <- unlist(strsplit(result_df$Down_regulated[i],", "))
+  all_down = unique(c(all_down,down_genes))
+  genes <- c(up_genes, down_genes)
+  for (gene in genes) {
+    edges <- rbind(edges, data.frame(Term = result_df[i, ID_column], Gene = gene))
+  }
+}
+
+
+
+pathways = as.data.frame(unique(edges$Term))
+colnames(pathways) = "id"
+pathways[,"color"] = "grey"
+pathways[,"group"] = "Pathway"
+pathways[,"shape"] = "square"
+pathways[,"font.size"] = 30
+
+all_up = as.data.frame(all_up)
+colnames(all_up) = "id"
+all_up[,"color"] = "green"
+all_up[,"group"] = "Up_regulated"
+all_up[,"shape"] = "circle"
+all_up[,"font.size"] = 20
+
+all_down = as.data.frame(all_down)
+colnames(all_down) = "id"
+all_down[,"color"] = "darkred"
+all_down[,"group"] = "Down_regulated"
+all_down[,"shape"] = "circle"
+all_down[,"font.size"] = 20
+
+nodes = rbind(pathways,all_up,all_down)
+
+
+colnames(edges) = c("from","to")
+
+rm("pathways","all_up","all_down")
+
+graph = visNetwork(nodes, edges,width='100%',height=2000)%>%
+  visNodes(color = list(inherit=FALSE))%>%
+  visEdges(color = list(inherit=FALSE))%>%
+  visOptions(highlightNearest = list(enabled = T, degree = 2, hover = T)) %>%
+  visInteraction(multiselect = TRUE) %>%
+  visLayout(randomSeed = 123)%>%
+  visGroups(groupname = "Pathway", color = "grey") %>%
+  visGroups(groupname = "Up_regulated", color = "green") %>%
+  visGroups(groupname = "Down_regulated", color = "darkred") %>%
+  visLegend(position = "right")
+visSave(graph, file="DEG_term_enrichment_network.html", selfcontained = TRUE, background = "white")
+graph
 ```
 
 ```{r fig.height=4, fig.width=14}
@@ -515,13 +569,15 @@ term_gene_heatmap(DEG_pathfindR,
                   mid = "black",
                   high = "green")
 ```
+
 ```{r fig.height=12, fig.width=18}
 term_gene_graph(DEG_pathfindR,
                 use_description = TRUE,
-                num_terms = 25,
+                num_terms = Inf,
                 node_size = "num_genes",
                 layout = "stress")
 ```
+
 Next, we looked at differential drug susceptibilities identified by the high throughput chemical screening assays. 
 ```{r}
 library(matrixStats)
@@ -559,16 +615,116 @@ And this is the list of drugs that are not correlated with growth.
 drug_filter = variable_drugs[!(variable_drugs %in% growth_corr)]
 drug_filter
 ```
+
 ```{r}
-CCL_corr = cor(as.matrix(t(scale(t(Drug_all[drug_filter,train_samples]),center=TRUE, scale=TRUE))),method = c("pearson"))
-df_anno = Meta_all[train_samples,]%>%select("Time","PiD")
+library("ComplexHeatmap")
+#CCL_corr = cor(as.matrix(t(scale(t(Drug_all[drug_filter,train_samples]),center=TRUE, scale=TRUE))),method = c("pearson"))
+CCL_corr = Drug_all
+df_anno = Meta_all[colnames(CCL_corr),]%>%select("Time","TNBCtype")
+
+library("dendextend")
+row_dend = as.dendrogram(hclust(dist(Drug_all)))
+row_dend = color_branches(row_dend, k = 4)
 
 hm_anno = HeatmapAnnotation(df = as.data.frame(df_anno),
                             annotation_name_side = "left",
                             col=list(
-                              Time=c("X0"="darkolivegreen",
-                                          "X1"="darkorange",
-                                          "XS"="darkorchid"
+                              Time=c("PRE"="darkolivegreen",
+                                          "MID"="darkorange",
+                                          "POST"="darkorchid"
+                                           ),
+                               PiD =c("2"="yellow3",
+                                      "3"="wheat3",
+                                      "11"="violetred3",
+                                      "14"="turquoise3",
+                                      "16"="tomato3",
+                                      "18"="thistle3",
+                                      "19"="tan3",
+                                      "20"="steelblue3",
+                                      "21"="springgreen3",
+                                      "22"="snow3"
+                                     )
+                              )
+                            )
+HM = Heatmap(CCL_corr,
+             name = "Pearson",
+             cluster_rows = row_dend,
+             top_annotation = hm_anno,
+             show_row_names = FALSE)
+HM
+```
+
+```{r}
+library("matrixStats")
+library("ggplot2")
+
+MEAN_AUC = rowMeans(Drug_all)
+
+hc = hclust(dist(Drug_all))
+Cluster_ID = cutree(hc,k=4)
+
+df = as.data.frame(cbind(Cluster_ID,MEAN_AUC))
+df$Cluster_ID = as.factor(df$Cluster_ID)
+
+ggplot(df, aes(x=Cluster_ID, y=MEAN_AUC, fill=Cluster_ID)) + geom_violin(trim=FALSE) + geom_boxplot(width=0.1)
+```
+
+```{r}
+library("sunburstR")
+library("d3r")
+
+dat = Drug_meta[names(which(clus %in% c(3,4))), ] %>% select("Class","Target")
+dat[,"Drug_name"] = row.names(dat) 
+dat = dat[which(dat$Class != ""),]
+
+dat = data.frame(lapply(dat, function(v) {
+  return(toupper(v))
+}))
+
+df = dat %>% dplyr::count(Class,Target,Drug_name)
+colnames(df)[ncol(df)] <- "size"
+
+tree <- d3_nest(df, value_cols = "size")
+sb1 <- sunburst(tree, width="100%", height=400,count = T, sortFunction = htmlwidgets::JS(
+      "
+    function(a,b) {
+      // sort by count descending
+      //   unlike the other example using data.name, value is at the top level of the object
+      return b.value - a.value
+    }
+    "
+)
+  
+)
+htmltools::save_html(sb1, file = "./Clus4_panActive.html")
+sb1
+```
+
+
+```{r}
+library("dendextend")
+library("ComplexHeatmap")
+
+CCL_corr = cor(as.matrix(t(scale(t(Drug_all[drug_filter,train_samples]),center=TRUE, scale=TRUE))),method = c("pearson"))
+df_anno = Meta_all[train_samples,]%>%select("Time","PiD")
+
+K = 7
+hc = hclust(dist(CCL_corr))
+clus = cutree(hc,k=K)
+
+df_anno_clust = cbind(df_anno,clus)
+chisq.test(df_anno_clust$PiD, df_anno_clust$clus, correct=FALSE)
+table(df_anno_clust$PiD, df_anno_clust$clus)
+
+row_dend = as.dendrogram(hc)
+row_dend = color_branches(row_dend, k = K)
+
+hm_anno = HeatmapAnnotation(df = as.data.frame(df_anno),
+                            annotation_name_side = "left",
+                            col=list(
+                              Time=c("PRE"="grey80",
+                                          "MID"="grey40",
+                                          "POST"="grey0"
                                           ),
                               PiD =c("2"="yellow3",
                                      "3"="wheat3",
@@ -589,88 +745,6 @@ HM = Heatmap(CCL_corr,
              show_row_names = FALSE)
 HM
 ```
-
-```{r}
-metadata = Meta_all[train_samples,]
-metadata[] <- lapply(metadata, factor)
-
-design = model.matrix(~0+Time+PiD,metadata)
-Rx_fit = lmFit(Drug_all[drug_filter,train_samples],design)
-Rx_fit_eBayesfit = eBayes(Rx_fit,trend = TRUE,robust = TRUE)
-Rx_top = topTable(Rx_fit_eBayesfit,coef = "TimeX0" ,adjust.method="fdr",p.value = 0.01, number=Inf)
-# cm = makeContrasts(Mid_v_Pre=TimeX1-TimeX0,levels=design)
-# Rx_fit_cm = contrasts.fit(Rx_fit,cm)
-# Rx_fit_cm_eBayesfit = eBayes(Rx_fit_cm,trend = TRUE,robust = TRUE)
-# Rx_top = topTable(Rx_fit_cm_eBayesfit,adjust.method="fdr", number=Inf)
-Rx_top
-```
-
-
-```{r fig.height=42, fig.width=16}
-Mid_v_Pre = c()
-Pst_v_Pre = c()
-for (i in 1:nrow(Drug_all)){
-  tmp1 = t(Drug_all[i,train_samples])
-  colnames(tmp1) = "Active"
-  
-  tmp2 = Meta_all[train_samples,]
-  tmp3 = cbind(tmp1,tmp2)
-  tmp4 = tmp3[,c("Active","Time","PiD")]
-  
-  tmp5 = reshape(tmp4, direction = "wide", idvar = "PiD", timevar = "Time")
-  tmp6 = tmp5$Active.X1-tmp5$Active.X0
-  tmp7 = tmp5$Active.XS-tmp5$Active.X0
-  names(tmp6) = tmp5$PiD
-  names(tmp7) = tmp5$PiD
-  
-  Mid_v_Pre = rbind(Mid_v_Pre,tmp6)
-  Pst_v_Pre = rbind(Pst_v_Pre,tmp7)
-}
-
-rm(list = c("tmp1","tmp2","tmp3","tmp4","tmp5","tmp6","tmp7"))
-
-rownames(Mid_v_Pre) = row.names(Drug_all)
-Mid_v_Pre = Mid_v_Pre[ , colSums(is.na(Mid_v_Pre)) == 0]
-Mid_v_Pre = Mid_v_Pre[rownames(Rx_top),]
-
-rownames(Pst_v_Pre) = row.names(Drug_all)
-Pst_v_Pre = Pst_v_Pre[ , colSums(is.na(Pst_v_Pre)) == 0]
-Pst_v_Pre = Pst_v_Pre[rownames(Rx_top),]
-
-anno_df = as.data.frame(Drug_meta[row.names(Rx_top),] %>% select("Class","Target"))
-rAnno = rowAnnotation(df = anno_df)
-
-hm1 = Heatmap(Mid_v_Pre,
-              name = "dAUC",
-              clustering_method_rows = "ward.D2",
-              column_title = "postNACT-preNACT",
-              column_title_gp=gpar(fontsize=20,fontface = "bold"),
-              row_split = anno_df$Class,
-              row_title_rot = 0,
-              row_title_gp=gpar(fontsize=24,fontface = "bold"),
-              heatmap_legend_param = list(direction = "vertical"))
-
-hm2 = Heatmap(Pst_v_Pre,
-              name = "dAUC",
-              column_title = "Surgery-preNACT",
-              column_title_gp=gpar(fontsize=20,fontface = "bold"),
-              heatmap_legend_param = list(direction = "vertical"))
-
-ht_list = hm1+hm2+rAnno
-
-draw(ht_list,
-     row_title = "dAUC",
-     row_title_gp = gpar(col = "black"),
-     #column_title = "Differential drug susceptability",
-     #column_title_gp = gpar(fontsize = 24),
-     heatmap_legend_side = "right",
-     annotation_legend_side = "right")
-```
-```{r}
-tmp = cbind(anno_df,Mid_v_Pre,Pst_v_Pre)
-write.csv(tmp,"Differential drug actvities.csv")
-```
-
 
 ```{r}
 library(apcluster)
@@ -706,6 +780,150 @@ df_anno_clust = cbind(df_anno,res)
 chisq.test(df_anno_clust$PiD, df_anno_clust$clus, correct=FALSE)
 table(df_anno_clust$PiD, df_anno_clust$clus)
 ```
+
+```{r}
+metadata = Meta_all[train_samples,]
+metadata[] <- lapply(metadata, factor)
+
+design = model.matrix(~0+Time+PiD,metadata)
+Rx_fit = lmFit(Drug_all[drug_filter,train_samples],design)
+Rx_fit_eBayesfit = eBayes(Rx_fit,trend = TRUE,robust = TRUE)
+Rx_top = topTable(Rx_fit_eBayesfit,coef = "TimePRE" ,adjust.method="fdr",p.value = 0.01, number=Inf)
+#Rx_top = topTable(Rx_fit_eBayesfit,coef = "TimePRE" ,adjust.method="fdr", number=Inf)
+#Rx_top = topTable(Rx_fit_eBayesfit,coef = "TimeX0" ,adjust.method="fdr", number=Inf)
+# cm = makeContrasts(Mid_v_Pre=TimeX1-TimeX0,levels=design)
+# Rx_fit_cm = contrasts.fit(Rx_fit,cm)
+# Rx_fit_cm_eBayesfit = eBayes(Rx_fit_cm,trend = TRUE,robust = TRUE)
+# Rx_top = topTable(Rx_fit_cm_eBayesfit,adjust.method="fdr", number=Inf)
+Rx_top
+```
+
+```{r fig.height=30, fig.width=42}
+Mid_v_Pre = c()
+Pst_v_Pre = c()
+for (i in 1:nrow(Drug_all)){
+  tmp1 = t(Drug_all[i,train_samples])
+  colnames(tmp1) = "Active"
+  
+  tmp2 = Meta_all[train_samples,]
+  tmp3 = cbind(tmp1,tmp2)
+  tmp4 = tmp3[,c("Active","Time","PiD")]
+  
+  tmp5 = reshape(tmp4, direction = "wide", idvar = "PiD", timevar = "Time")
+  tmp6 = tmp5$Active.MID-tmp5$Active.PRE
+  tmp7 = tmp5$Active.POST-tmp5$Active.PRE
+  names(tmp6) = tmp5$PiD
+  names(tmp7) = tmp5$PiD
+  
+  Mid_v_Pre = rbind(Mid_v_Pre,tmp6)
+  Pst_v_Pre = rbind(Pst_v_Pre,tmp7)
+}
+
+rm(list = c("tmp1","tmp2","tmp3","tmp4","tmp5","tmp6","tmp7"))
+
+rownames(Mid_v_Pre) = row.names(Drug_all)
+Mid_v_Pre = Mid_v_Pre[ , colSums(is.na(Mid_v_Pre)) == 0]
+Mid_v_Pre = Mid_v_Pre[rownames(Rx_top),]
+
+rownames(Pst_v_Pre) = row.names(Drug_all)
+Pst_v_Pre = Pst_v_Pre[ , colSums(is.na(Pst_v_Pre)) == 0]
+Pst_v_Pre = Pst_v_Pre[rownames(Rx_top),]
+
+group_df = as.data.frame(Drug_meta[row.names(Rx_top),] %>% select("Class"),use_raster = TRUE, raster_by_magick = TRUE)
+anno_df = as.data.frame(Drug_meta[row.names(Rx_top),] %>% select("Target"),use_raster = TRUE, raster_by_magick = TRUE)
+##dAUC = rowMeans(cbind(Mid_v_Pre,Pst_v_Pre))
+anno_df = cbind(X1_v_X0=rowMeans(Mid_v_Pre),XS_v_X0=rowMeans(Pst_v_Pre),anno_df)
+anno_txt = anno_text(anno_df$Target, which = "row")
+
+library(circlize)
+col_fun = colorRamp2(c(-0.33,0,0.33), c("blue","white","red"))
+#col_fun(seq(-10, 10))
+
+rAnno = rowAnnotation(df = anno_df,
+                      col=list(X1_v_X0=col_fun,XS_v_X0=col_fun), 
+                      width = ncol(anno_df)*unit(10, "mm")
+                      )
+
+
+hm1 = Heatmap(Mid_v_Pre,
+              width = ncol(Mid_v_Pre)*unit(20, "mm"),
+              name = "dAUC",
+              clustering_method_rows = "ward.D2",
+              column_title = "MID-PRE",
+              column_title_gp=gpar(fontsize=20,fontface = "bold"),
+              column_names_gp = gpar(fontsize = 24),
+              row_split = group_df$Class,
+              gap = unit(2,"mm"),
+              row_title_rot = 0,
+              row_title_gp=gpar(fontsize=24,fontface = "bold"),
+              heatmap_legend_param = list(direction = "vertical"),
+              col = col_fun,
+              use_raster = TRUE, raster_by_magick = TRUE)
+
+hm2 = Heatmap(Pst_v_Pre,
+              width = ncol(Pst_v_Pre)*unit(20, "mm"),
+              name = "dAUC",
+              column_title = "POST-PRE",
+              column_title_gp=gpar(fontsize=20,fontface = "bold"),
+              column_names_gp = gpar(fontsize = 24),
+              heatmap_legend_param = list(direction = "vertical"),
+              row_labels = anno_df$Target,
+              col = col_fun,
+              use_raster = TRUE, raster_by_magick = TRUE)
+
+
+
+ht_list = hm1+hm2+anno_txt
+
+draw(ht_list,
+     row_title = "dAUC",
+     row_title_gp = gpar(col = "black"),
+     heatmap_legend_side = "right",
+     annotation_legend_side = "right",
+     legend_labels_gp = gpar(24))
+```
+```{r}
+ht_list = rAnno+anno_txt
+draw(ht_list)
+```
+
+
+```{r}
+tmp = cbind(anno_df,Rx_top,Mid_v_Pre,Pst_v_Pre)
+write.csv(tmp,"20220920 Differential drug actvities.csv")
+```
+
+
+```{r}
+hm1 = Heatmap(t(Mid_v_Pre),
+              name = "dAUC",
+              clustering_method_column = "ward.D2"
+              #column_title = "postNACT-preNACT",
+              #column_title_gp=gpar(fontsize=20,fontface = "bold"),
+              #row_split = anno_df$Class,
+              #row_title_rot = 0,
+              #row_title_gp=gpar(fontsize=24,fontface = "bold"),
+              #heatmap_legend_param = list(direction = "vertical")
+              )
+
+hm2 = Heatmap(t(Pst_v_Pre),
+              name = "dAUC"
+              #column_title = "Surgery-preNACT",
+              #column_title_gp=gpar(fontsize=20,fontface = "bold"),
+              #heatmap_legend_param = list(direction = "vertical")
+              )
+
+ht_list = hm1+hm2#+rAnno
+
+draw(ht_list,
+     row_title = "dAUC",
+     row_title_gp = gpar(col = "black"),
+     #column_title = "Differential drug susceptability",
+     #column_title_gp = gpar(fontsize = 24),
+     heatmap_legend_side = "right",
+     annotation_legend_side = "right")
+```
+
 
 ```{r}
 Y_all = t(Drug_all[drug_filter,train_samples])
@@ -767,7 +985,7 @@ library("doParallel")
 cl <- makePSOCKcluster(30)
 registerDoParallel(cl)
 
-Model_out = "MODEL_20220713a"
+Model_out = "MODEL_20220916"
 
 Model_out = file.path(Base_dir,Model_out)
 save_importance = file.path(Model_out, "Importance")
@@ -864,6 +1082,7 @@ Heatmap(RNA_filtered_RWR[,train_samples],
         show_column_names = F,
         show_column_dend = F)
 ```
+
 ```{r}
 Heatmap(Drug_all[drug_filter,train_samples],
         show_row_names = F,
@@ -907,18 +1126,81 @@ temp %>%
 ```
 
 ```{r}
+interactive_network = function(result_df,save_as){
+  library("visNetwork")
+  
+  result_df <- result_df[order(result_df$lowest_p, decreasing = FALSE), ]
+  
+  ID_column <- "Term_Description"
+  
+  edges <- data.frame()
+  all_up = c()
+  all_down = c()
+  for (i in base::seq_len(nrow(result_df))) {
+    up_genes <- unlist(strsplit(result_df$Up_regulated[i],", "))
+    all_up = unique(c(all_up,up_genes))
+    down_genes <- unlist(strsplit(result_df$Down_regulated[i],", "))
+    all_down = unique(c(all_down,down_genes))
+    genes <- c(up_genes, down_genes)
+    for (gene in genes) {
+      edges <- rbind(edges, data.frame(Term = result_df[i, ID_column], Gene = gene))
+    }
+  }
+  
+  pathways = as.data.frame(unique(edges$Term))
+  colnames(pathways) = "id"
+  pathways[,"color"] = "grey"
+  pathways[,"group"] = "Pathway"
+  pathways[,"shape"] = "square"
+  
+  all_up = as.data.frame(all_up)
+  colnames(all_up) = "id"
+  all_up[,"color"] = "green"
+  all_up[,"group"] = "Up_regulated"
+  all_up[,"shape"] = "circle"
+  
+  # all_down = as.data.frame(all_down)
+  # colnames(all_down) = "id"
+  # all_down[,"color"] = "darkred"
+  # all_down[,"group"] = "Down_regulated"
+  # all_down[,"shape"] = "circle"
+  
+  #nodes = rbind(pathways,all_up,all_down)
+  nodes = rbind(pathways,all_up)
+  
+  colnames(edges) = c("from","to")
+  
+  rm("pathways","all_up","all_down")
+  
+  graph = visNetwork(nodes, edges,width='100%',height=2000)%>%
+    visNodes(color = list(inherit=FALSE))%>%
+    visEdges(color = list(inherit=FALSE))%>%
+    visOptions(highlightNearest = list(enabled = T, degree = 2, hover = T)) %>%
+    visInteraction(multiselect = TRUE) %>%
+    visLayout(randomSeed = 123)%>%
+    visGroups(groupname = "Pathway", color = "grey") %>%
+    visGroups(groupname = "Up_regulated", color = "green") %>%
+    visGroups(groupname = "Down_regulated", color = "darkred") %>%
+    visLegend(position = "right")
+  visSave(graph, file=save_as, selfcontained = TRUE, background = "white")
+}
+```
+
+
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
 library("stringr")
 library("pathfindR")
 
 pathfindR_drug_list = list()
 
-files = list.files(path="./MODEL_20220713a/Importance/",
+files = list.files(path="./MODEL_20220916/Importance/",
            pattern = ".csv",
            full.names = TRUE)
 
 for(file in files){
   flnm = str_replace(str_remove(basename(file),".csv"),' ','')
-  save_as = paste("./MODEL_20220713a/pathfindR",flnm,sep="/")
+  save_as = paste("./MODEL_20220916/pathfindR",flnm,sep="/")
 
   drug_of_interest <- read.csv(file)
   drug_of_interest = drug_of_interest[,c("X","Overall","pvalue")]
@@ -932,23 +1214,80 @@ for(file in files){
                       visualize_enriched_terms = FALSE,
                       output_dir = save_as,
                       silent_option = TRUE)
+  interactive_network(tmp,paste("./MODEL_20220916/pathfindR/",flnm,"/visNetork.html",sep=""))
   pathfindR_drug_list[[flnm]] = tmp
 }
 ```
 
 ```{r}
 selected_drug = pathfindR_drug_list[["PEVONEDISTAT_Broad"]]
+selected_drug
 ```
 
-```{r fig.height=16, fig.width=12}
+```{r fig.height=5, fig.width=12}
 enrichment_chart(
   selected_drug,
-  top_terms = 50,
+  top_terms = 15,
   plot_by_cluster = TRUE,
   num_bubbles = 5,
   even_breaks = TRUE
 )
 ```
+```{r}
+DEG_pathways = DEG_pathfindR$Term_Description
+PGx_pathways = selected_drug$Term_Description
+
+#get list of correlated and variable drug names
+x = list(DEG_pathways = DEG_pathways,
+         PGx_pathways = PGx_pathways)
+
+library(ggvenn)
+ggvenn(x,
+       fill_color = c("#0073C2FF","#CD534CFF"),
+       stroke_size = 0.5, set_name_size = 4)
+```
+
+
+```{r}
+DEG_pathways = row.names(DEG_top[which(DEG_top$P.Value <= 0.05),])
+  
+result_df = selected_drug
+result_df <- result_df[order(result_df$lowest_p, decreasing = FALSE), ]
+
+ID_column <- "Term_Description"
+
+edges <- data.frame()
+all_up = c()
+all_down = c()
+for (i in base::seq_len(nrow(result_df))) {
+  up_genes <- unlist(strsplit(result_df$Up_regulated[i],", "))
+  all_up = unique(c(all_up,up_genes))
+  down_genes <- unlist(strsplit(result_df$Down_regulated[i],", "))
+  all_down = unique(c(all_down,down_genes))
+  genes <- c(up_genes, down_genes)
+  for (gene in genes) {
+    edges <- rbind(edges, data.frame(Term = result_df[i, ID_column], Gene = gene))
+  }
+}
+
+PGx_pathways = all_up
+
+#get list of correlated and variable drug names
+x = list(DEG_pathways = DEG_pathways,
+         PGx_pathways = PGx_pathways)
+
+library(ggvenn)
+ggvenn(x,
+       fill_color = c("#0073C2FF","#CD534CFF"),
+       stroke_size = 0.5, set_name_size = 4)
+```
+
+
+
+```{r}
+intersect(DEG_pathways,PGx_pathways)
+```
+
 ```{r fig.height=6, fig.width=14}
 term_gene_heatmap(selected_drug,
                   use_description = TRUE,
@@ -966,6 +1305,135 @@ term_gene_graph(selected_drug,
                 node_size = "p_val",
                 layout = "stress")
 ```
+
+
+```{r message=FALSE, warning=FALSE}
+library("dplyr")
+library("edgeR")
+
+sel = c("PIM137","PIM172",
+        "PIM025","PIM038",
+        "PIM190","PIM231",
+        "PIM254","PIM311")
+PEV_ = c("RESP","NON",
+          "NON","NON",
+          "NON","NON",
+          "RESP","RESP")
+RNA_select = RNA_all %>% dplyr::select(sel)
+Meta_select = Meta_all[sel,]
+Meta_select = cbind(Meta_select,PEV_)
+Meta_select[] <- lapply(Meta_select, factor)
+
+design = model.matrix(~0+PEV_+PiD,Meta_select)
+PEV_DEG_fit = lmFit(RNA_select,design)
+cm = makeContrasts(PEV_RESP=PEV_RESP-PEV_NON,levels=design)
+PEV_DEG_fit_cm = contrasts.fit(PEV_DEG_fit,cm)
+PEV_DEG_fit_cm_eBayesfit = eBayes(PEV_DEG_fit_cm,trend = FALSE,robust = FALSE)
+PEV_DEG_top = topTable(PEV_DEG_fit_cm_eBayesfit,adjust.method="BH", number=Inf)
+
+tmp = PEV_DEG_top[which(PEV_DEG_top$P.Value <= 0.05),]
+up = as.integer(length(which(tmp$logFC > 0)))
+down =  as.integer(length(which(tmp$logFC <= 0)))
+print(paste("Total DEG: ", up+down))
+print(paste("Sigificantly up-reglated genes: ", up))
+print(paste("Sigificantly down-reglated genes: ", down))
+
+PEV_DEG_top
+
+plot(density(PEV_DEG_top$P.Value))
+
+library("plotly")
+fig <- plot_ly(data = PEV_DEG_top, x = ~logFC, y = ~-1*log10(P.Value),color = ~logFC, colors="RdBu")%>%
+  layout(xaxis = list(title = "log(FC)"),yaxis = list(title = "-log(p-value)")) %>%
+  add_trace(text=row.names(PEV_DEG_top))
+fig
+
+rm("tmp","up","down")
+```
+
+
+```{r}
+# install.packages("devtools") # if you have not installed "devtools"
+# devtools::install_github("egeulgen/pathfindR")
+
+library("pathfindR")
+pfR_input = PEV_DEG_top[,c("logFC","P.Value"),]
+Gene_symbol = row.names(pfR_input)
+pfR_input = cbind(Gene_symbol,pfR_input)
+
+unlink("InVivo_PEV_DEG_pathfindR", recursive = TRUE)
+
+PEV_DEG_pathfindR <- run_pathfindR(pfR_input,
+                               iterations = 10,
+                               p_val_threshold = 0.05,
+                               search_method = "GR",
+                               plot_enrichment_chart = FALSE,
+                               visualize_enriched_terms = FALSE,
+                               output_dir = "InVivo_PEV_DEG_pathfindR",
+                               silent_option = TRUE)
+PEV_DEG_pathfindR
+```
+
+```{r}
+library("visNetwork")
+
+result_df = PEV_DEG_pathfindR
+result_df <- result_df[order(result_df$lowest_p, decreasing = FALSE), ]
+
+ID_column <- "Term_Description"
+
+edges <- data.frame()
+all_up = c()
+all_down = c()
+for (i in base::seq_len(nrow(result_df))) {
+  up_genes <- unlist(strsplit(result_df$Up_regulated[i],", "))
+  all_up = unique(c(all_up,up_genes))
+  down_genes <- unlist(strsplit(result_df$Down_regulated[i],", "))
+  all_down = unique(c(all_down,down_genes))
+  genes <- c(up_genes, down_genes)
+  for (gene in genes) {
+    edges <- rbind(edges, data.frame(Term = result_df[i, ID_column], Gene = gene))
+  }
+}
+
+pathways = as.data.frame(unique(edges$Term))
+colnames(pathways) = "id"
+pathways[,"color"] = "grey"
+pathways[,"group"] = "Pathway"
+pathways[,"shape"] = "square"
+
+all_up = as.data.frame(all_up)
+colnames(all_up) = "id"
+all_up[,"color"] = "green"
+all_up[,"group"] = "Up_regulated"
+all_up[,"shape"] = "circle"
+
+all_down = as.data.frame(all_down)
+colnames(all_down) = "id"
+all_down[,"color"] = "darkred"
+all_down[,"group"] = "Down_regulated"
+all_down[,"shape"] = "circle"
+
+nodes = rbind(pathways,all_up,all_down)
+
+colnames(edges) = c("from","to")
+
+rm("pathways","all_up","all_down")
+
+graph = visNetwork(nodes, edges,width='100%',height=2000)%>%
+  visNodes(color = list(inherit=FALSE))%>%
+  visEdges(color = list(inherit=FALSE))%>%
+  visOptions(highlightNearest = list(enabled = T, degree = 2, hover = T)) %>%
+  visInteraction(multiselect = TRUE) %>%
+  visLayout(randomSeed = 123)%>%
+  visGroups(groupname = "Pathway", color = "grey") %>%
+  visGroups(groupname = "Up_regulated", color = "green") %>%
+  visGroups(groupname = "Down_regulated", color = "darkred") %>%
+  visLegend(position = "right")
+visSave(graph, file="InVivo_PEV_DEG_pathfindR.html", selfcontained = TRUE, background = "white")
+graph
+```
+
 
 ```{r}
 save.image(file='TNBC-PGx_analysis.RData')

@@ -529,7 +529,7 @@ JW74_Broad,JW-74,Broad,JW-74 (Broad),Metabolism,TNKS,Metabolic modifier,Wnt/B-ca
 JW55_Broad,JW 55,Broad,JW 55 (Broad),Metabolism,TNKS,Metabolic modifier,Wnt/B-catenin
 PDMP_Broad,PDMP,Broad,PDMP (Broad),Metabolism,UGCG,Ceramide metabolism,DNA maintenance~Repair~Apoptosis
 ELOCALCITOL_Broad,ELOCALCITOL,Broad,ELOCALCITOL (Broad),Metabolism,VDR,Metabolic modifier,Vitamin D Receptor
-BREFELDINA_Broad,BREFELDIN A,Broad,BREFELDIN A (Broad),Metabolism,,Protein translocation,ER/Golgi homeostasis
+BREFELDINA_Broad,BREFELDIN A,Broad,BREFELDIN A (Broad),Cytotoxic agent,Protein synthesis,Protein translocation,ER/Golgi homeostasis
 IXABEPILONE_NCI_Onc_AOD,IXABEPILONE,NCI_Onc_AOD,IXABEPILONE (NCI_AOD9),Microtubule poisons,Tubulin/micotubules,,
 CHM1_Broad,CHM 1,Broad,CHM 1 (Broad),Microtubule poisons,Tubulin/micotubules,Check point or mitotic inhibitor,Cell cycle~mitotic progression
 DOCETAXEL_Broad,DOCETAXEL,Broad,DOCETAXEL (Broad),Microtubule poisons,Tubulin/micotubules,Check point or mitotic inhibitor,Cell cycle~mitotic progression
@@ -649,14 +649,14 @@ BEXAROTENE_Custom Clinical,BEXAROTENE,Custom Clinical,BEXAROTENE (Custom Clinica
 CUCURBITACINI_Broad,CUCURBITACIN I,Broad,CUCURBITACIN I (Broad),Transcription factor,STAT3,NFKb/STAT signaling,JAK/STAT
 S3I201NSC74859_Broad,S3I-201 (NSC 74859),Broad,S3I-201 (NSC 74859) (Broad),Transcription factor,STAT3,Transcriptional co-activator,JAK/STAT
 NICLOSAMIDE_Broad,NICLOSAMIDE,Broad,NICLOSAMIDE (Broad),Transcription factor,STAT3,Transcriptional co-activator,JAK/STAT
-SR1001_Broad,SR 1001,Broad,SR 1001 (Broad),,,,
-HOMOHARRINGTONINE_Broad,HOMOHARRINGTONINE,Broad,HOMOHARRINGTONINE (Broad),,,,
+SR1001_Broad,SR 1001,Broad,SR 1001 (Broad),Transcription factor,ROR_alpha,,
+HOMOHARRINGTONINE_Broad,HOMOHARRINGTONINE,Broad,HOMOHARRINGTONINE (Broad),Cytotoxic agent,Protein synthesis,,
 BRDK92856060_Broad,BRD-K92856060,Broad,BRD-K92856060 (Broad),,,,
-DTRIM24_Custom Clinical,D-TRIM24,Custom Clinical,D-TRIM24 (CustomClinincal),,,,
-TOMIVOSERIBMCE_Custom Clinical,TOMIVOSERIB(MCE),Custom Clinical,TOMIVOSERIB(MCE) (CustomClinincal),,,,
-NIRAPARIBHYDROCHLORIDE_NCI_Onc_AOD,NIRAPARIB HYDROCHLORIDE,NCI_Onc_AOD,NIRAPARIB HYDROCHLORIDE (NCI_AOD9),,,,
-PEMETREXEDDISODIUMSALTHEPTAHYDRATE_NCI_Onc_AOD,"PEMETREXED, DISODIUM SALT, HEPTAHYDRATE",NCI_Onc_AOD,"PEMETREXED, DISODIUM SALT, HEPTAHYDRATE (NCI_AOD9)",,,,
-ETRIM24_Custom Clinical,E-TRIM24,Custom Clinical,E-TRIM24 (CustomClinincal),,,,
-URIDINETRIACETATE_NCI_Onc_AOD,URIDINE TRIACETATE,NCI_Onc_AOD,URIDINE TRIACETATE (NCI_AOD9),,,,
-CERITINIB_NCI_Onc_AOD,CERITINIB,NCI_Onc_AOD,CERITINIB (NCI_AOD9),,,,
-LAROTRECTINIB_NCI_Onc_AOD,LAROTRECTINIB,NCI_Onc_AOD,LAROTRECTINIB (NCI_AOD9),,,,
+DTRIM24_Custom Clinical,D-TRIM24,Custom Clinical,D-TRIM24 (CustomClinincal),Transcription factor,TRIM24,,
+TOMIVOSERIBMCE_Custom Clinical,TOMIVOSERIB(MCE),Custom Clinical,TOMIVOSERIB(MCE) (CustomClinincal),Kinase inhibitor,MNK; eIF4E,,
+NIRAPARIBHYDROCHLORIDE_NCI_Onc_AOD,NIRAPARIB HYDROCHLORIDE,NCI_Onc_AOD,NIRAPARIB HYDROCHLORIDE (NCI_AOD9),Genotoxic agent,PARP,,
+PEMETREXEDDISODIUMSALTHEPTAHYDRATE_NCI_Onc_AOD,"PEMETREXED, DISODIUM SALT, HEPTAHYDRATE",NCI_Onc_AOD,"PEMETREXED, DISODIUM SALT, HEPTAHYDRATE (NCI_AOD9)",Cytotoxic agent,DHFR,Autophagy activator,
+ETRIM24_Custom Clinical,E-TRIM24,Custom Clinical,E-TRIM24 (CustomClinincal),Transcription factor,TRIM24,,
+URIDINETRIACETATE_NCI_Onc_AOD,URIDINE TRIACETATE,NCI_Onc_AOD,URIDINE TRIACETATE (NCI_AOD9),Nucleoside analogue,unridine,,
+CERITINIB_NCI_Onc_AOD,CERITINIB,NCI_Onc_AOD,CERITINIB (NCI_AOD9),Kinase inhibitor,ALK,,
+LAROTRECTINIB_NCI_Onc_AOD,LAROTRECTINIB,NCI_Onc_AOD,LAROTRECTINIB (NCI_AOD9),Kinase inhibitor,TRK,,
