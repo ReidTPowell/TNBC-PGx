@@ -115,8 +115,8 @@
         <graphics name="SEC61B..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="767" y="417" width="46" height="17"/>
     </entry>
-    <entry id="65" name="hsa:1603 hsa:1650 hsa:201595 hsa:3703 hsa:6184 hsa:6185 hsa:7991" type="gene"
-        link="https://www.kegg.jp/dbget-bin/www_bget?hsa:1603+hsa:1650+hsa:201595+hsa:3703+hsa:6184+hsa:6185+hsa:7991">
+    <entry id="65" name="hsa:1603 hsa:1650 hsa:201595 hsa:3703 hsa:58505 hsa:6184 hsa:6185 hsa:746 hsa:7991 hsa:84061" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?hsa:1603+hsa:1650+hsa:201595+hsa:3703+hsa:58505+hsa:6184+hsa:6185+hsa:746+hsa:7991+hsa:84061">
         <graphics name="DAD1, OST2..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="137" y="230" width="46" height="17"/>
     </entry>
@@ -192,7 +192,7 @@
     </entry>
     <entry id="116" name="hsa:10299" type="gene"
         link="https://www.kegg.jp/dbget-bin/www_bget?hsa:10299">
-        <graphics name="MARCHF6, DOA10, FAME3, MARCH-VI, MARCH6, RNF176, TEB4" fgcolor="#000000" bgcolor="#BFFFBF"
+        <graphics name="MARCHF6, DOA10, FAME3, FCMTE3, MARCH-VI, MARCH6, RNF176, TEB4" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="759" y="604" width="46" height="17"/>
     </entry>
     <entry id="117" name="hsa:84447" type="gene"
@@ -310,8 +310,8 @@
         <graphics name="PLAA, DOA1, NDMSBA, PLA2P, PLAP" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="1037" y="341" width="46" height="17"/>
     </entry>
-    <entry id="171" name="hsa:3303 hsa:3304 hsa:3305 hsa:3306 hsa:3310 hsa:3312" type="gene"
-        link="https://www.kegg.jp/dbget-bin/www_bget?hsa:3303+hsa:3304+hsa:3305+hsa:3306+hsa:3310+hsa:3312">
+    <entry id="171" name="hsa:3303 hsa:3304 hsa:3305 hsa:3310 hsa:3312" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?hsa:3303+hsa:3304+hsa:3305+hsa:3310+hsa:3312">
         <graphics name="HSPA1A, HEL-S-103, HSP70, HSP70-1, HSP70-1A, HSP70-2, HSP70.1, HSP70.2, HSP70I, HSP72, HSPA1..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="917" y="268" width="46" height="17"/>
     </entry>
@@ -375,8 +375,8 @@
         <graphics name="DNAJA2, CPR3, DJ3, DJA2, DNAJ, DNJ3, HIRIP4, PRO3015, RDJ2..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="1018" y="604" width="46" height="17"/>
     </entry>
-    <entry id="184" name="hsa:3303 hsa:3304 hsa:3305 hsa:3306 hsa:3310 hsa:3312" type="gene"
-        link="https://www.kegg.jp/dbget-bin/www_bget?hsa:3303+hsa:3304+hsa:3305+hsa:3306+hsa:3310+hsa:3312">
+    <entry id="184" name="hsa:3303 hsa:3304 hsa:3305 hsa:3310 hsa:3312" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?hsa:3303+hsa:3304+hsa:3305+hsa:3310+hsa:3312">
         <graphics name="HSPA1A, HEL-S-103, HSP70, HSP70-1, HSP70-1A, HSP70-2, HSP70.1, HSP70.2, HSP70I, HSP72, HSPA1..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="1018" y="621" width="46" height="17"/>
     </entry>
@@ -572,7 +572,7 @@
     </entry>
     <entry id="241" name="hsa:10134" type="gene"
         link="https://www.kegg.jp/dbget-bin/www_bget?hsa:10134">
-        <graphics name="BCAP31, 6C6-AG, BAP31, CDM, DDCH, DXS1357E" fgcolor="#000000" bgcolor="#BFFFBF"
+        <graphics name="BCAP31, 6C6-AG, BAP31, CDM, DDCH, DELXQ28, DXS1357E, MICRODELXq28" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="767" y="400" width="46" height="17"/>
     </entry>
     <entry id="242" name="hsa:6745 hsa:6746 hsa:6747 hsa:6748" type="gene"

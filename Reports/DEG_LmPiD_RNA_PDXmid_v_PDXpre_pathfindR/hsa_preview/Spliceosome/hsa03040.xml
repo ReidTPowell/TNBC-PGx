@@ -230,8 +230,8 @@
         <graphics name="CTNNBL1, C20orf33, IMD99, NAP, P14L, PP8304, dJ633O20.1" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="411" y="765" width="46" height="17"/>
     </entry>
-    <entry id="246" name="hsa:3303 hsa:3304 hsa:3305 hsa:3306 hsa:3310 hsa:3312" type="gene"
-        link="https://www.kegg.jp/dbget-bin/www_bget?hsa:3303+hsa:3304+hsa:3305+hsa:3306+hsa:3310+hsa:3312">
+    <entry id="246" name="hsa:3303 hsa:3304 hsa:3305 hsa:3310 hsa:3312" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?hsa:3303+hsa:3304+hsa:3305+hsa:3310+hsa:3312">
         <graphics name="HSPA1A, HEL-S-103, HSP70, HSP70-1, HSP70-1A, HSP70-2, HSP70.1, HSP70.2, HSP70I, HSP72, HSPA1..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="411" y="782" width="46" height="17"/>
     </entry>
@@ -420,14 +420,14 @@
         <graphics name="BUD31, Cwc14, EDG-2, EDG2, G10, YCR063W, fSAP17" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="411" y="1001" width="46" height="17"/>
     </entry>
-    <entry id="285" name="hsa:101954264 hsa:101954268 hsa:101954273 hsa:124904613 hsa:26863 hsa:26864 hsa:26869 hsa:26870 hsa:26871 hsa:6060" type="gene"
-        link="https://www.kegg.jp/dbget-bin/www_bget?hsa:101954264+hsa:101954268+hsa:101954273+hsa:124904613+hsa:26863+hsa:26864+hsa:26869+hsa:26870+hsa:26871+hsa:6060">
-        <graphics name="RNVU1-4, RNU1-102, RNU1-50, RNVU1-5, vU1.4, vU1.5..." fgcolor="#000000" bgcolor="#BFFFBF"
+    <entry id="285" name="hsa:101447996 hsa:101954264 hsa:101954266 hsa:101954267 hsa:101954268 hsa:101954269 hsa:101954272 hsa:101954273 hsa:101954276 hsa:101954277 hsa:124903120 hsa:124904122 hsa:124904613 hsa:124904616 hsa:124904619 hsa:124904621 hsa:124904624 hsa:124904627 hsa:124904631 hsa:124904634 hsa:124905307 hsa:124905321 hsa:124905573 hsa:124905574 hsa:124905809 hsa:26863 hsa:26864 hsa:26869 hsa:26870 hsa:26871 hsa:6060 hsa:6063" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?hsa:101447996+hsa:101954264+hsa:101954266+hsa:101954267+hsa:101954268+hsa:101954269+hsa:101954272+hsa:101954273+hsa:101954276+hsa:101954277+hsa:124903120+hsa:124904122+hsa:124904613+hsa:124904616+hsa:124904619+hsa:124904621+hsa:124904624+hsa:124904627+hsa:124904631+hsa:124904634+hsa:124905307+hsa:124905321+hsa:124905573+hsa:124905574+hsa:124905809+hsa:26863+hsa:26864+hsa:26869+hsa:26870+hsa:26871+hsa:6060+hsa:6063">
+        <graphics name="RNVU1-8, RNU1-145, vU1.8..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="121" y="681" width="46" height="17"/>
     </entry>
-    <entry id="286" name="hsa:124904145 hsa:6066" type="gene"
-        link="https://www.kegg.jp/dbget-bin/www_bget?hsa:124904145+hsa:6066">
-        <graphics name="124904145..." fgcolor="#000000" bgcolor="#BFFFBF"
+    <entry id="286" name="hsa:124900915 hsa:124901219 hsa:124904135 hsa:124904136 hsa:124904137 hsa:124904138 hsa:124904139 hsa:124904140 hsa:124904141 hsa:124904142 hsa:124904143 hsa:124904144 hsa:124904145 hsa:124904146 hsa:124904147 hsa:124904651 hsa:124905062 hsa:124907963 hsa:124907964 hsa:124907965 hsa:6066" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?hsa:124900915+hsa:124901219+hsa:124904135+hsa:124904136+hsa:124904137+hsa:124904138+hsa:124904139+hsa:124904140+hsa:124904141+hsa:124904142+hsa:124904143+hsa:124904144+hsa:124904145+hsa:124904146+hsa:124904147+hsa:124904651+hsa:124905062+hsa:124907963+hsa:124907964+hsa:124907965+hsa:6066">
+        <graphics name="124900915..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="186" y="681" width="46" height="17"/>
     </entry>
     <entry id="287" name="hsa:26828 hsa:26830 hsa:26831 hsa:26832" type="gene"
@@ -435,13 +435,13 @@
         <graphics name="RNU5F-1, RNU5F, U5F..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="324" y="681" width="46" height="17"/>
     </entry>
-    <entry id="288" name="hsa:124901224 hsa:26834 hsa:26835" type="gene"
-        link="https://www.kegg.jp/dbget-bin/www_bget?hsa:124901224+hsa:26834+hsa:26835">
-        <graphics name="124901224..." fgcolor="#000000" bgcolor="#BFFFBF"
+    <entry id="288" name="hsa:124900516 hsa:124901224 hsa:124901863 hsa:26834 hsa:26835" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?hsa:124900516+hsa:124901224+hsa:124901863+hsa:26834+hsa:26835">
+        <graphics name="124900516..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="256" y="682" width="46" height="17"/>
     </entry>
-    <entry id="289" name="hsa:101954271 hsa:101954275 hsa:101954278 hsa:103625684 hsa:26827" type="gene"
-        link="https://www.kegg.jp/dbget-bin/www_bget?hsa:101954271+hsa:101954275+hsa:101954278+hsa:103625684+hsa:26827">
+    <entry id="289" name="hsa:101954271 hsa:101954275 hsa:101954278 hsa:103625684 hsa:124900488 hsa:124900632 hsa:124900883 hsa:124900887 hsa:124901516 hsa:124902331 hsa:124902335 hsa:124903414 hsa:124904107 hsa:124904109 hsa:124904694 hsa:124904727 hsa:124904986 hsa:124905264 hsa:124905326 hsa:124907960 hsa:124907961 hsa:124908124 hsa:26827" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?hsa:101954271+hsa:101954275+hsa:101954278+hsa:103625684+hsa:124900488+hsa:124900632+hsa:124900883+hsa:124900887+hsa:124901516+hsa:124902331+hsa:124902335+hsa:124903414+hsa:124904107+hsa:124904109+hsa:124904694+hsa:124904727+hsa:124904986+hsa:124905264+hsa:124905326+hsa:124907960+hsa:124907961+hsa:124908124+hsa:26827">
         <graphics name="RNU6-9, U6-9..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="256" y="698" width="46" height="17"/>
     </entry>

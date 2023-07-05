@@ -92,7 +92,7 @@
     </entry>
     <entry id="49" name="hsa:3455" type="gene"
         link="https://www.kegg.jp/dbget-bin/www_bget?hsa:3455">
-        <graphics name="IFNAR2, IFN-R, IFN-alpha-REC, IFNABR, IFNARB, IMD45" fgcolor="#000000" bgcolor="#BFFFBF"
+        <graphics name="IFNAR2, IFN-R, IFN-R-2, IFN-alpha-REC, IFNABR, IFNARB, IMD45" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="177" y="722" width="46" height="17"/>
     </entry>
     <entry id="50" name="hsa:3716 hsa:7297" type="gene"
@@ -112,7 +112,7 @@
     </entry>
     <entry id="69" name="hsa:949" type="gene"
         link="https://www.kegg.jp/dbget-bin/www_bget?hsa:949">
-        <graphics name="SCARB1, CD36L1, CLA-1, CLA1, HDLQTL6, SR-BI, SRB1" fgcolor="#000000" bgcolor="#BFFFBF"
+        <graphics name="SCARB1, CD36L1, CLA-1, CLA1, HDLCQ6, HDLQTL6, SR-BI, SRB1" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="177" y="169" width="46" height="17"/>
     </entry>
     <entry id="70" name="hsa:975" type="gene"
@@ -120,8 +120,8 @@
         <graphics name="CD81, CVID6, S5.7, TAPA1, TSPAN28" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="177" y="194" width="46" height="17"/>
     </entry>
-    <entry id="71" name="hsa:100132463 hsa:100288814 hsa:10686 hsa:1364 hsa:1365 hsa:1366 hsa:137075 hsa:149461 hsa:23562 hsa:24146 hsa:26285 hsa:49861 hsa:5010 hsa:51208 hsa:53842 hsa:644672 hsa:7122 hsa:9071 hsa:9073 hsa:9074 hsa:9075 hsa:9076 hsa:9080" type="gene"
-        link="https://www.kegg.jp/dbget-bin/www_bget?hsa:100132463+hsa:100288814+hsa:10686+hsa:1364+hsa:1365+hsa:1366+hsa:137075+hsa:149461+hsa:23562+hsa:24146+hsa:26285+hsa:49861+hsa:5010+hsa:51208+hsa:53842+hsa:644672+hsa:7122+hsa:9071+hsa:9073+hsa:9074+hsa:9075+hsa:9076+hsa:9080">
+    <entry id="71" name="hsa:100132463 hsa:100288814 hsa:10686 hsa:1364 hsa:1365 hsa:1366 hsa:137075 hsa:149461 hsa:23562 hsa:24146 hsa:26285 hsa:49861 hsa:5010 hsa:51208 hsa:53842 hsa:644672 hsa:7122 hsa:9069 hsa:9071 hsa:9073 hsa:9074 hsa:9075 hsa:9076 hsa:9080" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?hsa:100132463+hsa:100288814+hsa:10686+hsa:1364+hsa:1365+hsa:1366+hsa:137075+hsa:149461+hsa:23562+hsa:24146+hsa:26285+hsa:49861+hsa:5010+hsa:51208+hsa:53842+hsa:644672+hsa:7122+hsa:9069+hsa:9071+hsa:9073+hsa:9074+hsa:9075+hsa:9076+hsa:9080">
         <graphics name="CLDN24, CLDN21..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="177" y="211" width="46" height="17"/>
     </entry>
@@ -487,7 +487,7 @@
     </entry>
     <entry id="226" name="hsa:91543" type="gene"
         link="https://www.kegg.jp/dbget-bin/www_bget?hsa:91543">
-        <graphics name="RSAD2, cig33, cig5, vig1" fgcolor="#000000" bgcolor="#BFFFBF"
+        <graphics name="RSAD2, SAND, cig33, cig5, vig1" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="1112" y="735" width="46" height="17"/>
     </entry>
     <entry id="227" name="hsa:6774" type="gene"

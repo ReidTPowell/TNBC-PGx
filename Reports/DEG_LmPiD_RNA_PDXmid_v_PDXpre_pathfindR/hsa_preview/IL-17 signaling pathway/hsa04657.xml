@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!DOCTYPE pathway SYSTEM "https://www.kegg.jp/kegg/xml/KGML_v0.7.2_.dtd">
-<!-- Creation date: Jan 12, 2021 09:47:10 +0900 (GMT+9) -->
+<!-- Creation date: Mar 15, 2023 16:50:13 +0900 (GMT+9) -->
 <pathway name="path:hsa04657" org="hsa" number="04657"
          title="IL-17 signaling pathway"
          image="https://www.kegg.jp/kegg/pathway/hsa/hsa04657.png"
@@ -280,9 +280,9 @@
         <graphics name="DEFB4B, DEFB4P..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="1109" y="485" width="46" height="17"/>
     </entry>
-    <entry id="107" name="hsa:4586" type="gene"
-        link="https://www.kegg.jp/dbget-bin/www_bget?hsa:4586">
-        <graphics name="MUC5AC, MUC5, TBM, leB, mucin" fgcolor="#000000" bgcolor="#BFFFBF"
+    <entry id="107" name="hsa:4586 hsa:727897" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?hsa:4586+hsa:727897">
+        <graphics name="MUC5AC, MUC5, TBM, leB, mucin..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="1163" y="485" width="46" height="17"/>
     </entry>
     <entry id="108" name="hsa:4318" type="gene"
@@ -399,11 +399,6 @@
         link="https://www.kegg.jp/dbget-bin/www_bget?hsa:1440">
         <graphics name="CSF3, C17orf33, CSF3OS, GCSF, G-CSF" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="1109" y="449" width="46" height="17"/>
-    </entry>
-    <entry id="156" name="hsa:727897" type="gene"
-        link="https://www.kegg.jp/dbget-bin/www_bget?hsa:727897">
-        <graphics name="MUC5B, MG1, MUC-5B, MUC5, MUC9" fgcolor="#000000" bgcolor="#BFFFBF"
-             type="rectangle" x="1217" y="485" width="46" height="17"/>
     </entry>
     <entry id="157" name="hsa:338324 hsa:6278" type="gene"
         link="https://www.kegg.jp/dbget-bin/www_bget?hsa:338324+hsa:6278">
@@ -703,9 +698,6 @@
     <relation entry1="33" entry2="107" type="GErel">
         <subtype name="expression" value="--&gt;"/>
     </relation>
-    <relation entry1="33" entry2="156" type="GErel">
-        <subtype name="expression" value="--&gt;"/>
-    </relation>
     <relation entry1="33" entry2="157" type="GErel">
         <subtype name="expression" value="--&gt;"/>
     </relation>
@@ -775,9 +767,6 @@
     <relation entry1="34" entry2="107" type="GErel">
         <subtype name="expression" value="--&gt;"/>
     </relation>
-    <relation entry1="34" entry2="156" type="GErel">
-        <subtype name="expression" value="--&gt;"/>
-    </relation>
     <relation entry1="34" entry2="157" type="GErel">
         <subtype name="expression" value="--&gt;"/>
     </relation>
@@ -845,9 +834,6 @@
         <subtype name="expression" value="--&gt;"/>
     </relation>
     <relation entry1="64" entry2="107" type="GErel">
-        <subtype name="expression" value="--&gt;"/>
-    </relation>
-    <relation entry1="64" entry2="156" type="GErel">
         <subtype name="expression" value="--&gt;"/>
     </relation>
     <relation entry1="64" entry2="157" type="GErel">

@@ -117,7 +117,7 @@
     </entry>
     <entry id="52" name="hsa:2776" type="gene"
         link="https://www.kegg.jp/dbget-bin/www_bget?hsa:2776">
-        <graphics name="GNAQ, CMC1, G-ALPHA-q, GAQ, SWS" fgcolor="#000000" bgcolor="#BFFFBF"
+        <graphics name="GNAQ, CMAL, CMC1, G-ALPHA-q, GAQ, SWS" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="281" y="670" width="46" height="17"/>
     </entry>
     <entry id="53" name="hsa:23236 hsa:5330 hsa:5331 hsa:5332" type="gene"
@@ -235,8 +235,8 @@
         <graphics name="FKBP4, FKBP51, FKBP52, FKBP59, HBI, Hsp56, PPIase, p52..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="667" y="196" width="46" height="17"/>
     </entry>
-    <entry id="96" name="hsa:3303 hsa:3304 hsa:3305 hsa:3306 hsa:3310 hsa:3312" type="gene"
-        link="https://www.kegg.jp/dbget-bin/www_bget?hsa:3303+hsa:3304+hsa:3305+hsa:3306+hsa:3310+hsa:3312">
+    <entry id="96" name="hsa:3303 hsa:3304 hsa:3305 hsa:3310 hsa:3312" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?hsa:3303+hsa:3304+hsa:3305+hsa:3310+hsa:3312">
         <graphics name="HSPA1A, HEL-S-103, HSP70, HSP70-1, HSP70-1A, HSP70-2, HSP70.1, HSP70.2, HSP70I, HSP72, HSPA1..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="667" y="213" width="46" height="17"/>
     </entry>

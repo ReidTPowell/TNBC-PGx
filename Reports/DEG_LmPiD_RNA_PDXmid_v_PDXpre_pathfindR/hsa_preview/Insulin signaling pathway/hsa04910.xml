@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!DOCTYPE pathway SYSTEM "https://www.kegg.jp/kegg/xml/KGML_v0.7.2_.dtd">
-<!-- Creation date: Mar 12, 2020 13:35:24 +0900 (GMT+9) -->
+<!-- Creation date: Jun 16, 2023 13:19:42 +0900 (GMT+9) -->
 <pathway name="path:hsa04910" org="hsa" number="04910"
          title="Insulin signaling pathway"
          image="https://www.kegg.jp/kegg/pathway/hsa/hsa04910.png"
@@ -132,7 +132,7 @@
     </entry>
     <entry id="32" name="hsa:6194" type="gene"
         link="https://www.kegg.jp/dbget-bin/www_bget?hsa:6194">
-        <graphics name="RPS6, S6" fgcolor="#000000" bgcolor="#BFFFBF"
+        <graphics name="RPS6, S6, eS6" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="770" y="609" width="46" height="17"/>
     </entry>
     <entry id="33" name="hsa:5834 hsa:5836 hsa:5837" type="gene"
@@ -372,6 +372,12 @@
     </entry>
     <entry id="80" name="undefined" type="group">
         <graphics fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="511" y="617" width="46" height="34"/>
+        <component id="35"/>
+        <component id="50"/>
+    </entry>
+    <entry id="81" name="undefined" type="group">
+        <graphics fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="616" y="483" width="46" height="34"/>
         <component id="46"/>
         <component id="7"/>
@@ -440,7 +446,7 @@
         <subtype name="activation" value="--&gt;"/>
         <subtype name="phosphorylation" value="+p"/>
     </relation>
-    <relation entry1="57" entry2="50" type="PPrel">
+    <relation entry1="57" entry2="80" type="PPrel">
         <subtype name="activation" value="--&gt;"/>
         <subtype name="phosphorylation" value="+p"/>
     </relation>
@@ -502,14 +508,14 @@
         <subtype name="activation" value="--&gt;"/>
         <subtype name="phosphorylation" value="+p"/>
     </relation>
-    <relation entry1="56" entry2="50" type="PPrel">
+    <relation entry1="56" entry2="80" type="PPrel">
         <subtype name="activation" value="--&gt;"/>
     </relation>
-    <relation entry1="50" entry2="43" type="PPrel">
+    <relation entry1="80" entry2="43" type="PPrel">
         <subtype name="activation" value="--&gt;"/>
         <subtype name="phosphorylation" value="+p"/>
     </relation>
-    <relation entry1="50" entry2="31" type="PPrel">
+    <relation entry1="80" entry2="31" type="PPrel">
         <subtype name="inhibition" value="--|"/>
         <subtype name="phosphorylation" value="+p"/>
     </relation>
@@ -597,7 +603,7 @@
         <subtype name="compound" value="71"/>
         <subtype name="activation" value="--&gt;"/>
     </relation>
-    <relation entry1="58" entry2="50" type="PPrel">
+    <relation entry1="58" entry2="80" type="PPrel">
         <subtype name="compound" value="71"/>
         <subtype name="activation" value="--&gt;"/>
     </relation>
@@ -626,7 +632,7 @@
     <relation entry1="34" entry2="48" type="GErel">
         <subtype name="expression" value="--&gt;"/>
     </relation>
-    <relation entry1="80" entry2="56" type="PPrel">
+    <relation entry1="81" entry2="56" type="PPrel">
         <subtype name="inhibition" value="--|"/>
     </relation>
     <relation entry1="51" entry2="21" type="PCrel">

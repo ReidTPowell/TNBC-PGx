@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!DOCTYPE pathway SYSTEM "https://www.kegg.jp/kegg/xml/KGML_v0.7.2_.dtd">
-<!-- Creation date: Mar 14, 2022 15:58:24 +0900 (GMT+9) -->
+<!-- Creation date: Mar 6, 2023 16:43:10 +0900 (GMT+9) -->
 <pathway name="path:hsa03020" org="hsa" number="03020"
          title="RNA polymerase"
          image="https://www.kegg.jp/kegg/pathway/hsa/hsa03020.png"
@@ -175,9 +175,9 @@
         <graphics name="K03055" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="489" y="381" width="46" height="17"/>
     </entry>
-    <entry id="14" name="ko:K03049 ko:K03050" type="ortholog"
-        link="https://www.kegg.jp/dbget-bin/www_bget?K03049+K03050">
-        <graphics name="K03049..." fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="14" name="ko:K03049" type="ortholog"
+        link="https://www.kegg.jp/dbget-bin/www_bget?K03049">
+        <graphics name="K03049" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="489" y="364" width="46" height="17"/>
     </entry>
     <entry id="15" name="ko:K03058" type="ortholog"

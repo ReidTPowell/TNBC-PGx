@@ -252,7 +252,7 @@
     </entry>
     <entry id="102" name="hsa:712 hsa:713 hsa:714" type="gene"
         link="https://www.kegg.jp/dbget-bin/www_bget?hsa:712+hsa:713+hsa:714">
-        <graphics name="C1QA..." fgcolor="#000000" bgcolor="#BFFFBF"
+        <graphics name="C1QA, C1QD1..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="144" y="911" width="46" height="17"/>
     </entry>
     <entry id="106" name="path:hsa04610" type="map"
@@ -320,8 +320,8 @@
         <graphics name="C00027..." fgcolor="#000000" bgcolor="#FFFFFF"
              type="circle" x="717" y="1083" width="8" height="8"/>
     </entry>
-    <entry id="144" name="hsa:3303 hsa:3304 hsa:3305 hsa:3306 hsa:3310 hsa:3312" type="gene"
-        link="https://www.kegg.jp/dbget-bin/www_bget?hsa:3303+hsa:3304+hsa:3305+hsa:3306+hsa:3310+hsa:3312">
+    <entry id="144" name="hsa:3303 hsa:3304 hsa:3305 hsa:3310 hsa:3312" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?hsa:3303+hsa:3304+hsa:3305+hsa:3310+hsa:3312">
         <graphics name="HSPA1A, HEL-S-103, HSP70, HSP70-1, HSP70-1A, HSP70-2, HSP70.1, HSP70.2, HSP70I, HSP72, HSPA1..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="567" y="863" width="46" height="17"/>
     </entry>
@@ -387,7 +387,7 @@
     </entry>
     <entry id="178" name="hsa:6261 hsa:6262 hsa:6263" type="gene"
         link="https://www.kegg.jp/dbget-bin/www_bget?hsa:6261+hsa:6262+hsa:6263">
-        <graphics name="RYR1, CCO, KDS, MHS, MHS1, PPP1R137, RYDR, RYR, RYR-1, SKRR..." fgcolor="#000000" bgcolor="#BFFFBF"
+        <graphics name="RYR1, CCO, CMYP1A, CMYP1B, KDS, MHS, MHS1, PPP1R137, RYDR, RYR, RYR-1, SKRR..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="929" y="432" width="46" height="17"/>
     </entry>
     <entry id="179" name="hsa:3708 hsa:3709 hsa:3710" type="gene"
