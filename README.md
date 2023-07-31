@@ -2,9 +2,14 @@
 
 Content
 Readme.md       This file
-"TNBC PGx notebook.Rmd"  R markdown notebook that was used to gernerate key figures.
+"TNBC PGx notebook.Rmd"  R markdown notebook with supporting data for the manuscript entitled:
+Neddylation as a therapuetic target in chemoresistant triple negative breast cancer.
+Powell and Rinkenbaugh et al. 2023 [Submitted/In Review]
+
+Folders/Files
 /data		All dataframes that are required to run the Rmd and replicate analysis
 /Reports Pre-computed outputs from the Rmd. Interactive HTML files likely need to be downloaded before opening
+TNBC PGx notebook.Rmd Annotated Notebook to regenerate key figures
 
 Data Description
 Drug_AUC.csv  Table of area under the curve values for the in vitro high throughput screen
