@@ -4,16 +4,11 @@ title: "TNBC Pharmacogenomic analysis"
 Load basic libraries that are used throughout the notebook
 ```{r message=FALSE, warning=FALSE, include=FALSE}
 rm(list=ls())
-require("glmnet")
-#require("doMC")
-require("reticulate")
 require("plotly")
 require("matrixStats")
 require("ComplexHeatmap")
 require("seriation")
 require("dplyr")
-require("glmnet")
-require("Hmisc")
 require("pathfindR")
 require("edgeR")
 require("org.Hs.eg.db")
@@ -171,8 +166,6 @@ Drug_all <- read.csv("./data/Drug_AUC.csv",row.names=1)
 Drug_meta <- read.csv("./data/Drug_metadata.csv",row.names=1)
 
 Meta_all <- read_excel("./data/PDX_metadata.xlsx")
-PPI = "./data/STRING.csv"
-
 row.names(Meta_all) = Meta_all$PDX_ID
 
 pairsOnly = T
@@ -445,7 +438,7 @@ library("dplyr")
 row_variances <- apply(RNA_all[,train_samples], 1, var)
 sorted_indices <- order(row_variances,decreasing = T)
 RNA_all_sort <- RNA_all[sorted_indices, ]
-RNA_all_sort[1:10,]
+RNA_all_sort[1:250,]
 
 CCL_corr = cor(as.matrix(RNA_all_sort[1:250,train_samples]),method = c("pearson"))
 hc = hclust(dist(t(CCL_corr),method = "euclidean"),method = "complete")
@@ -454,8 +447,13 @@ df_anno = Meta_all[train_samples,] %>% dplyr::select("Time","PiD")
 
 row_dend = as.dendrogram(hc)
 
+library(circlize)
+col_fun = colorRamp2(c(-1, 0, 1), c("blue", "white", "red"))
+col_fun(seq(-3, 3))
+
 HM = Heatmap(CCL_corr,
              name = "Pearson",
+             col = col_fun,
              cluster_rows = row_dend,
              cluster_columns = row_dend,
              top_annotation = anno_gen(df_anno),
@@ -463,6 +461,7 @@ HM = Heatmap(CCL_corr,
 HM
 rm('HM','CCL_corr','hc','df_anno','row_dend')
 ```
+
 We then perform differential gene expression analysis that accounted for the individual patient matched pairs. 
 ```{r warning=FALSE}
 library("edgeR")
@@ -482,7 +481,7 @@ DEG_top = topTable(DEG_fit_cm_eBayesfit,adjust.method="fdr", number=Inf)
 # DEG_top = topTable(DEG_fit_cm_eBayesfit, coef = "TimePRE",adjust.method="fdr", number=Inf)
 
 DEG_top
-write.csv(DEG_top,"./Reports/DEG_LmPiD_RNAz_PDXmid_v_PDXpre.csv")
+#write.csv(DEG_top,"./Reports/DEG_LmPiD_RNAz_PDXmid_v_PDXpre.csv")
 
 thresh_Pval = 0.05
 thresh_FC = 0
@@ -503,7 +502,52 @@ fig <- plot_ly(data = DEG_top, x = ~logFC, y = ~-1*log10(P.Value),color = ~logFC
          shapes=list(vline(-1*thresh_FC),vline(thresh_FC),hline(-log10(thresh_Pval)))) %>%
   add_trace(text=row.names(DEG_top))
 
-plotly::export(p=fig,file = "Reports/DEG_LmPiD_RNAz_PDXmid_v_PDXpre.png")
+#plotly::export(p=fig,file = "Reports/DEG_LmPiD_RNAz_PDXmid_v_PDXpre.png")
+  
+fig
+rm('fig','cm','design','metadata')
+```
+This section does the same DEG with out using repreated samples analysis
+```{r warning=FALSE}
+library("edgeR")
+library("plotly")
+
+metadata = Meta_all[train_samples,]
+metadata[] <- lapply(metadata, factor)
+
+design = model.matrix(~0+Time,metadata)
+DEG_fit = lmFit(RNA_filtered_z[,train_samples],design)
+cm = makeContrasts(Mid_v_Pre=TimeMID-TimePRE,levels=design)
+DEG_fit_cm = contrasts.fit(DEG_fit,cm)
+DEG_fit_cm_eBayesfit = eBayes(DEG_fit_cm,trend = FALSE,robust = FALSE)
+DEG_top = topTable(DEG_fit_cm_eBayesfit,adjust.method="fdr", number=Inf)
+
+# DEG_fit_cm_eBayesfit = eBayes(DEG_fit,trend = FALSE,robust = FALSE)
+# DEG_top = topTable(DEG_fit_cm_eBayesfit, coef = "TimePRE",adjust.method="fdr", number=Inf)
+
+DEG_top
+#write.csv(DEG_top,"./Reports/DEG_LmPiD_RNAz_PDXmid_v_PDXpre.csv")
+
+thresh_Pval = 0.05
+thresh_FC = 0
+
+tmp = DEG_top[intersect(which(DEG_top$P.Value <= thresh_Pval),which(abs(DEG_top$logFC) >= thresh_FC)),]
+up = as.integer(length(which(tmp$logFC > 0)))
+down =  as.integer(length(which(tmp$logFC <= 0)))
+print(paste("Total DEG: ", up+down))
+print(paste("Sigificantly up-reglated genes: ", up))
+print(paste("Sigificantly down-reglated genes: ", down))
+rm("tmp","up","down")
+
+
+#Volcano plot of DEG
+fig <- plot_ly(data = DEG_top, x = ~logFC, y = ~-1*log10(P.Value),color = ~logFC, colors="RdBu")%>%
+  layout(xaxis = list(title = "DeltaZ", tickfont = list(size = 40),titlefont = list(size = 60)),
+         yaxis = list(title = "-log(p-value)", tickfont = list(size = 40),titlefont = list(size = 60)),
+         shapes=list(vline(-1*thresh_FC),vline(thresh_FC),hline(-log10(thresh_Pval)))) %>%
+  add_trace(text=row.names(DEG_top))
+
+#plotly::export(p=fig,file = "Reports/DEG_LmPiD_RNAz_PDXmid_v_PDXpre.png")
   
 fig
 rm('fig','cm','design','metadata')
@@ -540,7 +584,14 @@ xlsx::write.xlsx(pfr_tmp,file = paste(Base_dir,name,"pathfindR_enrichment.xlsx",
 
 rm("pfr_tmp")
 ```
-
+Get data from in vitro correlation to specific targets
+```{r}
+t(rbind(Drug_all["PEVONEDISTAT_Broad",train_samples],RNA_all[c("NAE1","SAE1"),train_samples]))
+```
+Get data from in vivo correlation to specific targets
+```{r}
+cbind(as.matrix(Meta_all[train_samples,"InVivo_PEV"]),t(RNA_all[c("NAE1","SAE1"),train_samples]))
+```
 
 ```{r}
 save.image(file='TNBC-PGx_analysis.RData')
