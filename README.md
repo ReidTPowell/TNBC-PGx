@@ -5,11 +5,11 @@ Powell and Rinkenbaugh et al. 2023 [Submitted/In Review]\
 
 **Content:**<br>
 <pre>
-~/data                  All dataframes that are required to run the Rmd and replicate analysis
-~/Reports               Pre-computed outputs from the Rmd. Interactive HTML files likely need to be downloaded before opening
-TNBC PGx notebook.Rmd   Annotated Notebook to regenerate key figures
+~/data                    All dataframes that are required to run the Rmd and replicate analysis
+~/Reports                 Pre-computed outputs from the Rmd. Interactive HTML files likely need to be downloaded before opening
+TNBC PGx notebook.Rmd     Annotated Notebook to regenerate key figures
 TNBC PGx notebook.RData   Binary of the notebook data
-Readme.md               This file
+Readme.md                 This file
 </pre>
 
 **Data Description:**<br>
