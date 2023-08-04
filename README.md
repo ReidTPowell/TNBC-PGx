@@ -5,9 +5,11 @@ Powell and Rinkenbaugh et al. 2023 [Submitted/In Review]\
 
 **Content:**<br>
 <pre>
-~/data                    All dataframes that are required to run the Rmd and replicate analysis
+~/data                    All dataframes that are required to run "TNBC PGx notebook.Rmd" and replicate primary analysis.
+~/data2                   All dataframes that are required to run the "TNBC PGx notebook2.Rmd" and replicate analysis for validation/PEV time studies studies
 ~/Reports                 Pre-computed outputs from the Rmd. Interactive HTML files likely need to be downloaded before opening
 TNBC PGx notebook.Rmd     Annotated Notebook to regenerate key figures
+TNBC PGx notebook2.Rmd    Annotated Notebook to regenerate key figures for the validation/PEV time studies studies
 TNBC PGx notebook.RData   Binary of the notebook data
 Readme.md                 This file
 </pre>
