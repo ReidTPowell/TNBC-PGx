@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!DOCTYPE pathway SYSTEM "https://www.kegg.jp/kegg/xml/KGML_v0.7.2_.dtd">
-<!-- Creation date: Sep 1, 2020 10:47:30 +0900 (GMT+9) -->
+<!-- Creation date: Jul 18, 2023 09:35:52 +0900 (GMT+9) -->
 <pathway name="path:hsa04141" org="hsa" number="04141"
          title="Protein processing in endoplasmic reticulum"
          image="https://www.kegg.jp/kegg/pathway/hsa/hsa04141.png"
@@ -245,9 +245,9 @@
         <graphics name="ERN1, IRE1, IRE1P, IRE1a, hIRE1p" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="548" y="478" width="46" height="17"/>
     </entry>
-    <entry id="136" name="hsa:27102 hsa:440275 hsa:5610 hsa:9451" type="gene"
-        link="https://www.kegg.jp/dbget-bin/www_bget?hsa:27102+hsa:440275+hsa:5610+hsa:9451">
-        <graphics name="EIF2AK1, HCR, HRI, LEMSPAD, hHRI..." fgcolor="#000000" bgcolor="#BFFFBF"
+    <entry id="136" name="hsa:9451" type="gene"
+        link="https://www.kegg.jp/dbget-bin/www_bget?hsa:9451">
+        <graphics name="EIF2AK3, PEK, PERK, WRS" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="298" y="478" width="46" height="17"/>
     </entry>
     <entry id="137" name="hsa:8720" type="gene"
