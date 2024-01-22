@@ -1,0 +1,662 @@
+Clean,Cmpd1,Library,Cmpd_ID,Class,Target,Process,Pathway_association
+ACALABRUTINIB_NCI_Onc_AOD,ACALABRUTINIB,NCI_Onc_AOD,ACALABRUTINIB (NCI_AOD9),Angiogenesis,BTK,,
+BRIGATINIB_NCI_Onc_AOD,BRIGATINIB,NCI_Onc_AOD,BRIGATINIB (NCI_AOD9),Angiogenesis; Immunology/Inflammation; Tyrosine Kinase/Adaptors; JAK/STAT signaling,ALK; EGFR (C797S/del19); FLT3; IGF-1R; ROS1,,
+OSIMERTINIB_NCI_Onc_AOD,OSIMERTINIB,NCI_Onc_AOD,OSIMERTINIB (NCI_AOD9),Angiogenesis; JAK/STAT signaling; Tyrosine Kinase/Adaptors,EGFR (Exon 19 deletion); EGFR (L858R/T790M ),,
+DACOMITINIB_NCI_Onc_AOD,DACOMITINIB,NCI_Onc_AOD,DACOMITINIB (NCI_AOD9),Angiogenesis; JAK/STAT signaling; Tyrosine Kinase/Adaptors,EGFR; HER2/ErbB2; HER2/ErbB2,,
+ALECTINIB_NCI_Onc_AOD,ALECTINIB,NCI_Onc_AOD,ALECTINIB (NCI_AOD9),Angiogenesis; Tyrosine Kinase/Adaptors; Tyrosine Kinase/Adaptors,ALK; ALK (F1174L); ALK (R1275Q); INSR; VEGFR2 (KDR),,
+CELECOXIB_NCI_Onc_AOD,CELECOXIB,NCI_Onc_AOD,CELECOXIB (NCI_Onc_AOD),Anti-inflamatory,COX-1,Anti-Inflammatory,Prosteglandin production~differentiation~inflammation
+ROFECOXIB_Custom Clinical,ROFECOXIB,Custom Clinical,ROFECOXIB (Custom Clinical),Anti-inflamatory,COX-1,Anti-Inflammatory,Prosteglandin production~differentiation~inflammation
+VALDECOXIB_Broad,VALDECOXIB,Broad,VALDECOXIB (Broad),Anti-inflamatory,COX-2,Anti-Inflammatory,Prosteglandin production~differentiation~inflammation
+SB225002_Broad,SB 225002,Broad,SB 225002 (Broad),Anti-inflamatory,CXCR2,Anti-Inflammatory,
+BRD9876_Broad,BRD 9876,Broad,BRD 9876 (Broad),Broad screening hit,,,
+BRD9647_Broad,BRD9647,Broad,BRD9647 (Broad),Broad screening hit,,,
+BRD4132_Broad,BRD4132,Broad,BRD4132 (Broad),Broad screening hit,,,
+BRD6340_Broad,BRD6340,Broad,BRD6340 (Broad),Broad screening hit,,,
+DNMDP_Broad,DNMDP,Broad,DNMDP (Broad),Broad screening hit,,,
+RIBOCICLIB_NCI_Onc_AOD,RIBOCICLIB,NCI_Onc_AOD,RIBOCICLIB (NCI_AOD9),Cell Cycle/Checkpoint,CDK4,,
+PALBOCICLIB_NCI_Onc_AOD,PALBOCICLIB,NCI_Onc_AOD,PALBOCICLIB (NCI_AOD9),Cell Cycle/Checkpoint,CDK4; CDK6,,
+ABEMACICLIB_NCI_Onc_AOD,ABEMACICLIB,NCI_Onc_AOD,ABEMACICLIB (NCI_AOD9),Cell Cycle/Checkpoint,CDK4; CDK6,,
+BAXCHANNELBLOCKER_Broad,BAX CHANNEL BLOCKER,Broad,BAX CHANNEL BLOCKER (Broad),Cell death,BAX,Apoptotic signaling,DNA maintenance~Repair~Apoptosis
+VENETOCLAX_NCI_Onc_AOD,VENETOCLAX,NCI_Onc_AOD,VENETOCLAX (NCI_AOD9),Cell death,BCL-2,Apoptotic signaling,
+OBATOCLAX_Broad,OBATOCLAX,Broad,OBATOCLAX (Broad),Cell death,BCL-2,Apoptotic signaling,DNA maintenance~Repair~Apoptosis
+ABT199_Broad,ABT-199,Broad,ABT-199 (Broad),Cell death,BCL-2,Apoptotic signaling,DNA maintenance~Repair~Apoptosis
+GOSSYPOL_Broad,GOSSYPOL,Broad,GOSSYPOL (Broad),Cell death,BCL-2,Apoptotic signaling,DNA maintenance~Repair~Apoptosis
+OBATOCLAX_Custom Clinical,OBATOCLAX,Custom Clinical,OBATOCLAX (Custom Clinical),Cell death,BCL-2,Apoptotic signaling,DNA maintenance~Repair~Apoptosis
+PAC1_Broad,PAC 1,Broad,PAC 1 (Broad),Cell death,Caspase,Apoptotic signaling,DNA maintenance~Repair~Apoptosis
+IVACHTIN_Custom Clinical,IVACHTIN,Custom Clinical,IVACHTIN (Custom Clinical),Cell death,Caspase,Apoptotic signaling,DNA maintenance~Repair~Apoptosis
+BIRINAPANT_Broad,BIRINAPANT,Broad,BIRINAPANT (Broad),Cell death,cIAP1,Apoptotic signaling,DNA maintenance~Repair~Apoptosis
+ERASTIN_Broad,ERASTIN,Broad,ERASTIN (Broad),Cell death,Ferroptosis,Targeted mediator of ferroptosis,DNA maintenance~Repair~Apoptosis
+AT406SM406ARRY334543_Broad,"AT406 (SM- 406, ARRY- 334543)",Broad,"AT406 (SM- 406, ARRY- 334543) (Broad)",Cell death,IAP,Apoptotic signaling,DNA maintenance~Repair~Apoptosis
+AT406_Broad,AT-406,Broad,AT-406 (Broad),Cell death,IAP,Apoptotic signaling,DNA maintenance~Repair~Apoptosis
+MARITOCLAX_Broad,MARITOCLAX,Broad,MARITOCLAX (Broad),Cell death,MCL,Targeted modulator of apoptosis,DNA maintenance~Repair~Apoptosis
+ABT263NAVITOCLAX_Broad,ABT-263 (NAVITOCLAX),Broad,ABT-263 (NAVITOCLAX) (Broad),Cell death,Multi-BCL,Apoptotic signaling,DNA maintenance~Repair~Apoptosis
+ABT737_Broad,ABT-737,Broad,ABT-737 (Broad),Cell death,Multi-BCL,Apoptotic signaling,DNA maintenance~Repair~Apoptosis
+TW37_Broad,TW-37,Broad,TW-37 (Broad),Cell death,Multi-BCL,Apoptotic signaling,DNA maintenance~Repair~Apoptosis
+ABT263_Custom Clinical,ABT-263,Custom Clinical,ABT-263 (Custom Clinical),Cell death,Multi-BCL,Apoptotic signaling,DNA maintenance~Repair~Apoptosis
+HA141_Custom Clinical,HA14-1,Custom Clinical,HA14-1 (Custom Clinical),Cell death,Multi-BCL,Apoptotic signaling,DNA maintenance~Repair~Apoptosis
+ABT737_Custom Clinical,ABT-737,Custom Clinical,ABT-737 (Custom Clinical),Cell death,Multi-BCL,Apoptotic signaling,DNA maintenance~Repair~Apoptosis
+NECROSTATIN7_Broad,NECROSTATIN­7,Broad,NECROSTATIN­7 (Broad),Cell death,RIP,Anti-Inflammatory,Inhibitor of TNF mediated necrosis
+NECROSULFONAMIDE_Broad,NECROSULFONAMIDE,Broad,NECROSULFONAMIDE (Broad),Cell death,RIP,Anti-Inflammatory,Inhibitor of TNF mediated necrosis
+NECROSTATIN1_Broad,NECROSTATIN-1,Broad,NECROSTATIN-1 (Broad),Cell death,RIP,Anti-Inflammatory,Inhibitor of TNF mediated necrosis
+YM155_Broad,YM-155,Broad,YM-155 (Broad),Cell death,Survivin,Apoptotic signaling,DNA maintenance~Repair~Apoptosis
+YM155SEPANTRONIUMBROMIDE_Broad,YM155 (SEPANTRONIUM BROMIDE),Broad,YM155 (SEPANTRONIUM BROMIDE) (Broad),Cell death,Survivin,Apoptotic signaling,DNA maintenance~Repair~Apoptosis
+GW441756_Custom Clinical,GW 441756,Custom Clinical,GW 441756 (Custom Clinical),Cell death,TrkA,Apoptotic signaling,DNA maintenance~Repair~Apoptosis
+YK4279_Broad,YK 4-279,Broad,YK 4-279 (Broad),Cytotoxic agent,DHX9,RNA synthesis inhibitor,DNA maintenance~Repair~Apoptosis
+ARSENICTRIOXIDE_NCI_Onc_AOD,ARSENIC TRIOXIDE,NCI_Onc_AOD,ARSENIC TRIOXIDE (NCI_Onc_AOD),Cytotoxic agent,PML-RAR,,DNA maintenance~Repair~Apoptosis
+OMACETAXINEMEPESUCCINATE_NCI_Onc_AOD,OMACETAXINE MEPESUCCINATE,NCI_Onc_AOD,OMACETAXINE MEPESUCCINATE (NCI_Onc_AOD),Cytotoxic agent,Protein synthesis,Protein homeostasis,DNA maintenance~Repair~Apoptosis
+CLOFARABINE_Broad,CLOFARABINE,Broad,CLOFARABINE (Broad),Cytotoxic agent,Ribonucleotide reductase,DNA synthesis inhibitor,DNA maintenance~Repair~Apoptosis
+CLOFARABINE_NCI_Onc_AOD,CLOFARABINE,NCI_Onc_AOD,CLOFARABINE (NCI_Onc_AOD),Cytotoxic agent,Ribonucleotide reductase,DNA synthesis inhibitor,DNA maintenance~Repair~Apoptosis
+TIGECYCLINE_Broad,TIGECYCLINE,Broad,TIGECYCLINE (Broad),Cytotoxic agent,Ribosome,Protein synthesis,DNA maintenance~Repair~Apoptosis
+TRIPTOLIDE_Broad,TRIPTOLIDE,Broad,TRIPTOLIDE (Broad),Cytotoxic agent,RNA,RNA synthesis inhibitor,DNA maintenance~Repair~Apoptosis
+DACTINOMYCIN_NCI_Onc_AOD,DACTINOMYCIN,NCI_Onc_AOD,DACTINOMYCIN (NCI_Onc_AOD),Cytotoxic agent,RNA,RNA synthesis inhibitor,DNA maintenance~Repair~Apoptosis
+PLICAMYCIN_NCI_Onc_AOD,PLICAMYCIN,NCI_Onc_AOD,PLICAMYCIN (NCI_Onc_AOD),Cytotoxic agent,RNA,RNA synthesis inhibitor,DNA maintenance~Repair~Apoptosis
+ALLOPURINOL_NCI_Onc_AOD,ALLOPURINOL,NCI_Onc_AOD,ALLOPURINOL (NCI_Onc_AOD),Cytotoxic agent,Xanthine oxidase inhibitor,DNA synthesis inhibitor,DNA maintenance~Repair~Apoptosis
+L685458_Broad,"L-685,458",Broad,"L-685,458 (Broad)",Enzyme inhibitor,APH1A,Inhibitor of g-secretase,Notch singaling
+ANASTROZOLE_NCI_Onc_AOD,ANASTROZOLE,NCI_Onc_AOD,ANASTROZOLE (NCI_Onc_AOD),Enzyme inhibitor,Aromatase,Endocrine and Hormone therapy,AR/PR/GR/ER
+LETROZOLE_NCI_Onc_AOD,LETROZOLE,NCI_Onc_AOD,LETROZOLE (NCI_Onc_AOD),Enzyme inhibitor,Aromatase,Endocrine and Hormone therapy,AR/PR/GR/ER
+EXEMESTANE_NCI_Onc_AOD,EXEMESTANE,NCI_Onc_AOD,EXEMESTANE (NCI_Onc_AOD),Enzyme inhibitor,Aromatase,Endocrine and Hormone therapy,AR/PR/GR/ER
+PITSTOP2_Broad,PITSTOP2,Broad,PITSTOP2 (Broad),Enzyme inhibitor,CLTA,Endocytosis,
+TIPIFARNIBP1_Broad,TIPIFARNIB-P1,Broad,TIPIFARNIB-P1 (Broad),Enzyme inhibitor,FPTase,Farnesylation/protein localization,Development~metabolism~pleiotipic effects
+TIPIFARNIBSENANTIOMER_Broad,TIPIFARNIB (S ENANTIOMER),Broad,TIPIFARNIB (S ENANTIOMER) (Broad),Enzyme inhibitor,FPTase,Farnesylation/protein localization,Development~metabolism~pleiotipic effects
+IMPORTAZOLE_Broad,IMPORTAZOLE,Broad,IMPORTAZOLE (Broad),Enzyme inhibitor,KPNB1,Importin inhibitor,Nuclear importation
+SB743921_Broad,SB-743921,Broad,SB-743921 (Broad),Enzyme inhibitor,KSP,Check point or mitotic inhibitor,Cell cycle~mitotic progression
+PALMOSTATINB_Broad,PALMOSTATIN B,Broad,PALMOSTATIN B (Broad),Enzyme inhibitor,LYPLA1,RAS localization,MAPK
+HLI373_Broad,HLI 373,Broad,HLI 373 (Broad),Enzyme inhibitor,MDM2,Targeted modulator of apoptosis,DNA maintenance~Repair~Apoptosis
+WAY362450_Broad,WAY-362450,Broad,WAY-362450 (Broad),Enzyme inhibitor,NR1H4,RAS localization,MAPK
+U73122_Custom Clinical,U 73122,Custom Clinical,U 73122 (Custom Clinical),Enzyme inhibitor,PLC,Phospholipase (e.g. PLA) inhibitor,PLC/PKC/DAG
+KHS101_Broad,KHS101,Broad,KHS101 (Broad),Enzyme inhibitor,TACC3,Check point or mitotic inhibitor,Cell cycle~mitotic progression
+MST312_Broad,MST-312,Broad,MST-312 (Broad),Enzyme inhibitor,TERT,RT Telomerase,DNA maintenance~Repair~Apoptosis
+FGIN127_Broad,FGIN-1-27,Broad,FGIN-1-27 (Broad),Enzyme inhibitor,TSPO,Steroid hormone synthesis,Cholesterol metabolism
+MIRA1_Broad,MIRA-1,Broad,MIRA-1 (Broad),Enzyme inhibitor,WRN,Helicase inhibitor,DNA maintenance~Repair~Apoptosis
+NSC19630_Broad,NSC19630,Broad,NSC19630 (Broad),Enzyme inhibitor,WRN,DNA helicase,DNA maintenance~Repair~Apoptosis
+GSK525762A_Broad,GSK525762A,Broad,GSK525762A (Broad),Epigenetic regulator,BET family,Acetylated lysine reader,Reader-Writer-Eraser of K-ac
+IBET151DIHYDROCHLORIDE_Broad,I-BET 151 DIHYDROCHLORIDE,Broad,I-BET 151 DIHYDROCHLORIDE (Broad),Epigenetic regulator,BET family,Acetylated lysine reader,Reader-Writer-Eraser of K-ac
+AZACITIDINE_Broad,AZACITIDINE,Broad,AZACITIDINE (Broad),Epigenetic regulator,DNA methyltransferase,DNA methylation writer,Reader-Writer-Eraser of DNA-me
+RG108_Broad,RG-108,Broad,RG-108 (Broad),Epigenetic regulator,DNA methyltransferase,DNA methylation writer,Reader-Writer-Eraser of DNA-me
+DECITABINE_Broad,DECITABINE,Broad,DECITABINE (Broad),Epigenetic regulator,DNA methyltransferase,DNA methylation writer,Reader-Writer-Eraser of DNA-me
+ZEBULARINE_Broad,ZEBULARINE,Broad,ZEBULARINE (Broad),Epigenetic regulator,DNA methyltransferase,DNA methylation writer,Reader-Writer-Eraser of DNA-me
+DECITABINE_NCI_Onc_AOD,DECITABINE,NCI_Onc_AOD,DECITABINE (NCI_Onc_AOD),Epigenetic regulator,DNA methyltransferase,DNA methylation writer,Reader-Writer-Eraser of DNA-me
+AZACITIDINE_NCI_Onc_AOD,AZACITIDINE,NCI_Onc_AOD,AZACITIDINE (NCI_Onc_AOD),Epigenetic regulator,DNA methyltransferase,DNA methylation writer,Reader-Writer-Eraser of DNA-me
+UNC0638_Broad,UNC 0638,Broad,UNC 0638 (Broad),Epigenetic regulator,EHMT1,Histone methylation writer,Reader-Writer-Eraser of K-me
+BRD4770_Broad,BRD4770,Broad,BRD4770 (Broad),Epigenetic regulator,EHMT2,Histone methylation writer,Reader-Writer-Eraser of K-me
+BIX01294HYDROCHLORIDEHYDRATE_Broad,BIX01294(HYDROCHLORIDE HYDRATE),Broad,BIX01294(HYDROCHLORIDE HYDRATE) (Broad),Epigenetic regulator,G9a,Histone methylation writer,Reader-Writer-Eraser of K-me
+PANOBINOSTAT_NCI_Onc_AOD,PANOBINOSTAT,NCI_Onc_AOD,PANOBINOSTAT (NCI_AOD9),Epigenetic regulator,HDAC,,
+APICIDIN_Broad,APICIDIN,Broad,APICIDIN (Broad),Epigenetic regulator,HDAC,Nuclear/cytoplasmic protein deacetylation,Reader-Writer-Eraser of K-ac
+CAY10603_Broad,CAY10603,Broad,CAY10603 (Broad),Epigenetic regulator,HDAC,Nuclear/cytoplasmic protein deacetylation,Reader-Writer-Eraser of K-ac
+JNJ26854165_Broad,JNJ 26854165,Broad,JNJ 26854165 (Broad),Epigenetic regulator,HDAC1,Nuclear protein deacetylation,Reader-Writer-Eraser of K-ac
+PARTHENOLIDE_Broad,PARTHENOLIDE,Broad,PARTHENOLIDE (Broad),Epigenetic regulator,HDAC1,Nuclear protein deacetylation,Reader-Writer-Eraser of K-ac
+JNJ26481585_Custom Clinical,JNJ-26481585,Custom Clinical,JNJ-26481585 (Custom Clinical),Epigenetic regulator,HDAC1,Nuclear protein deacetylation,Reader-Writer-Eraser of K-ac
+MGCD0103_Custom Clinical,MGCD0103,Custom Clinical,MGCD0103 (Custom Clinical),Epigenetic regulator,HDAC1,Nuclear protein deacetylation,Reader-Writer-Eraser of K-ac
+MS275_Custom Clinical,MS-275,Custom Clinical,MS-275 (Custom Clinical),Epigenetic regulator,HDAC1,Nuclear protein deacetylation,Reader-Writer-Eraser of K-ac
+ROMIDEPSIN_NCI_Onc_AOD,ROMIDEPSIN,NCI_Onc_AOD,ROMIDEPSIN (NCI_AOD9),Epigenetic regulator,HDAC1; HDAC2,,
+ISOX_Broad,ISOX,Broad,ISOX (Broad),Epigenetic regulator,HDAC6,cytoplasmic protein deacetylation,Reader-writer-eraser of K-ac
+GSKJ4_Broad,GSK J4,Broad,GSK J4 (Broad),Epigenetic regulator,KDM6A,Histone methylation eraser,Reader-Writer-Eraser of K-me
+LOMEGUATRIB_Broad,LOMEGUATRIB,Broad,LOMEGUATRIB (Broad),Epigenetic regulator,MGMT,DNA methylation writer,Reader-Writer-Eraser of DNA-me
+BELINOSTAT_Broad,BELINOSTAT,Broad,BELINOSTAT (Broad),Epigenetic regulator,Pan-HDAC,Nuclear/cytoplasmic protein deacetylation,Reader-Writer-Eraser of K-ac
+VORINOSTAT_Broad,VORINOSTAT,Broad,VORINOSTAT (Broad),Epigenetic regulator,Pan-HDAC,Nuclear/cytoplasmic protein deacetylation,Reader-Writer-Eraser of K-ac
+TRICHOSTATINA_Custom Clinical,TRICHOSTATIN A,Custom Clinical,TRICHOSTATIN A (Custom Clinical),Epigenetic regulator,Pan-HDAC,Nuclear/cytoplasmic protein deacetylation,Reader-Writer-Eraser of K-ac
+PXD101_Custom Clinical,PXD101,Custom Clinical,PXD101 (Custom Clinical),Epigenetic regulator,Pan-HDAC,Nuclear/cytoplasmic protein deacetylation,Reader-Writer-Eraser of K-ac
+PCI24781_Custom Clinical,PCI-24781,Custom Clinical,PCI-24781 (Custom Clinical),Epigenetic regulator,Pan-HDAC,Nuclear/cytoplasmic protein deacetylation,Reader-Writer-Eraser of K-ac
+NVPLAQ824_Custom Clinical,NVP LAQ824,Custom Clinical,NVP LAQ824 (Custom Clinical),Epigenetic regulator,Pan-HDAC,Nuclear/cytoplasmic protein deacetylation,Reader-Writer-Eraser of K-ac
+VORINOSTAT_NCI_Onc_AOD,VORINOSTAT,NCI_Onc_AOD,VORINOSTAT (NCI_Onc_AOD),Epigenetic regulator,Pan-HDAC,Nuclear/cytoplasmic protein deacetylation,Reader-Writer-Eraser of K-ac
+LBH589_Custom Clinical,LBH-589,Custom Clinical,LBH-589 (Custom Clinical),Epigenetic regulator,Pan-HDAC,Nuclear/cytoplasmic protein deacetylation,Reader-Writer-Eraser of K-ac
+VORINOSTAT_Custom Clinical,VORINOSTAT,Custom Clinical,VORINOSTAT (Custom Clinical),Epigenetic regulator,Pan-HDAC,Nuclear/cytoplasmic protein deacetylation,Reader-Writer-Eraser of K-ac
+BELINOSTAT_NCI_Onc_AOD,BELINOSTAT,NCI_Onc_AOD,BELINOSTAT (NCI_AOD9),Epigenetic regulator,Pan-HDAC,Nuclear/cytoplasmic protein deacetylation,Reader-Writer-Eraser of K-ac
+SALERMIDE_Broad,SALERMIDE,Broad,SALERMIDE (Broad),Epigenetic regulator,SIRT,Nuclear protein deacetylation,Reader-Writer-Eraser of K-ac
+SRT1720_Broad,SRT-1720,Broad,SRT-1720 (Broad),Epigenetic regulator,SIRT1,Nuclear protein deacetylation,Reader-Writer-Eraser of K-ac
+EX527_Broad,EX-527,Broad,EX-527 (Broad),Epigenetic regulator,SIRT1,Nuclear protein deacetylation,Reader-Writer-Eraser of K-ac
+EX527SELISISTAT_Broad,EX 527 (SELISISTAT),Broad,EX 527 (SELISISTAT) (Broad),Epigenetic regulator,SIRT1,Nuclear protein deacetylation,Reader-Writer-Eraser of K-ac
+AGK2_Broad,AGK 2,Broad,AGK 2 (Broad),Epigenetic regulator,SIRT2,Nuclear/cytoplasmic protein deacetylation,Reader-Writer-Eraser of K-ac
+MITOMYCIN_Broad,MITOMYCIN,Broad,MITOMYCIN (Broad),Genotoxic agent,DNA alkylation,DNA adducts,DNA maintenance~Repair~Apoptosis
+TEMOZOLOMIDE_Broad,TEMOZOLOMIDE,Broad,TEMOZOLOMIDE (Broad),Genotoxic agent,DNA alkylation,DNA adducts,DNA maintenance~Repair~Apoptosis
+IFOSFAMIDE_Broad,IFOSFAMIDE,Broad,IFOSFAMIDE (Broad),Genotoxic agent,DNA alkylation,DNA adducts,DNA maintenance~Repair~Apoptosis
+DACARBAZINE_Broad,DACARBAZINE,Broad,DACARBAZINE (Broad),Genotoxic agent,DNA alkylation,DNA adducts,DNA maintenance~Repair~Apoptosis
+OXALIPLATIN_Broad,OXALIPLATIN,Broad,OXALIPLATIN (Broad),Genotoxic agent,DNA alkylation,DNA adducts,DNA maintenance~Repair~Apoptosis
+CISPLATIN_Broad,CISPLATIN,Broad,CISPLATIN (Broad),Genotoxic agent,DNA alkylation,DNA adducts,DNA maintenance~Repair~Apoptosis
+CARBOPLATIN_Broad,CARBOPLATIN,Broad,CARBOPLATIN (Broad),Genotoxic agent,DNA alkylation,DNA adducts,DNA maintenance~Repair~Apoptosis
+CHLORAMBUCIL_Broad,CHLORAMBUCIL,Broad,CHLORAMBUCIL (Broad),Genotoxic agent,DNA alkylation,DNA adducts,DNA maintenance~Repair~Apoptosis
+TEMOZOLOMIDE_NCI_Onc_AOD,TEMOZOLOMIDE,NCI_Onc_AOD,TEMOZOLOMIDE (NCI_Onc_AOD),Genotoxic agent,DNA alkylation,DNA adducts,DNA maintenance~Repair~Apoptosis
+CISPLATIN_NCI_Onc_AOD,CISPLATIN,NCI_Onc_AOD,CISPLATIN (NCI_Onc_AOD),Genotoxic agent,DNA alkylation,DNA adducts,DNA maintenance~Repair~Apoptosis
+OXALIPLATIN_NCI_Onc_AOD,OXALIPLATIN,NCI_Onc_AOD,OXALIPLATIN (NCI_Onc_AOD),Genotoxic agent,DNA alkylation,DNA adducts,DNA maintenance~Repair~Apoptosis
+PIPOBROMAN_NCI_Onc_AOD,PIPOBROMAN,NCI_Onc_AOD,PIPOBROMAN (NCI_Onc_AOD),Genotoxic agent,DNA alkylation,DNA adducts,DNA maintenance~Repair~Apoptosis
+STREPTOZOCIN_NCI_Onc_AOD,STREPTOZOCIN,NCI_Onc_AOD,STREPTOZOCIN (NCI_Onc_AOD),Genotoxic agent,DNA alkylation,DNA adducts,DNA maintenance~Repair~Apoptosis
+AMIFOSTINE_NCI_Onc_AOD,AMIFOSTINE,NCI_Onc_AOD,AMIFOSTINE (NCI_Onc_AOD),Genotoxic agent,DNA alkylation,DNA adducts,DNA maintenance~Repair~Apoptosis
+MECHLORETHAMINEHYDROCHLORIDE_NCI_Onc_AOD,MECHLORETHAMINE HYDROCHLORIDE,NCI_Onc_AOD,MECHLORETHAMINE HYDROCHLORIDE (NCI_Onc_AOD),Genotoxic agent,DNA alkylation,DNA adducts,DNA maintenance~Repair~Apoptosis
+URACILMUSTARD_NCI_Onc_AOD,URACIL MUSTARD,NCI_Onc_AOD,URACIL MUSTARD (NCI_Onc_AOD),Genotoxic agent,DNA alkylation,DNA adducts,DNA maintenance~Repair~Apoptosis
+CARBOPLATIN_NCI_Onc_AOD,CARBOPLATIN,NCI_Onc_AOD,CARBOPLATIN (NCI_Onc_AOD),Genotoxic agent,DNA alkylation,DNA adducts,DNA maintenance~Repair~Apoptosis
+LOMUSTINE_NCI_Onc_AOD,LOMUSTINE,NCI_Onc_AOD,LOMUSTINE (NCI_Onc_AOD),Genotoxic agent,DNA alkylation,DNA adducts,DNA maintenance~Repair~Apoptosis
+THIOTEPA_NCI_Onc_AOD,THIOTEPA,NCI_Onc_AOD,THIOTEPA (NCI_Onc_AOD),Genotoxic agent,DNA alkylation,DNA adducts,DNA maintenance~Repair~Apoptosis
+MELPHALANHYDROCHLORIDE_NCI_Onc_AOD,MELPHALAN HYDROCHLORIDE,NCI_Onc_AOD,MELPHALAN HYDROCHLORIDE (NCI_Onc_AOD),Genotoxic agent,DNA alkylation,DNA adducts,DNA maintenance~Repair~Apoptosis
+DACARBAZINE_NCI_Onc_AOD,DACARBAZINE,NCI_Onc_AOD,DACARBAZINE (NCI_Onc_AOD),Genotoxic agent,DNA alkylation,DNA adducts,DNA maintenance~Repair~Apoptosis
+ALTRETAMINE_NCI_Onc_AOD,ALTRETAMINE,NCI_Onc_AOD,ALTRETAMINE (NCI_Onc_AOD),Genotoxic agent,DNA alkylation,DNA adducts,DNA maintenance~Repair~Apoptosis
+CHLORAMBUCIL_NCI_Onc_AOD,CHLORAMBUCIL,NCI_Onc_AOD,CHLORAMBUCIL (NCI_Onc_AOD),Genotoxic agent,DNA alkylation,DNA adducts,DNA maintenance~Repair~Apoptosis
+TRIETHYLENEMELAMINE_NCI_Onc_AOD,TRIETHYLENEMELAMINE,NCI_Onc_AOD,TRIETHYLENEMELAMINE (NCI_Onc_AOD),Genotoxic agent,DNA alkylation,DNA adducts,DNA maintenance~Repair~Apoptosis
+PROCARBAZINEHYDROCHLORIDE_NCI_Onc_AOD,PROCARBAZINE HYDROCHLORIDE,NCI_Onc_AOD,PROCARBAZINE HYDROCHLORIDE (NCI_Onc_AOD),Genotoxic agent,DNA alkylation,DNA adducts,DNA maintenance~Repair~Apoptosis
+BUSULFAN_NCI_Onc_AOD,BUSULFAN,NCI_Onc_AOD,BUSULFAN (NCI_Onc_AOD),Genotoxic agent,DNA alkylation,DNA adducts,DNA maintenance~Repair~Apoptosis
+METHOXSALEN_NCI_Onc_AOD,METHOXSALEN,NCI_Onc_AOD,METHOXSALEN (NCI_Onc_AOD),Genotoxic agent,DNA alkylation,DNA adducts,DNA maintenance~Repair~Apoptosis
+IFOSFAMIDE_NCI_Onc_AOD,IFOSFAMIDE,NCI_Onc_AOD,IFOSFAMIDE (NCI_Onc_AOD),Genotoxic agent,DNA alkylation,DNA adducts,DNA maintenance~Repair~Apoptosis
+MITOMYCIN_NCI_Onc_AOD,MITOMYCIN,NCI_Onc_AOD,MITOMYCIN (NCI_Onc_AOD),Genotoxic agent,DNA alkylation,DNA adducts,DNA maintenance~Repair~Apoptosis
+CARMUSTINE_NCI_Onc_AOD,CARMUSTINE,NCI_Onc_AOD,CARMUSTINE (NCI_Onc_AOD),Genotoxic agent,DNA alkylation,DNA adducts,DNA maintenance~Repair~Apoptosis
+CYCLOPHOSPHAMIDE_Broad,CYCLOPHOSPHAMIDE,Broad,CYCLOPHOSPHAMIDE (Broad),Genotoxic agent,DNA crosslinking,DNA crosslinking,DNA maintenance~Repair~Apoptosis
+CYCLOPHOSPHAMIDE_NCI_Onc_AOD,CYCLOPHOSPHAMIDE,NCI_Onc_AOD,CYCLOPHOSPHAMIDE (NCI_Onc_AOD),Genotoxic agent,DNA crosslinking,DNA crosslinking,DNA maintenance~Repair~Apoptosis
+RAD51INHIBITORB02_Broad,RAD51 INHIBITOR B02,Broad,RAD51 INHIBITOR B02 (Broad),Genotoxic agent,DNA Damage,DNA Damage,DNA maintenance~Repair~Apoptosis
+PROCARBAZINEHCL_Broad,PROCARBAZINE HCL,Broad,PROCARBAZINE HCL (Broad),Genotoxic agent,DNA Damage,DNA Damage,DNA maintenance~Repair~Apoptosis
+CYTARABINE_Broad,CYTARABINE,Broad,CYTARABINE (Broad),Genotoxic agent,DNA synthesis inhibitor,DNA synthesis inhibitor,DNA maintenance~Repair~Apoptosis
+GEMCITABINE_Broad,GEMCITABINE,Broad,GEMCITABINE (Broad),Genotoxic agent,DNA synthesis inhibitor,DNA synthesis inhibitor,DNA maintenance~Repair~Apoptosis
+METHOTREXATE_Broad,METHOTREXATE,Broad,METHOTREXATE (Broad),Genotoxic agent,DNA synthesis inhibitor,DNA synthesis inhibitor,DNA maintenance~Repair~Apoptosis
+FLUOROURACIL_Broad,FLUOROURACIL,Broad,FLUOROURACIL (Broad),Genotoxic agent,DNA synthesis inhibitor,DNA synthesis inhibitor,DNA maintenance~Repair~Apoptosis
+NELARABINE_Broad,NELARABINE,Broad,NELARABINE (Broad),Genotoxic agent,DNA synthesis inhibitor,DNA synthesis inhibitor,DNA maintenance~Repair~Apoptosis
+BENDAMUSTINEHCL_Broad,BENDAMUSTINE HCL,Broad,BENDAMUSTINE HCL (Broad),Genotoxic agent,DNA synthesis inhibitor,DNA synthesis inhibitor,DNA maintenance~Repair~Apoptosis
+CLADRIBINE_NCI_Onc_AOD,CLADRIBINE,NCI_Onc_AOD,CLADRIBINE (NCI_Onc_AOD),Genotoxic agent,DNA synthesis inhibitor,DNA synthesis inhibitor,DNA maintenance~Repair~Apoptosis
+BENDAMUSTINEHYDROCHLORIDE_NCI_Onc_AOD,BENDAMUSTINE HYDROCHLORIDE,NCI_Onc_AOD,BENDAMUSTINE HYDROCHLORIDE (NCI_Onc_AOD),Genotoxic agent,DNA synthesis inhibitor,DNA synthesis inhibitor,DNA maintenance~Repair~Apoptosis
+FLUDARABINEPHOSPHATE_NCI_Onc_AOD,FLUDARABINE PHOSPHATE,NCI_Onc_AOD,FLUDARABINE PHOSPHATE (NCI_Onc_AOD),Genotoxic agent,DNA synthesis inhibitor,DNA synthesis inhibitor,DNA maintenance~Repair~Apoptosis
+8DODECYLSULFANYL13DIMETHYL7HPURINE26DIONE_NCI_Onc_AOD,"8-DODECYLSULFANYL-1,3-DIMETHYL-7H-PURINE-2,6-DIONE",NCI_Onc_AOD,"8-DODECYLSULFANYL-1,3-DIMETHYL-7H-PURINE-2,6-DIONE (NCI_Onc_AOD)",Genotoxic agent,DNA synthesis inhibitor,DNA synthesis inhibitor,DNA maintenance~Repair~Apoptosis
+FLOXURIDINE_NCI_Onc_AOD,FLOXURIDINE,NCI_Onc_AOD,FLOXURIDINE (NCI_Onc_AOD),Genotoxic agent,DNA synthesis inhibitor,DNA synthesis inhibitor,DNA maintenance~Repair~Apoptosis
+PRALATREXATE_NCI_Onc_AOD,PRALATREXATE,NCI_Onc_AOD,PRALATREXATE (NCI_Onc_AOD),Genotoxic agent,DNA synthesis inhibitor,DNA synthesis inhibitor,DNA maintenance~Repair~Apoptosis
+THIOGUANINE_NCI_Onc_AOD,THIOGUANINE,NCI_Onc_AOD,THIOGUANINE (NCI_Onc_AOD),Genotoxic agent,DNA synthesis inhibitor,DNA synthesis inhibitor,DNA maintenance~Repair~Apoptosis
+NELARABINE_NCI_Onc_AOD,NELARABINE,NCI_Onc_AOD,NELARABINE (NCI_Onc_AOD),Genotoxic agent,DNA synthesis inhibitor,DNA synthesis inhibitor,DNA maintenance~Repair~Apoptosis
+PEMETREXED_NCI_Onc_AOD,PEMETREXED,NCI_Onc_AOD,PEMETREXED (NCI_Onc_AOD),Genotoxic agent,DNA synthesis inhibitor,DNA synthesis inhibitor,DNA maintenance~Repair~Apoptosis
+CYTARABINEHYDROCHLORIDE_NCI_Onc_AOD,CYTARABINE HYDROCHLORIDE,NCI_Onc_AOD,CYTARABINE HYDROCHLORIDE (NCI_Onc_AOD),Genotoxic agent,DNA synthesis inhibitor,DNA synthesis inhibitor,DNA maintenance~Repair~Apoptosis
+MERCAPTOPURINE_NCI_Onc_AOD,MERCAPTOPURINE,NCI_Onc_AOD,MERCAPTOPURINE (NCI_Onc_AOD),Genotoxic agent,DNA synthesis inhibitor,DNA synthesis inhibitor,DNA maintenance~Repair~Apoptosis
+FLUOROURACIL_NCI_Onc_AOD,FLUOROURACIL,NCI_Onc_AOD,FLUOROURACIL (NCI_Onc_AOD),Genotoxic agent,DNA synthesis inhibitor,DNA synthesis inhibitor,DNA maintenance~Repair~Apoptosis
+METHOTREXATE_NCI_Onc_AOD,METHOTREXATE,NCI_Onc_AOD,METHOTREXATE (NCI_Onc_AOD),Genotoxic agent,DNA synthesis inhibitor,DNA synthesis inhibitor,DNA maintenance~Repair~Apoptosis
+HYDROXYUREA_NCI_Onc_AOD,HYDROXYUREA,NCI_Onc_AOD,HYDROXYUREA (NCI_Onc_AOD),Genotoxic agent,DNA synthesis inhibitor,DNA synthesis inhibitor,DNA maintenance~Repair~Apoptosis
+GEMCITABINEHYDROCHLORIDE_NCI_Onc_AOD,GEMCITABINE HYDROCHLORIDE,NCI_Onc_AOD,GEMCITABINE HYDROCHLORIDE (NCI_Onc_AOD),Genotoxic agent,DNA synthesis inhibitor,DNA synthesis inhibitor,DNA maintenance~Repair~Apoptosis
+TRIFLURIDINE_NCI_Onc_AOD,TRIFLURIDINE,NCI_Onc_AOD,TRIFLURIDINE (NCI_AOD9),Genotoxic agent,DNA synthesis inhibitor,,
+RUCAPARIBPHOSPHATE_NCI_Onc_AOD,RUCAPARIB PHOSPHATE,NCI_Onc_AOD,RUCAPARIB PHOSPHATE (NCI_AOD9),Genotoxic agent,PARP,DNA repair,
+TALAZOPARIB_NCI_Onc_AOD,TALAZOPARIB,NCI_Onc_AOD,TALAZOPARIB (NCI_AOD9),Genotoxic agent,PARP,DNA repair,
+AC55649_Broad,AC 55649,Broad,AC 55649 (Broad),Genotoxic agent,PARP,DNA repair,DNA maintenance~Repair~Apoptosis
+VELIPARIB_Broad,VELIPARIB,Broad,VELIPARIB (Broad),Genotoxic agent,PARP,DNA repair,DNA maintenance~Repair~Apoptosis
+OLAPARIB_Broad,OLAPARIB,Broad,OLAPARIB (Broad),Genotoxic agent,PARP,DNA repair,DNA maintenance~Repair~Apoptosis
+ABT888_Custom Clinical,ABT-888,Custom Clinical,ABT-888 (Custom Clinical),Genotoxic agent,PARP,DNA repair,DNA maintenance~Repair~Apoptosis
+DR2313_Custom Clinical,DR 2313,Custom Clinical,DR 2313 (Custom Clinical),Genotoxic agent,PARP,DNA repair,DNA maintenance~Repair~Apoptosis
+NU1025_Custom Clinical,NU 1025,Custom Clinical,NU 1025 (Custom Clinical),Genotoxic agent,PARP,DNA repair,DNA maintenance~Repair~Apoptosis
+OLAPARIB_NCI_Onc_AOD,OLAPARIB,NCI_Onc_AOD,OLAPARIB (NCI_AOD9),Genotoxic agent,PARP,DNA repair,DNA maintenance~Repair~Apoptosis
+PENTOSTATIN_NCI_Onc_AOD,PENTOSTATIN,NCI_Onc_AOD,PENTOSTATIN (NCI_Onc_AOD),Genotoxic agent,Purine analogue,DNA synthesis,DNA maintenance~Repair~Apoptosis
+BIBR1532_Broad,BIBR-1532,Broad,BIBR-1532 (Broad),Genotoxic agent,Telomerase,DNA Damage,DNA maintenance~Repair~Apoptosis
+CAPECITABINE_NCI_Onc_AOD,CAPECITABINE,NCI_Onc_AOD,CAPECITABINE (NCI_Onc_AOD),Genotoxic agent,Thymidine phosphorylase,DNA synthesis inhibitor,DNA maintenance~Repair~Apoptosis
+BETULINICACID_Broad,BETULINIC ACID,Broad,BETULINIC ACID (Broad),Genotoxic agent,TOPO,DNA Damage,DNA maintenance~Repair~Apoptosis
+MITOXANTRONE_NCI_Onc_AOD,MITOXANTRONE,NCI_Onc_AOD,MITOXANTRONE (NCI_Onc_AOD),Genotoxic agent,TOPO,DNA Damage,DNA maintenance~Repair~Apoptosis
+TOPOTECAN_Broad,TOPOTECAN,Broad,TOPOTECAN (Broad),Genotoxic agent,TOPO I,DNA Damage,DNA maintenance~Repair~Apoptosis
+ETOPOSIDE_Broad,ETOPOSIDE,Broad,ETOPOSIDE (Broad),Genotoxic agent,TOPO I,DNA Damage,DNA maintenance~Repair~Apoptosis
+SN38_Broad,SN 38,Broad,SN 38 (Broad),Genotoxic agent,TOPO I,DNA Damage,DNA maintenance~Repair~Apoptosis
+ETOPOSIDE_NCI_Onc_AOD,ETOPOSIDE,NCI_Onc_AOD,ETOPOSIDE (NCI_Onc_AOD),Genotoxic agent,TOPO I,DNA Damage,DNA maintenance~Repair~Apoptosis
+TOPOTECANHYDROCHLORIDE_NCI_Onc_AOD,TOPOTECAN HYDROCHLORIDE,NCI_Onc_AOD,TOPOTECAN HYDROCHLORIDE (NCI_Onc_AOD),Genotoxic agent,TOPO I,DNA Damage,DNA maintenance~Repair~Apoptosis
+IRINOTECANHYDROCHLORIDE_NCI_Onc_AOD,IRINOTECAN HYDROCHLORIDE,NCI_Onc_AOD,IRINOTECAN HYDROCHLORIDE (NCI_Onc_AOD),Genotoxic agent,TOPO I,DNA Damage,DNA maintenance~Repair~Apoptosis
+EPIRUBICINHYDROCHLORIDE_NCI_Onc_AOD,EPIRUBICIN HYDROCHLORIDE,NCI_Onc_AOD,EPIRUBICIN HYDROCHLORIDE (NCI_Onc_AOD),Genotoxic agent,TOPO II,DNA synthesis inhibitor,DNA maintenance~Repair~Apoptosis
+DAUNORUBICINHYDROCHLORIDE_NCI_Onc_AOD,DAUNORUBICIN HYDROCHLORIDE,NCI_Onc_AOD,DAUNORUBICIN HYDROCHLORIDE (NCI_Onc_AOD),Genotoxic agent,TOPO II,DNA synthesis inhibitor,DNA maintenance~Repair~Apoptosis
+DOXORUBICIN_Broad,DOXORUBICIN,Broad,DOXORUBICIN (Broad),Genotoxic agent,TOPO II,DNA Damage,DNA maintenance~Repair~Apoptosis
+TENIPOSIDE_Broad,TENIPOSIDE,Broad,TENIPOSIDE (Broad),Genotoxic agent,TOPO II,DNA Damage,DNA maintenance~Repair~Apoptosis
+DOXORUBICINHYDROCHLORIDE_NCI_Onc_AOD,DOXORUBICIN HYDROCHLORIDE,NCI_Onc_AOD,DOXORUBICIN HYDROCHLORIDE (NCI_Onc_AOD),Genotoxic agent,TOPO II,DNA Damage,DNA maintenance~Repair~Apoptosis
+TENIPOSIDE_NCI_Onc_AOD,TENIPOSIDE,NCI_Onc_AOD,TENIPOSIDE (NCI_Onc_AOD),Genotoxic agent,TOPO II,DNA Damage,DNA maintenance~Repair~Apoptosis
+VALRUBICIN_NCI_Onc_AOD,VALRUBICIN,NCI_Onc_AOD,VALRUBICIN (NCI_Onc_AOD),Genotoxic agent,TOPO II,DNA Damage,DNA maintenance~Repair~Apoptosis
+IDARUBICINHYDROCHLORIDE_NCI_Onc_AOD,IDARUBICIN HYDROCHLORIDE,NCI_Onc_AOD,IDARUBICIN HYDROCHLORIDE (NCI_Onc_AOD),Genotoxic agent,TOPO II,DNA Damage,DNA maintenance~Repair~Apoptosis
+BLEOMYCINA2_Broad,BLEOMYCIN A2,Broad,BLEOMYCIN A2 (Broad),Genotoxic agent,UT-SCC-19A,DNA Damage,DNA maintenance~Repair~Apoptosis
+BLEOMYCINSULFATE_NCI_Onc_AOD,BLEOMYCIN SULFATE,NCI_Onc_AOD,BLEOMYCIN SULFATE (NCI_Onc_AOD),Genotoxic agent,UT-SCC-19A,DNA Damage,DNA maintenance~Repair~Apoptosis
+ISTRADEFYLLINE_Broad,ISTRADEFYLLINE,Broad,ISTRADEFYLLINE (Broad),GPCR & G Protein,Adenosine receptor,cAMP related signaling,PI3K/AKT/mTOR~MAPK
+GW405833_Broad,GW 405833,Broad,GW 405833 (Broad),GPCR & G Protein,CNR2,Cannabinoid receptor,Cannabinoid Receptor agonist
+PROCHLORPERAZINEDIMALEATE_Broad,PROCHLORPERAZINE DIMALEATE,Broad,PROCHLORPERAZINE DIMALEATE (Broad),GPCR & G Protein,D2,,Dopamine singaling
+TRIFLUOPERAZINE_Broad,TRIFLUOPERAZINE,Broad,TRIFLUOPERAZINE (Broad),GPCR & G Protein,DRD2,Dopamine related signaling,cAMP downregulation
+MDIVI1_Broad,MDIVI 1,Broad,MDIVI 1 (Broad),GPCR & G Protein,Dynamin1,Mitochondrial fission,
+SCH79797DIHYDROCHLORIDE_Broad,SCH 79797 DIHYDROCHLORIDE,Broad,SCH 79797 DIHYDROCHLORIDE (Broad),GPCR & G Protein,F2R,Platelet growth,Thrombic response
+SCH530348_Broad,SCH 530348,Broad,SCH 530348 (Broad),GPCR & G Protein,F2R,Platelet growth,Thrombic response
+VORAPAXAR_Broad,VORAPAXAR,Broad,VORAPAXAR (Broad),GPCR & G Protein,F2R,Platelet growth,Thrombic response
+CIMETIDINE_Broad,CIMETIDINE,Broad,CIMETIDINE (Broad),GPCR & G Protein,HRH2,Anti-Inflammatory,Histamine signaling
+NSC23766HYDROCHLORIDE_Broad,NSC23766(HYDROCHLORIDE),Broad,NSC23766(HYDROCHLORIDE) (Broad),GPCR & G Protein,RAC,Invasion~motility,Cytoskeletal Signaling
+NSC23766_Custom Clinical,NSC23766,Custom Clinical,NSC23766 (Custom Clinical),GPCR & G Protein,RAC,Invasion~motility,Cytoskeletal Signaling
+NARCICLASINE_Broad,NARCICLASINE,Broad,NARCICLASINE (Broad),GPCR & G Protein,RhoA,Invasion~motility,Cytoskeletal Signaling
+SKIII_Broad,SKI-II,Broad,SKI-II (Broad),GPCR & G Protein,S1P receptor,Invasion~motility,sphingosine presentation
+FINGOLIMODFTY720HCL_Broad,FINGOLIMOD (FTY720) HCL,Broad,FINGOLIMOD (FTY720) HCL (Broad),GPCR & G Protein,S1P receptor,Invasion~motility,sphingosine presentation
+FINGOLIMOD_Custom Clinical,FINGOLIMOD,Custom Clinical,FINGOLIMOD (Custom Clinical),GPCR & G Protein,S1P receptor,Invasion~motility,sphingosine presentation
+PURMORPHAMINE_Broad,PURMORPHAMINE,Broad,PURMORPHAMINE (Broad),GPCR & G Protein,Smoothened,Systems level patterning,Hedgehog pathway
+ERISMODEGIB_Broad,ERISMODEGIB,Broad,ERISMODEGIB (Broad),GPCR & G Protein,Smoothened,Systems level patterning,Hedgehog pathway
+CYCLOPAMINE_Custom Clinical,CYCLOPAMINE,Custom Clinical,CYCLOPAMINE (Custom Clinical),GPCR & G Protein,Smoothened,Systems level patterning,Hedgehog pathway
+VISMODEGIB_NCI_Onc_AOD,VISMODEGIB,NCI_Onc_AOD,VISMODEGIB (NCI_Onc_AOD),GPCR & G Protein,Smoothened,Systems level patterning,Hedgehog pathway
+ERISMODEGIB_NCI_Onc_AOD,ERISMODEGIB,NCI_Onc_AOD,ERISMODEGIB (NCI_AOD9),GPCR & G Protein,Smoothened,Systems level patterning,Hedgehog pathway
+PLERIXAFOR_NCI_Onc_AOD,PLERIXAFOR,NCI_Onc_AOD,PLERIXAFOR (NCI_Onc_AOD),Immunomodulator,CXCR,Immunostimulant,
+IMIQUIMOD_NCI_Onc_AOD,IMIQUIMOD,NCI_Onc_AOD,IMIQUIMOD (NCI_Onc_AOD),Immunomodulator,TLR,,
+POMALIDOMIDE_NCI_Onc_AOD,POMALIDOMIDE,NCI_Onc_AOD,POMALIDOMIDE (NCI_AOD9),Immunomodulator,TNF,Anti-Inflammatory,
+HC067047_Broad,HC 067047,Broad,HC 067047 (Broad),Ion channel,Ca channel,Ion homeostasis,Ca ion homeostasis
+BMS204352_Custom Clinical,BMS 204352,Custom Clinical,BMS 204352 (Custom Clinical),Ion channel,K channels,Ion homeostasis,K Ion homeostasis
+MITOTANE_NCI_Onc_AOD,MITOTANE,NCI_Onc_AOD,MITOTANE (NCI_Onc_AOD),Ion channel,Na channels,Ion homeostasis,DNA maintenance~Repair~Apoptosis
+OUABAIN_Broad,OUABAIN,Broad,OUABAIN (Broad),Ion channel,Na Channels,Ion homeostasis,Na ion homeostasis
+HYPERFORIN_Broad,HYPERFORIN,Broad,HYPERFORIN (Broad),Ion channel,TRPC6,Ion homeostasis,Ca ion homeostasis
+BAFILOMYCINA1_Broad,BAFILOMYCIN A1,Broad,BAFILOMYCIN A1 (Broad),Ion channel,vascular-ATPase,Autophagy,H ion homeostasis
+AT7867_Broad,AT7867,Broad,AT7867 (Broad),Kinase inhibitor,AKT,S/T kinase inhibitor,PI3K/AKT/mTOR
+MK22062HCL_Broad,MK-2206 2HCL,Broad,MK-2206 2HCL (Broad),Kinase inhibitor,AKT,S/T kinase inhibitor,PI3K/AKT/mTOR
+PERIFOSINE_Custom Clinical,PERIFOSINE,Custom Clinical,PERIFOSINE (Custom Clinical),Kinase inhibitor,AKT,S/T kinase inhibitor,PI3K/AKT/mTOR
+MK2206_Custom Clinical,MK-2206,Custom Clinical,MK-2206 (Custom Clinical),Kinase inhibitor,AKT,S/T kinase inhibitor,PI3K/AKT/mTOR
+DEGUELIN_Custom Clinical,DEGUELIN,Custom Clinical,DEGUELIN (Custom Clinical),Kinase inhibitor,AKT,S/T kinase inhibitor,PI3K/AKT/mTOR
+TRICIRIBINE_Custom Clinical,TRICIRIBINE,Custom Clinical,TRICIRIBINE (Custom Clinical),Kinase inhibitor,AKT,S/T kinase inhibitor,PI3K/AKT/mTOR
+SB525334_Broad,SB-525334,Broad,SB-525334 (Broad),Kinase inhibitor,ALK,RTK Inhibitor,JAK/STAT
+NVPTAE684_Broad,NVP-TAE684,Broad,NVP-TAE684 (Broad),Kinase inhibitor,ALK,RTK Inhibitor,JAK/STAT
+NVPTAE684_Custom Clinical,NVP TAE684,Custom Clinical,NVP TAE684 (Custom Clinical),Kinase inhibitor,ALK,RTK Inhibitor,JAK/STAT
+A769662_Custom Clinical,A-769662,Custom Clinical,A-769662 (Custom Clinical),Kinase inhibitor,AMPK,S/T kinase inhibitor,PI3K/AKT/mTOR~MAPK
+COMPOUNDC_Custom Clinical,COMPOUND C,Custom Clinical,COMPOUND C (Custom Clinical),Kinase inhibitor,AMPK,S/T kinase inhibitor,PI3K/AKT/mTOR~MAPK
+AICAR_Custom Clinical,AICAR,Custom Clinical,AICAR (Custom Clinical),Kinase inhibitor,AMPK,S/T kinase inhibitor,PI3K/AKT/mTOR~MAPK
+KU60019_Broad,KU-60019,Broad,KU-60019 (Broad),Kinase inhibitor,ATM,S/T kinase inhibitor,DNA maintenance~Repair~Apoptosis
+KU55933_Broad,KU-55933,Broad,KU-55933 (Broad),Kinase inhibitor,ATM,S/T kinase inhibitor,DNA maintenance~Repair~Apoptosis
+KU55933_Custom Clinical,KU-55933,Custom Clinical,KU-55933 (Custom Clinical),Kinase inhibitor,ATM,S/T kinase inhibitor,DNA maintenance~Repair~Apoptosis
+VX680_Broad,VX-680,Broad,VX-680 (Broad),Kinase inhibitor,AURK,Check point or mitotic inhibitor,Cell cycle~mitotic progression
+BARASERTIB_Broad,BARASERTIB,Broad,BARASERTIB (Broad),Kinase inhibitor,AURK,Check point or mitotic inhibitor,Cell cycle~mitotic progression
+ALISERTIB_Broad,ALISERTIB,Broad,ALISERTIB (Broad),Kinase inhibitor,AURK,Check point or mitotic inhibitor,Cell cycle~mitotic progression
+AZD1152HQPA_Custom Clinical,AZD1152-HQPA,Custom Clinical,AZD1152-HQPA (Custom Clinical),Kinase inhibitor,AURK,Check point or mitotic inhibitor,Cell cycle~mitotic progression
+TOZASERTIB_Custom Clinical,TOZASERTIB,Custom Clinical,TOZASERTIB (Custom Clinical),Kinase inhibitor,AURK,Check point or mitotic inhibitor,Cell cycle~mitotic progression
+ZM447439_Custom Clinical,ZM447439,Custom Clinical,ZM447439 (Custom Clinical),Kinase inhibitor,AURK,Check point or mitotic inhibitor,Cell cycle~mitotic progression
+R428_Broad,R428,Broad,R428 (Broad),Kinase inhibitor,Axl,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+DASATINIB_Broad,DASATINIB,Broad,DASATINIB (Broad),Kinase inhibitor,Bcr-Abl,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+NILOTINIB_Broad,NILOTINIB,Broad,NILOTINIB (Broad),Kinase inhibitor,Bcr-Abl,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+WP1130_Broad,WP1130,Broad,WP1130 (Broad),Kinase inhibitor,Bcr-Abl,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+IMATINIB_Broad,IMATINIB,Broad,IMATINIB (Broad),Kinase inhibitor,Bcr-Abl,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+DASATINIB_Custom Clinical,DASATINIB,Custom Clinical,DASATINIB (Custom Clinical),Kinase inhibitor,Bcr-Abl,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+NILOTINIB_NCI_Onc_AOD,NILOTINIB,NCI_Onc_AOD,NILOTINIB (NCI_Onc_AOD),Kinase inhibitor,Bcr-Abl,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+NILOTINIB_Custom Clinical,NILOTINIB,Custom Clinical,NILOTINIB (Custom Clinical),Kinase inhibitor,Bcr-Abl,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+IMATINIB_NCI_Onc_AOD,IMATINIB,NCI_Onc_AOD,IMATINIB (NCI_Onc_AOD),Kinase inhibitor,Bcr-Abl,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+DASATINIB_NCI_Onc_AOD,DASATINIB,NCI_Onc_AOD,DASATINIB (NCI_Onc_AOD),Kinase inhibitor,Bcr-Abl,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+PD180970_Custom Clinical,PD 180970,Custom Clinical,PD 180970 (Custom Clinical),Kinase inhibitor,Bcr-Abl,RTK inhibitor,PI3K/AKT/mTOR~MAPK
+IMATINIB_Custom Clinical,IMATINIB,Custom Clinical,IMATINIB (Custom Clinical),Kinase inhibitor,Bcr-Abl,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+IBRUTINIB_Broad,IBRUTINIB,Broad,IBRUTINIB (Broad),Kinase inhibitor,BTK,RTK Inhibitor,PLC/PKC/DAG
+IBRUTINIB_NCI_Onc_AOD,IBRUTINIB,NCI_Onc_AOD,IBRUTINIB (NCI_AOD9),Kinase inhibitor,BTK,RTK Inhibitor,PLC/PKC/DAG
+NSC95397_Broad,NSC 95397,Broad,NSC 95397 (Broad),Kinase inhibitor,CDC25,Check point or mitotic inhibitor,Cell cycle~mitotic progression
+N9ISOPROPYLOLOMOUCINE_Broad,N9-ISOPROPYLOLOMOUCINE,Broad,N9-ISOPROPYLOLOMOUCINE (Broad),Kinase inhibitor,CDK,Check point or mitotic inhibitor,Cell cycle~mitotic progression
+DINACICLIB_Broad,DINACICLIB,Broad,DINACICLIB (Broad),Kinase inhibitor,CDK2,Check point or mitotic inhibitor,Cell cycle~mitotic progression
+ROSCOVITINE_Custom Clinical,ROSCOVITINE,Custom Clinical,ROSCOVITINE (Custom Clinical),Kinase inhibitor,CDK2,Check point or mitotic inhibitor,Cell cycle~mitotic progression
+NSC625987_Custom Clinical,NSC 625987,Custom Clinical,NSC 625987 (Custom Clinical),Kinase inhibitor,CDK4,Check point or mitotic inhibitor,Cell cycle~mitotic progression
+PHA793887_Broad,PHA-793887,Broad,PHA-793887 (Broad),Kinase inhibitor,CDK5/p25,Check point or mitotic inhibitor,Cell cycle~mitotic progression
+SNS032_Broad,SNS-032,Broad,SNS-032 (Broad),Kinase inhibitor,CDK9/CyclinT,Check point or mitotic inhibitor,Cell cycle~mitotic progression
+AZD7762_Broad,AZD7762,Broad,AZD7762 (Broad),Kinase inhibitor,Chk1,Check point or mitotic inhibitor,Cell cycle~mitotic progression
+AZD7762_Custom Clinical,AZD 7762,Custom Clinical,AZD 7762 (Custom Clinical),Kinase inhibitor,Chk1,Check point or mitotic inhibitor,Cell cycle~mitotic progression
+SB218078_Custom Clinical,SB 218078,Custom Clinical,SB 218078 (Custom Clinical),Kinase inhibitor,Chk1,Check point or mitotic inhibitor,Cell cycle~mitotic progression
+CHK2INHIBITORII_Custom Clinical,CHK2 INHIBITOR II,Custom Clinical,CHK2 INHIBITOR II (Custom Clinical),Kinase inhibitor,Chk2,Check point or mitotic inhibitor,Cell cycle~mitotic progression
+KHCB19_Broad,KH-CB19,Broad,KH-CB19 (Broad),Kinase inhibitor,CLK1,S/R kinase inhibitor,mRNA processing
+TIVANTINIB_Broad,TIVANTINIB,Broad,TIVANTINIB (Broad),Kinase inhibitor,c-Met,,
+PF4800567HYDROCHLORIDE_Broad,PF 4800567 HYDROCHLORIDE,Broad,PF 4800567 HYDROCHLORIDE (Broad),Kinase inhibitor,CSNK1D,S/T kinase inhibitor,DNA maintenance~Repair~Apoptosis
+SILMITASERTIB_Broad,SILMITASERTIB,Broad,SILMITASERTIB (Broad),Kinase inhibitor,CSNK2,S/T kinase inhibitor,Circadian rhythm
+LRRK2IN1_Broad,LRRK2-IN-1,Broad,LRRK2-IN-1 (Broad),Kinase inhibitor,DCLK1,Check point or mitotic inhibitor,Cell cycle~mitotic progression
+COMPOUND401_Custom Clinical,COMPOUND 401,Custom Clinical,COMPOUND 401 (Custom Clinical),Kinase inhibitor,DNA-PK,S/T kinase inhibitor,DNA maintenance~Repair~Apoptosis
+DNAPKINHIBITORV_Custom Clinical,DNA-PK INHIBITOR V,Custom Clinical,DNA-PK INHIBITOR V (Custom Clinical),Kinase inhibitor,DNA-PK,S/T kinase inhibitor,DNA maintenance~Repair~Apoptosis
+AFATINIB_Broad,AFATINIB,Broad,AFATINIB (Broad),Kinase inhibitor,EGFR,RTK inhibitor,PI3K/AKT/mTOR~MAPK
+CANERTINIB_Broad,CANERTINIB,Broad,CANERTINIB (Broad),Kinase inhibitor,EGFR,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+ERLOTINIB_Broad,ERLOTINIB,Broad,ERLOTINIB (Broad),Kinase inhibitor,EGFR,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+GEFITINIB_Broad,GEFITINIB,Broad,GEFITINIB (Broad),Kinase inhibitor,EGFR,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+LAPATINIB_Broad,LAPATINIB,Broad,LAPATINIB (Broad),Kinase inhibitor,EGFR,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+PD153035_Broad,PD 153035,Broad,PD 153035 (Broad),Kinase inhibitor,EGFR,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+WZ4002_Broad,WZ4002,Broad,WZ4002 (Broad),Kinase inhibitor,EGFR,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+WZ8040_Broad,WZ8040,Broad,WZ8040 (Broad),Kinase inhibitor,EGFR,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+CANERTINIB_Custom Clinical,CANERTINIB,Custom Clinical,CANERTINIB (Custom Clinical),Kinase inhibitor,EGFR,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+AFATINIB_NCI_Onc_AOD,AFATINIB,NCI_Onc_AOD,AFATINIB (NCI_Onc_AOD),Kinase inhibitor,EGFR,RTK inhibitor,PI3K/AKT/mTOR~MAPK
+LAPATINIB_Custom Clinical,LAPATINIB,Custom Clinical,LAPATINIB (Custom Clinical),Kinase inhibitor,EGFR,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+ERLOTINIBHYDROCHLORIDE_NCI_Onc_AOD,ERLOTINIB HYDROCHLORIDE,NCI_Onc_AOD,ERLOTINIB HYDROCHLORIDE (NCI_Onc_AOD),Kinase inhibitor,EGFR,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+GEFITINIB_NCI_Onc_AOD,GEFITINIB,NCI_Onc_AOD,GEFITINIB (NCI_Onc_AOD),Kinase inhibitor,EGFR,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+PD153035_Custom Clinical,PD 153035,Custom Clinical,PD 153035 (Custom Clinical),Kinase inhibitor,EGFR,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+AG490_Custom Clinical,AG 490,Custom Clinical,AG 490 (Custom Clinical),Kinase inhibitor,EGFR,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+BIBW2992_Custom Clinical,BIBW2992,Custom Clinical,BIBW2992 (Custom Clinical),Kinase inhibitor,EGFR,RTK inhibitor,PI3K/AKT/mTOR~MAPK
+ERLOTINIB_Custom Clinical,ERLOTINIB,Custom Clinical,ERLOTINIB (Custom Clinical),Kinase inhibitor,EGFR,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+GEFITINIB_Custom Clinical,GEFITINIB,Custom Clinical,GEFITINIB (Custom Clinical),Kinase inhibitor,EGFR,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+LAPATINIB_NCI_Onc_AOD,LAPATINIB,NCI_Onc_AOD,LAPATINIB (NCI_Onc_AOD),Kinase inhibitor,EGFR,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+PF573228_Broad,PF 573228,Broad,PF 573228 (Broad),Kinase inhibitor,FAK,Invasion~motility,Cytoskeletal Signaling
+AZD4547_Broad,AZD4547,Broad,AZD4547 (Broad),Kinase inhibitor,FGFR1,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+OSI930_Broad,OSI-930,Broad,OSI-930 (Broad),Kinase inhibitor,FLT1,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+QUIZARTINIB_Broad,QUIZARTINIB,Broad,QUIZARTINIB (Broad),Kinase inhibitor,FLT3,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+TANDUTINIB_Broad,TANDUTINIB,Broad,TANDUTINIB (Broad),Kinase inhibitor,FLT3,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+TANDUTINIB_Custom Clinical,TANDUTINIB,Custom Clinical,TANDUTINIB (Custom Clinical),Kinase inhibitor,FLT3,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+CHIR99021_Broad,CHIR-99021,Broad,CHIR-99021 (Broad),Kinase inhibitor,GSK-3,S/T kinase inhibitor,Wnt/B-catenin
+BIO_Broad,BIO,Broad,BIO (Broad),Kinase inhibitor,GSK-3,S/T kinase inhibitor,Wnt/B-catenin
+SB216763_Custom Clinical,SB 216763,Custom Clinical,SB 216763 (Custom Clinical),Kinase inhibitor,GSK-3,S/T kinase inhibitor,Wnt/B-catenin
+CHIR98014_Custom Clinical,CHIR 98014,Custom Clinical,CHIR 98014 (Custom Clinical),Kinase inhibitor,GSK-3,S/T kinase inhibitor,Wnt/B-catenin
+CHIR99021_Custom Clinical,CHIR 99021,Custom Clinical,CHIR 99021 (Custom Clinical),Kinase inhibitor,GSK-3,S/T kinase inhibitor,Wnt/B-catenin
+NERATINIB_Broad,NERATINIB,Broad,NERATINIB (Broad),Kinase inhibitor,HER2,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+BMS599626_Custom Clinical,BMS-599626,Custom Clinical,BMS-599626 (Custom Clinical),Kinase inhibitor,HER2,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+NERATINIB_NCI_Onc_AOD,NERATINIB,NCI_Onc_AOD,NERATINIB (NCI_AOD9),Kinase inhibitor,HER2,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+ML210_Broad,ML 210,Broad,ML 210 (Broad),Kinase inhibitor,HRAS,S/T kinase inhibitor,MAPK
+ML162_Broad,ML162,Broad,ML162 (Broad),Kinase inhibitor,HRAS,S/T kinase inhibitor,MAPK
+BMS536924_Broad,BMS-536924,Broad,BMS-536924 (Broad),Kinase inhibitor,IGFR,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+NVPADW742_Broad,NVP-ADW742,Broad,NVP-ADW742 (Broad),Kinase inhibitor,IGFR,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+OSI906LINSITINIB_Broad,OSI-906 (LINSITINIB),Broad,OSI-906 (LINSITINIB) (Broad),Kinase inhibitor,IGFR,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+BMS754807_Broad,BMS-754807,Broad,BMS-754807 (Broad),Kinase inhibitor,IGFR,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+BMS536924_Custom Clinical,BMS-536924,Custom Clinical,BMS-536924 (Custom Clinical),Kinase inhibitor,IGFR,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+GSK1904529A_Custom Clinical,GSK1904529A,Custom Clinical,GSK1904529A (Custom Clinical),Kinase inhibitor,IGFR,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+CAY10576_Broad,CAY10576,Broad,CAY10576 (Broad),Kinase inhibitor,IKK,Anti-Inflammatory,NF-kB/IKK
+BARDOXOLONEMETHYL_Broad,BARDOXOLONE METHYL,Broad,BARDOXOLONE METHYL (Broad),Kinase inhibitor,IKK,Anti-Inflammatory,NF-kB/IKK
+TPCA1_Broad,TPCA-1,Broad,TPCA-1 (Broad),Kinase inhibitor,IKK,Anti-Inflammatory,NF-kB/IKK
+PF184_Broad,PF 184,Broad,PF 184 (Broad),Kinase inhibitor,IKK,Anti-Inflammatory,NF-kB/IKK
+BMS345541_Broad,BMS 345541,Broad,BMS 345541 (Broad),Kinase inhibitor,IKK,Anti-Inflammatory,NF-kB/IKK
+MOMELOTINIB_Broad,MOMELOTINIB,Broad,MOMELOTINIB (Broad),Kinase inhibitor,JAK1/2,TK inhibitor,JAK/STAT
+RUXOLITINIB_Broad,RUXOLITINIB,Broad,RUXOLITINIB (Broad),Kinase inhibitor,JAK2,TK inhibitor,JAK/STAT
+AZD1480_Broad,AZD1480,Broad,AZD1480 (Broad),Kinase inhibitor,JAK2,TK inhibitor,JAK/STAT
+NVPBSK805_Broad,NVP-BSK805,Broad,NVP-BSK805 (Broad),Kinase inhibitor,JAK2,TK inhibitor,JAK/STAT
+TG101348_Broad,TG-101348,Broad,TG-101348 (Broad),Kinase inhibitor,JAK2,TK inhibitor,JAK/STAT
+SP600125PYRAZOLANTHRONE_Broad,SP600125 (PYRAZOLANTHRONE),Broad,SP600125 (PYRAZOLANTHRONE) (Broad),Kinase inhibitor,JNK,S/T kinase inhibitor,MAPK
+AEG3482_Custom Clinical,AEG 3482,Custom Clinical,AEG 3482 (Custom Clinical),Kinase inhibitor,JNK,S/T kinase inhibitor,MAPK
+SP600125_Custom Clinical,SP600125,Custom Clinical,SP600125 (Custom Clinical),Kinase inhibitor,JNK,S/T kinase inhibitor,MAPK
+JNKINHIBITORX_Custom Clinical,JNK INHIBITOR X,Custom Clinical,JNK INHIBITOR X (Custom Clinical),Kinase inhibitor,JNK,S/T kinase inhibitor,MAPK
+MASITINIB_Broad,MASITINIB,Broad,MASITINIB (Broad),Kinase inhibitor,KIT,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+CHIR258_Custom Clinical,CHIR 258,Custom Clinical,CHIR 258 (Custom Clinical),Kinase inhibitor,KIT,RTK inhibitor,PI3K/AKT/mTOR~MAPK
+MASITINIB_Custom Clinical,MASITINIB,Custom Clinical,MASITINIB (Custom Clinical),Kinase inhibitor,KIT,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+PLURIPOTIN_Broad,PLURIPOTIN,Broad,PLURIPOTIN (Broad),Kinase inhibitor,MAPK1,S/T kinase inhibitor,MAPK
+SELUMETINIBAZD6244_Broad,SELUMETINIB (AZD6244),Broad,SELUMETINIB (AZD6244) (Broad),Kinase inhibitor,MEK,S/T kinase inhibitor,MAPK
+PD318088_Broad,PD318088,Broad,PD318088 (Broad),Kinase inhibitor,MEK,S/T kinase inhibitor,MAPK
+TRAMETINIB_Broad,TRAMETINIB,Broad,TRAMETINIB (Broad),Kinase inhibitor,MEK,S/T kinase inhibitor,MAPK
+CI1040_Custom Clinical,CI 1040,Custom Clinical,CI 1040 (Custom Clinical),Kinase inhibitor,MEK,S/T kinase inhibitor,MAPK
+PD0325901_Custom Clinical,PD 0325901,Custom Clinical,PD 0325901 (Custom Clinical),Kinase inhibitor,MEK,S/T kinase inhibitor,MAPK
+PD98059_Custom Clinical,PD 98059,Custom Clinical,PD 98059 (Custom Clinical),Kinase inhibitor,MEK,S/T kinase inhibitor,MAPK
+AZD6244_Custom Clinical,AZD 6244,Custom Clinical,AZD 6244 (Custom Clinical),Kinase inhibitor,MEK,S/T kinase inhibitor,MAPK
+TRAMETINIB_NCI_Onc_AOD,TRAMETINIB,NCI_Onc_AOD,TRAMETINIB (NCI_Onc_AOD),Kinase inhibitor,MEK,S/T kinase inhibitor,MAPK
+HYPOTHEMYCIN_Custom Clinical,HYPOTHEMYCIN,Custom Clinical,HYPOTHEMYCIN (Custom Clinical),Kinase inhibitor,MEK,S/T kinase inhibitor,MAPK
+RDEA119_Custom Clinical,RDEA119,Custom Clinical,RDEA119 (Custom Clinical),Kinase inhibitor,MEK,S/T kinase inhibitor,MAPK
+CRIZOTINIB_Broad,CRIZOTINIB,Broad,CRIZOTINIB (Broad),Kinase inhibitor,MET,RTK inhibitor,PI3K/AKT/mTOR~MAPK~JAK/STAT~RAS
+SU11274_Broad,SU11274,Broad,SU11274 (Broad),Kinase inhibitor,MET,RTK Inhibitor,PI3K/AKT/mTOR~MAPK~JAK/STAT~RAS
+FORETINIB_Broad,FORETINIB,Broad,FORETINIB (Broad),Kinase inhibitor,MET,RTK Inhibitor,PI3K/AKT/mTOR~MAPK~JAK/STAT~RAS
+SGX523_Broad,SGX-523,Broad,SGX-523 (Broad),Kinase inhibitor,MET,RTK Inhibitor,PI3K/AKT/mTOR~MAPK~JAK/STAT~RAS
+TIVOZANIB_Broad,TIVOZANIB,Broad,TIVOZANIB (Broad),Kinase inhibitor,MET,RTK Inhibitor,PI3K/AKT/mTOR~MAPK~JAK/STAT~RAS
+PF2341066_Custom Clinical,PF-2341066,Custom Clinical,PF-2341066 (Custom Clinical),Kinase inhibitor,MET,RTK Inhibitor,PI3K/AKT/mTOR~MAPK~JAK/STAT~RAS
+SU11274_Custom Clinical,SU 11274,Custom Clinical,SU 11274 (Custom Clinical),Kinase inhibitor,MET,RTK Inhibitor,PI3K/AKT/mTOR~MAPK~JAK/STAT~RAS
+PF04217903_Custom Clinical,PF-04217903,Custom Clinical,PF-04217903 (Custom Clinical),Kinase inhibitor,MET,RTK Inhibitor,PI3K/AKT/mTOR~MAPK~JAK/STAT~RAS
+CRIZOTINIB_NCI_Onc_AOD,CRIZOTINIB,NCI_Onc_AOD,CRIZOTINIB (NCI_Onc_AOD),Kinase inhibitor,MET,RTK inhibitor,PI3K/AKT/mTOR~MAPK~JAK/STAT~RAS
+AZ3146_Broad,AZ-3146,Broad,AZ-3146 (Broad),Kinase inhibitor,Mps1,Check point or mitotic inhibitor,Cell cycle~mitotic progression
+KU0063794_Broad,KU-0063794,Broad,KU-0063794 (Broad),Kinase inhibitor,mTOR,S/T kinase inhibitor,PI3K/AKT/mTOR
+SIROLIMUS_Broad,SIROLIMUS,Broad,SIROLIMUS (Broad),Kinase inhibitor,mTOR,S/T kinase inhibitor,PI3K/AKT/mTOR
+AZD8055_Broad,AZD8055,Broad,AZD8055 (Broad),Kinase inhibitor,mTOR,S/T kinase inhibitor,PI3K/AKT/mTOR
+TEMSIROLIMUS_Broad,TEMSIROLIMUS,Broad,TEMSIROLIMUS (Broad),Kinase inhibitor,mTOR,S/T kinase inhibitor,PI3K/AKT/mTOR
+OSI027_Broad,OSI-027,Broad,OSI-027 (Broad),Kinase inhibitor,mTOR,S/T kinase inhibitor,PI3K/AKT/mTOR
+PI103HYDROCHLORIDE_Broad,PI 103 HYDROCHLORIDE,Broad,PI 103 HYDROCHLORIDE (Broad),Kinase inhibitor,mTOR,S/T kinase inhibitor,PI3K/AKT/mTOR
+EVEROLIMUS_NCI_Onc_AOD,EVEROLIMUS,NCI_Onc_AOD,EVEROLIMUS (NCI_Onc_AOD),Kinase inhibitor,mTOR,S/T kinase inhibitor,PI3K/AKT/mTOR
+TEMSIROLIMUS_Custom Clinical,TEMSIROLIMUS,Custom Clinical,TEMSIROLIMUS (Custom Clinical),Kinase inhibitor,mTOR,S/T kinase inhibitor,PI3K/AKT/mTOR
+TEMSIROLIMUS_NCI_Onc_AOD,TEMSIROLIMUS,NCI_Onc_AOD,TEMSIROLIMUS (NCI_Onc_AOD),Kinase inhibitor,mTOR,S/T kinase inhibitor,PI3K/AKT/mTOR
+RAPAMYCIN_Custom Clinical,RAPAMYCIN,Custom Clinical,RAPAMYCIN (Custom Clinical),Kinase inhibitor,mTOR,S/T kinase inhibitor,PI3K/AKT/mTOR
+SIROLIMUS_NCI_Onc_AOD,SIROLIMUS,NCI_Onc_AOD,SIROLIMUS (NCI_Onc_AOD),Kinase inhibitor,mTOR,S/T kinase inhibitor,PI3K/AKT/mTOR
+FLAVOPIRIDOLALVOCIDIB_Broad,FLAVOPIRIDOL (ALVOCIDIB),Broad,FLAVOPIRIDOL (ALVOCIDIB) (Broad),Kinase inhibitor,Multi-CDK,Check point or mitotic inhibitor,Cell cycle~mitotic progression
+BOSUTINIB_Broad,BOSUTINIB,Broad,BOSUTINIB (Broad),Kinase inhibitor,Multi-RTK,RTK Inhibitor,Multi-pathway inhibition
+SUNITINIB_Broad,SUNITINIB,Broad,SUNITINIB (Broad),Kinase inhibitor,Multi-RTK,RTK Inhibitor,Multi-pathway inhibition
+KW2449_Broad,KW-2449,Broad,KW-2449 (Broad),Kinase inhibitor,Multi-RTK,RTK Inhibitor,Multi-pathway inhibition
+BOSUTINIB_Custom Clinical,BOSUTINIB,Custom Clinical,BOSUTINIB (Custom Clinical),Kinase inhibitor,Multi-RTK,RTK Inhibitor,Multi-pathway inhibition
+PONATINIB_NCI_Onc_AOD,PONATINIB,NCI_Onc_AOD,PONATINIB (NCI_Onc_AOD),Kinase inhibitor,Multi-RTK,RTK Inhibitor,Multi-pathway inhibition
+LESTAURTINIB_Custom Clinical,LESTAURTINIB,Custom Clinical,LESTAURTINIB (Custom Clinical),Kinase inhibitor,Multi-RTK,RTK Inhibitor,Multi-pathway inhibition
+SUNITINIB_NCI_Onc_AOD,SUNITINIB,NCI_Onc_AOD,SUNITINIB (NCI_Onc_AOD),Kinase inhibitor,Multi-RTK,RTK Inhibitor,Multi-pathway inhibition
+SUNITINIB_Custom Clinical,SUNITINIB,Custom Clinical,SUNITINIB (Custom Clinical),Kinase inhibitor,Multi-RTK,RTK Inhibitor,Multi-pathway inhibition
+BOSUTINIB_NCI_Onc_AOD,BOSUTINIB,NCI_Onc_AOD,BOSUTINIB (NCI_Onc_AOD),Kinase inhibitor,Multi-RTK,RTK Inhibitor,Multi-pathway inhibition
+BIRB796_Broad,BIRB-796,Broad,BIRB-796 (Broad),Kinase inhibitor,p38,S/T kinase inhibitor,MAPK
+SB203580_Custom Clinical,SB 203580,Custom Clinical,SB 203580 (Custom Clinical),Kinase inhibitor,p38,S/T kinase inhibitor,MAPK
+SB202190_Custom Clinical,SB 202190,Custom Clinical,SB 202190 (Custom Clinical),Kinase inhibitor,p38,S/T kinase inhibitor,MAPK
+SD169_Custom Clinical,SD 169,Custom Clinical,SD 169 (Custom Clinical),Kinase inhibitor,p38,S/T kinase inhibitor,MAPK
+PD169316_Custom Clinical,PD 169316,Custom Clinical,PD 169316 (Custom Clinical),Kinase inhibitor,p38,S/T kinase inhibitor,MAPK
+VX702_Custom Clinical,VX-702,Custom Clinical,VX-702 (Custom Clinical),Kinase inhibitor,p38,S/T kinase inhibitor,MAPK
+PF3758309_Broad,PF-3758309,Broad,PF-3758309 (Broad),Kinase inhibitor,PAK4,Check point or mitotic inhibitor,Cell cycle~mitotic progression
+PP121_Custom Clinical,PP121,Custom Clinical,PP121 (Custom Clinical),Kinase inhibitor,PDGFR,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+BX912_Custom Clinical,BX 912,Custom Clinical,BX 912 (Custom Clinical),Kinase inhibitor,PDK-1,S/T kinase inhibitor,PI3K/Akt/mTOR
+BX795_Custom Clinical,BX 795,Custom Clinical,BX 795 (Custom Clinical),Kinase inhibitor,PDK-1,S/T kinase inhibitor,PI3K/Akt/mTOR
+BEZ235_Custom Clinical,BEZ 235,Custom Clinical,BEZ 235 (Custom Clinical),Kinase inhibitor,PI3K/p110,S/T kinase inhibitor,PI3K/AKT/mTOR
+IC87114_Broad,IC-87114,Broad,IC-87114 (Broad),Kinase inhibitor,PI3K/p110,S/T kinase inhibitor,PI3K/AKT/mTOR
+TG100115_Broad,TG-100-115,Broad,TG-100-115 (Broad),Kinase inhibitor,PI3K/p110,S/T kinase inhibitor,PI3K/AKT/mTOR
+GSK1059615_Broad,GSK1059615,Broad,GSK1059615 (Broad),Kinase inhibitor,PI3K/p110,S/T kinase inhibitor,PI3K/AKT/mTOR
+AZD6482_Broad,AZD6482,Broad,AZD6482 (Broad),Kinase inhibitor,PI3K/p110,S/T kinase inhibitor,PI3K/AKT/mTOR
+PIK93_Broad,PIK-93,Broad,PIK-93 (Broad),Kinase inhibitor,PI3K/p110,S/T kinase inhibitor,PI3K/AKT/mTOR
+XL765_Broad,XL765,Broad,XL765 (Broad),Kinase inhibitor,PI3K/p110,S/T kinase inhibitor,PI3K/AKT/mTOR
+GDC0941_Broad,GDC-0941,Broad,GDC-0941 (Broad),Kinase inhibitor,PI3K/p110,S/T kinase inhibitor,PI3K/AKT/mTOR
+ZSTK474_Broad,ZSTK474,Broad,ZSTK474 (Broad),Kinase inhibitor,PI3K/p110,S/T kinase inhibitor,PI3K/AKT/mTOR
+CAL101_Broad,CAL-101,Broad,CAL-101 (Broad),Kinase inhibitor,PI3K/p110,S/T kinase inhibitor,PI3K/AKT/mTOR
+GSK2636771_Broad,GSK2636771,Broad,GSK2636771 (Broad),Kinase inhibitor,PI3K/p110,S/T kinase inhibitor,PI3K/AKT/mTOR
+BYL719_Broad,BYL-719,Broad,BYL-719 (Broad),Kinase inhibitor,PI3K/p110,S/T kinase inhibitor,PI3K/AKT/mTOR
+TGX221_Broad,TGX-221,Broad,TGX-221 (Broad),Kinase inhibitor,PI3K/p110,S/T kinase inhibitor,PI3K/AKT/mTOR
+ZSTK474_Custom Clinical,ZSTK474,Custom Clinical,ZSTK474 (Custom Clinical),Kinase inhibitor,PI3K/p110,S/T kinase inhibitor,PI3K/AKT/mTOR
+LY294002_Custom Clinical,LY 294002,Custom Clinical,LY 294002 (Custom Clinical),Kinase inhibitor,PI3K/p110,S/T kinase inhibitor,PI3K/AKT/mTOR
+PIK90_Custom Clinical,PIK 90,Custom Clinical,PIK 90 (Custom Clinical),Kinase inhibitor,PI3K/p110,S/T kinase inhibitor,PI3K/AKT/mTOR
+PIK75_Custom Clinical,PIK 75,Custom Clinical,PIK 75 (Custom Clinical),Kinase inhibitor,PI3K/p110,S/T kinase inhibitor,PI3K/AKT/mTOR
+TGX221_Custom Clinical,TGX 221,Custom Clinical,TGX 221 (Custom Clinical),Kinase inhibitor,PI3K/p110,S/T kinase inhibitor,PI3K/AKT/mTOR
+PI103_Custom Clinical,PI-103,Custom Clinical,PI-103 (Custom Clinical),Kinase inhibitor,PI3K/p110,S/T kinase inhibitor,PI3K/AKT/mTOR
+AS252424_Custom Clinical,AS 252424,Custom Clinical,AS 252424 (Custom Clinical),Kinase inhibitor,PI3K/p110,S/T kinase inhibitor,PI3K/AKT/mTOR
+AS604850_Custom Clinical,AS-604850,Custom Clinical,AS-604850 (Custom Clinical),Kinase inhibitor,PI3K/p110,S/T kinase inhibitor,PI3K/AKT/mTOR
+GDC0941_Custom Clinical,GDC 0941,Custom Clinical,GDC 0941 (Custom Clinical),Kinase inhibitor,PI3K/p110,S/T kinase inhibitor,PI3K/AKT/mTOR
+AS041164_Custom Clinical,AS-041164,Custom Clinical,AS-041164 (Custom Clinical),Kinase inhibitor,PI3K/p110,S/T kinase inhibitor,PI3K/AKT/mTOR
+IDELALISIB_NCI_Onc_AOD,IDELALISIB,NCI_Onc_AOD,IDELALISIB (NCI_AOD9),Kinase inhibitor,PI3K/p110,,
+DUVELISIB_NCI_Onc_AOD,DUVELISIB,NCI_Onc_AOD,DUVELISIB (NCI_AOD9),Kinase inhibitor,PI3K/p110,,
+H89_Custom Clinical,H-89,Custom Clinical,H-89 (Custom Clinical),Kinase inhibitor,PKA,S/T kinase inhibitor,PLC/PKC/DAG
+CID2858522_Broad,CID 2858522,Broad,CID 2858522 (Broad),Kinase inhibitor,PKC,S/T kinase inhibitor,PLC/PKC/DAG
+SOTRASTAURIN_Broad,SOTRASTAURIN,Broad,SOTRASTAURIN (Broad),Kinase inhibitor,PKC,S/T kinase inhibitor,PLC/PKC/DAG
+PKC412_Custom Clinical,PKC412,Custom Clinical,PKC412 (Custom Clinical),Kinase inhibitor,PKC,S/T kinase inhibitor,PLC/PKC/DAG
+ENZASTAURIN_Custom Clinical,ENZASTAURIN,Custom Clinical,ENZASTAURIN (Custom Clinical),Kinase inhibitor,PKC,S/T kinase inhibitor,PLC/PKC/DAG
+STAUROSPORINE_Custom Clinical,STAUROSPORINE,Custom Clinical,STAUROSPORINE (Custom Clinical),Kinase inhibitor,PKC,S/T kinase inhibitor,PLC/PKC/DAG
+LY333531_Custom Clinical,LY 333531,Custom Clinical,LY 333531 (Custom Clinical),Kinase inhibitor,PKC,S/T kinase inhibitor,PLC/PKC/DAG
+ML083_Broad,ML083,Broad,ML083 (Broad),Kinase inhibitor,PKM,S/T kinase inhibitor,Glycolysis or Gluconeogenesis
+IPR456_Broad,IPR-456,Broad,IPR-456 (Broad),Kinase inhibitor,PLAUR,Plasma membrane formation,
+BRDK70511574HMN214_Broad,BRD-K70511574 (HMN-214),Broad,BRD-K70511574 (HMN-214) (Broad),Kinase inhibitor,PLK,Check point or mitotic inhibitor,Cell cycle~mitotic progression
+GSK461364_Broad,GSK461364,Broad,GSK461364 (Broad),Kinase inhibitor,PLK,Check point or mitotic inhibitor,Cell cycle~mitotic progression
+BI2536_Broad,BI-2536,Broad,BI-2536 (Broad),Kinase inhibitor,PLK,Check point or mitotic inhibitor,Cell cycle~mitotic progression
+RIGOSERTIB_Broad,RIGOSERTIB,Broad,RIGOSERTIB (Broad),Kinase inhibitor,PLK,Check point or mitotic inhibitor,Cell cycle~mitotic progression
+HMN214_Broad,HMN-214,Broad,HMN-214 (Broad),Kinase inhibitor,PLK,Check point or mitotic inhibitor,Cell cycle~mitotic progression
+GW843682X_Broad,GW 843682X,Broad,GW 843682X (Broad),Kinase inhibitor,PLK,Check point or mitotic inhibitor,Cell cycle~mitotic progression
+GW843682X_Custom Clinical,GW 843682X,Custom Clinical,GW 843682X (Custom Clinical),Kinase inhibitor,PLK,Check point or mitotic inhibitor,Cell cycle~mitotic progression
+BI2536_Custom Clinical,BI 2536,Custom Clinical,BI 2536 (Custom Clinical),Kinase inhibitor,PLK,Check point or mitotic inhibitor,Cell cycle~mitotic progression
+KU0060648_Broad,KU 0060648,Broad,KU 0060648 (Broad),Kinase inhibitor,PRKDC,S/T kinase inhibitor,DNA maintenance~Repair~Apoptosis
+SORAFENIB_Broad,SORAFENIB,Broad,SORAFENIB (Broad),Kinase inhibitor,RAF,S/T kinase inhibitor,MAPK
+VEMURAFENIB_Broad,VEMURAFENIB,Broad,VEMURAFENIB (Broad),Kinase inhibitor,RAF,S/T kinase inhibitor,MAPK
+GDC0879_Broad,GDC-0879,Broad,GDC-0879 (Broad),Kinase inhibitor,RAF,S/T kinase inhibitor,MAPK
+MLN2480_Broad,MLN 2480,Broad,MLN 2480 (Broad),Kinase inhibitor,RAF,S/T kinase inhibitor,MAPK
+PLX4720_Broad,PLX-4720,Broad,PLX-4720 (Broad),Kinase inhibitor,RAF,S/T kinase inhibitor,MAPK
+DABRAFENIB_Broad,DABRAFENIB,Broad,DABRAFENIB (Broad),Kinase inhibitor,RAF,S/T kinase inhibitor,MAPK
+VEMURAFENIB_NCI_Onc_AOD,VEMURAFENIB,NCI_Onc_AOD,VEMURAFENIB (NCI_Onc_AOD),Kinase inhibitor,RAF,S/T kinase inhibitor,MAPK
+SORAFENIB_NCI_Onc_AOD,SORAFENIB,NCI_Onc_AOD,SORAFENIB (NCI_Onc_AOD),Kinase inhibitor,RAF,S/T kinase inhibitor,MAPK
+SORAFENIB_Custom Clinical,SORAFENIB,Custom Clinical,SORAFENIB (Custom Clinical),Kinase inhibitor,RAF,S/T kinase inhibitor,MAPK
+DABRAFENIBMESYLATE_NCI_Onc_AOD,DABRAFENIB MESYLATE,NCI_Onc_AOD,DABRAFENIB MESYLATE (NCI_Onc_AOD),Kinase inhibitor,RAF,S/T kinase inhibitor,MAPK
+PLX4720_Custom Clinical,PLX4720,Custom Clinical,PLX4720 (Custom Clinical),Kinase inhibitor,RAF,S/T kinase inhibitor,MAPK
+PLX4032_Custom Clinical,PLX4032,Custom Clinical,PLX4032 (Custom Clinical),Kinase inhibitor,RAF,S/T kinase inhibitor,MAPK
+MANUMYCINA_Broad,MANUMYCIN A,Broad,MANUMYCIN A (Broad),Kinase inhibitor,RAS,Farnesylation/protein localization,MAPK
+REGORAFENIB_Broad,REGORAFENIB,Broad,REGORAFENIB (Broad),Kinase inhibitor,RET,S/T kinase inhibitor,MAPK
+REGORAFENIB_NCI_Onc_AOD,REGORAFENIB,NCI_Onc_AOD,REGORAFENIB (NCI_Onc_AOD),Kinase inhibitor,RET,S/T kinase inhibitor,MAPK
+Y27632_Custom Clinical,Y-27632,Custom Clinical,Y-27632 (Custom Clinical),Kinase inhibitor,ROCK,Invasion~motility,Cytoskeletal Signaling
+GSK269962A_Custom Clinical,GSK 269962A,Custom Clinical,GSK 269962A (Custom Clinical),Kinase inhibitor,ROCK,Invasion~motility,Cytoskeletal Signaling
+KX2391_Broad,KX2-391,Broad,KX2-391 (Broad),Kinase inhibitor,SRC,TK inhibitor,
+SU6656_Custom Clinical,SU 6656,Custom Clinical,SU 6656 (Custom Clinical),Kinase inhibitor,SRC,TK inhibitor,
+SARACATINIB_Broad,SARACATINIB,Broad,SARACATINIB (Broad),Kinase inhibitor,Src/Abl,TK inhibitor,
+AZD0530_Custom Clinical,AZD 0530,Custom Clinical,AZD 0530 (Custom Clinical),Kinase inhibitor,Src/Abl,TK inhibitor,
+SARACATINIB_Custom Clinical,SARACATINIB,Custom Clinical,SARACATINIB (Custom Clinical),Kinase inhibitor,Src/Abl,TK inhibitor,
+TAMATINIBR406_Broad,TAMATINIB (R406),Broad,TAMATINIB (R406) (Broad),Kinase inhibitor,Syk,TK inhibitor,
+SB431542_Broad,SB-431542,Broad,SB-431542 (Broad),Kinase inhibitor,TGFb,S/T kinase inhibitor,TGF-beta/Smad
+LY2157299_Broad,LY-2157299,Broad,LY-2157299 (Broad),Kinase inhibitor,TGFb,S/T kinase inhibitor,TGF-beta/Smad
+SB431542_Custom Clinical,SB 431542,Custom Clinical,SB 431542 (Custom Clinical),Kinase inhibitor,TGFb,S/T kinase inhibitor,TGF-beta/Smad
+SD208_Custom Clinical,SD 208,Custom Clinical,SD 208 (Custom Clinical),Kinase inhibitor,TGFb,S/T kinase inhibitor,TGF-beta/Smad
+LINIFANIB_Broad,LINIFANIB,Broad,LINIFANIB (Broad),Kinase inhibitor,VEGFR,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+AXITINIB_Broad,AXITINIB,Broad,AXITINIB (Broad),Kinase inhibitor,VEGFR,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+MGCD265_Broad,MGCD-265,Broad,MGCD-265 (Broad),Kinase inhibitor,VEGFR,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+KI8751_Broad,KI8751,Broad,KI8751 (Broad),Kinase inhibitor,VEGFR,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+NINTEDANIB_Broad,NINTEDANIB,Broad,NINTEDANIB (Broad),Kinase inhibitor,VEGFR,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+CEDIRANIB_Broad,CEDIRANIB,Broad,CEDIRANIB (Broad),Kinase inhibitor,VEGFR,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+PAZOPANIB_Broad,PAZOPANIB,Broad,PAZOPANIB (Broad),Kinase inhibitor,VEGFR,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+VANDETANIB_Broad,VANDETANIB,Broad,VANDETANIB (Broad),Kinase inhibitor,VEGFR,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+RAF265_Broad,RAF265,Broad,RAF265 (Broad),Kinase inhibitor,VEGFR,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+BRIVANIB_Broad,BRIVANIB,Broad,BRIVANIB (Broad),Kinase inhibitor,VEGFR,RTK inhibitor,PI3K/AKT/mTOR~MAPK
+CABOZANTINIB_Broad,CABOZANTINIB,Broad,CABOZANTINIB (Broad),Kinase inhibitor,VEGFR,RTK inhibitor,PI3K/AKT/mTOR~MAPK
+LENVATINIB_Broad,LENVATINIB,Broad,LENVATINIB (Broad),Kinase inhibitor,VEGFR,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+AXITINIB_Custom Clinical,AXITINIB,Custom Clinical,AXITINIB (Custom Clinical),Kinase inhibitor,VEGFR,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+ABT869_Custom Clinical,ABT-869,Custom Clinical,ABT-869 (Custom Clinical),Kinase inhibitor,VEGFR,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+CEDIRANIB_Custom Clinical,CEDIRANIB,Custom Clinical,CEDIRANIB (Custom Clinical),Kinase inhibitor,VEGFR,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+BIBF1120_Custom Clinical,BIBF-1120,Custom Clinical,BIBF-1120 (Custom Clinical),Kinase inhibitor,VEGFR,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+VANDETANIB_NCI_Onc_AOD,VANDETANIB,NCI_Onc_AOD,VANDETANIB (NCI_Onc_AOD),Kinase inhibitor,VEGFR,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+PAZOPANIB_Custom Clinical,PAZOPANIB,Custom Clinical,PAZOPANIB (Custom Clinical),Kinase inhibitor,VEGFR,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+PAZOPANIBHYDROCHLORIDE_NCI_Onc_AOD,PAZOPANIB HYDROCHLORIDE,NCI_Onc_AOD,PAZOPANIB HYDROCHLORIDE (NCI_Onc_AOD),Kinase inhibitor,VEGFR,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+VATALANIB_Custom Clinical,VATALANIB,Custom Clinical,VATALANIB (Custom Clinical),Kinase inhibitor,VEGFR,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+BRIVANIB_Custom Clinical,BRIVANIB,Custom Clinical,BRIVANIB (Custom Clinical),Kinase inhibitor,VEGFR,RTK inhibitor,PI3K/AKT/mTOR~MAPK
+CABOZANTINIB_NCI_Onc_AOD,CABOZANTINIB,NCI_Onc_AOD,CABOZANTINIB (NCI_Onc_AOD),Kinase inhibitor,VEGFR,RTK inhibitor,PI3K/AKT/mTOR~MAPK
+VANDETANIB_Custom Clinical,VANDETANIB,Custom Clinical,VANDETANIB (Custom Clinical),Kinase inhibitor,VEGFR,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+AXITINIB_NCI_Onc_AOD,AXITINIB,NCI_Onc_AOD,AXITINIB (NCI_Onc_AOD),Kinase inhibitor,VEGFR,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+MOTESANIB_Custom Clinical,MOTESANIB,Custom Clinical,MOTESANIB (Custom Clinical),Kinase inhibitor,VEGFR,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+LENVATINIB_NCI_Onc_AOD,LENVATINIB,NCI_Onc_AOD,LENVATINIB (NCI_AOD9),Kinase inhibitor,VEGFR,RTK Inhibitor,PI3K/AKT/mTOR~MAPK
+MK1775_Broad,MK-1775,Broad,MK-1775 (Broad),Kinase inhibitor,Wee1,Check point or mitotic inhibitor,Cell cycle~mitotic progression
+ENCORAFENIB_NCI_Onc_AOD,ENCORAFENIB,NCI_Onc_AOD,ENCORAFENIB (NCI_AOD9),MAPK,B-Raf (V600E),,
+BINIMETINIB_NCI_Onc_AOD,BINIMETINIB,NCI_Onc_AOD,BINIMETINIB (NCI_AOD9),MAPK,MEK,,
+COBIMETINIB_NCI_Onc_AOD,COBIMETINIB,NCI_Onc_AOD,COBIMETINIB (NCI_AOD9),MAPK,MEK1,,
+SLV2436_Custom Clinical,SLV-2436,Custom Clinical,SLV-2436 (CustomClinincal),MAPK,MNK1;MNK2,,
+KO143_Broad,KO 143,Broad,KO 143 (Broad),MDR inhibitor,ABCG2,Drug resistance,Multidrug transporter
+CI976_Broad,CI-976,Broad,CI-976 (Broad),Metabolism,ACAT1,Metabolic modifier,Cholesterol metabolism
+CERANIB2_Broad,CERANIB­2,Broad,CERANIB­2 (Broad),Metabolism,ACE-family,Ceramide metabolism,DNA maintenance~Repair~Apoptosis
+TOSEDOSTAT_Broad,TOSEDOSTAT,Broad,TOSEDOSTAT (Broad),Metabolism,ANPEP,Metabolic modifier,Aminopeptidase
+QS11_Broad,QS 11,Broad,QS 11 (Broad),Metabolism,ARFGAP1,Metabolic modifier,Golgi function and signaling
+OLIGOMYCINA_Broad,OLIGOMYCIN A,Broad,OLIGOMYCIN A (Broad),Metabolism,ATP synthase,ATPase,
+CICLOPIROX_Broad,CICLOPIROX,Broad,CICLOPIROX (Broad),Metabolism,ATP synthase,ATPase,
+NVP231_Broad,NVP 231,Broad,NVP 231 (Broad),Metabolism,CERK,Ceramide metabolism,DNA maintenance~Repair~Apoptosis
+FUMONISINB1_Broad,FUMONISIN_B1,Broad,FUMONISIN_B1 (Broad),Metabolism,CERS1,Ceramide metabolism,DNA maintenance~Repair~Apoptosis
+ETOMOXIRSODIUMSALT_Broad,(+)­ETOMOXIR(SODIUMSALT),Broad,(+)­ETOMOXIR(SODIUMSALT) (Broad),Metabolism,CPT1,Metabolic modifier,b-oxidation
+ETOMOXIR_Broad,ETOMOXIR,Broad,ETOMOXIR (Broad),Metabolism,CPT1A,Metabolic modifier,Carnitine metabolism
+SID2668150_Broad,SID 2668150,Broad,SID 2668150 (Broad),Metabolism,CTSL,Metabolic modifier,Protein metabolism
+SID26681509_Broad,SID 26681509,Broad,SID 26681509 (Broad),Metabolism,CTSL,Metabolic modifier,Intracellular protein catabolism
+ITRACONAZOLE_Broad,ITRACONAZOLE,Broad,ITRACONAZOLE (Broad),Metabolism,CYP3A4,Metabolic modifier,
+PF750_Broad,PF 750,Broad,PF 750 (Broad),Metabolism,FAAH,Metabolic modifier,Fatty acid metabolism
+LY2183240_Broad,LY 2183240,Broad,LY 2183240 (Broad),Metabolism,FAAH,Metabolic modifier,Fatty acid metabolism
+CERULENIN_Broad,CERULENIN,Broad,CERULENIN (Broad),Metabolism,FASN,Metabolic modifier,Fatty acid metabolism
+968_Broad,968,Broad,968 (Broad),Metabolism,GLS,Metabolic modifier,inhibitor of glutaminase
+METFORMIN_Custom Clinical,METFORMIN,Custom Clinical,METFORMIN (Custom Clinical),Metabolism,Glucose levels,Glucose metabolism,Cell cycle~mitotic progression
+2DG_Custom Clinical,2DG,Custom Clinical,2DG (Custom Clinical),Metabolism,Glucose levels,Glucose metabolism,Cell cycle~mitotic progression
+FLUVASTATINSODIUM_Broad,FLUVASTATIN SODIUM,Broad,FLUVASTATIN SODIUM (Broad),Metabolism,HMG-CoA reductase,Metabolic modifier,Cholesterol metabolism
+LOVASTATIN_Broad,LOVASTATIN,Broad,LOVASTATIN (Broad),Metabolism,HMG-CoA reductase,Metabolic modifier,Cholesterol metabolism
+SIMVASTATIN_Broad,SIMVASTATIN,Broad,SIMVASTATIN (Broad),Metabolism,HMG-CoA reductase,Metabolic modifier,Cholesterol metabolism
+IVOSIDENIB_NCI_Onc_AOD,IVOSIDENIB,NCI_Onc_AOD,IVOSIDENIB (NCI_AOD9),Metabolism,IDH1,,
+ENASIDENIB_NCI_Onc_AOD,ENASIDENIB,NCI_Onc_AOD,ENASIDENIB (NCI_AOD9),Metabolism,IDH2,,
+STF31_Broad,STF 31,Broad,STF 31 (Broad),Metabolism,NAMPT,Metabolic modifier,Nicotine singaling
+GMX1778_Broad,GMX-1778,Broad,GMX-1778 (Broad),Metabolism,NAMPT,Metabolic modifier,Nicotinamide metabolism
+DAPORINAD_Broad,DAPORINAD,Broad,DAPORINAD (Broad),Metabolism,NAMPT,Metabolic modifier,Nicotinamide metabolism
+JW480_Broad,JW 480,Broad,JW 480 (Broad),Metabolism,NCEH1,Metabolic modifier,Cholesterol metabolism
+IACS10759_Custom Clinical,IACS-10759,Custom Clinical,IACS-10759 (CustomClinincal),Metabolism,OXPHOS,,
+SILDENAFIL_Broad,SILDENAFIL,Broad,SILDENAFIL (Broad),Metabolism,PDE5,Metabolic modifier,cAMP downregulation
+AZD7545_Broad,AZD7545,Broad,AZD7545 (Broad),Metabolism,PDK1,Metabolic modifier,Glycolysis or Gluconeogenesis
+ML203_Broad,ML203,Broad,ML203 (Broad),Metabolism,PKM,Metabolic modifier,Carbohydrate metabolism
+CAY10594_Broad,CAY10594,Broad,CAY10594 (Broad),Metabolism,PLD2,Metabolic modifier,Phoshpholipase
+VU0155056_Broad,VU0155056,Broad,VU0155056 (Broad),Metabolism,PLD2,Metabolic modifier,Phoshpholipase
+ML031_Broad,ML031,Broad,ML031 (Broad),Metabolism,S1PR2,Metabolic modifier,Cell cycle~mitotic progression
+ML006_Broad,ML006,Broad,ML006 (Broad),Metabolism,S1PR3,Metabolic modifier,Cell cycle~mitotic progression
+PHLORETIN_Broad,PHLORETIN,Broad,PHLORETIN (Broad),Metabolism,SLC5A1,Metabolic modifier,Glucose uptake
+MYRIOCIN_Broad,MYRIOCIN,Broad,MYRIOCIN (Broad),Metabolism,SPTLC1,Metabolic modifier,Sphingolipid metabolism
+JW74_Broad,JW-74,Broad,JW-74 (Broad),Metabolism,TNKS,Metabolic modifier,Wnt/B-catenin
+JW55_Broad,JW 55,Broad,JW 55 (Broad),Metabolism,TNKS,Metabolic modifier,Wnt/B-catenin
+PDMP_Broad,PDMP,Broad,PDMP (Broad),Metabolism,UGCG,Ceramide metabolism,DNA maintenance~Repair~Apoptosis
+ELOCALCITOL_Broad,ELOCALCITOL,Broad,ELOCALCITOL (Broad),Metabolism,VDR,Metabolic modifier,Vitamin D Receptor
+BREFELDINA_Broad,BREFELDIN A,Broad,BREFELDIN A (Broad),Cytotoxic agent,Protein synthesis,Protein translocation,ER/Golgi homeostasis
+IXABEPILONE_NCI_Onc_AOD,IXABEPILONE,NCI_Onc_AOD,IXABEPILONE (NCI_AOD9),Microtubule poisons,Tubulin/micotubules,,
+CHM1_Broad,CHM 1,Broad,CHM 1 (Broad),Microtubule poisons,Tubulin/micotubules,Check point or mitotic inhibitor,Cell cycle~mitotic progression
+DOCETAXEL_Broad,DOCETAXEL,Broad,DOCETAXEL (Broad),Microtubule poisons,Tubulin/micotubules,Check point or mitotic inhibitor,Cell cycle~mitotic progression
+VINCRISTINE_Broad,VINCRISTINE,Broad,VINCRISTINE (Broad),Microtubule poisons,Tubulin/micotubules,Check point or mitotic inhibitor,Cell cycle~mitotic progression
+DARINAPARSIN_Broad,DARINAPARSIN,Broad,DARINAPARSIN (Broad),Microtubule poisons,Tubulin/micotubules,Check point or mitotic inhibitor,Cell cycle~mitotic progression
+PARBENDAZOLE_Broad,PARBENDAZOLE,Broad,PARBENDAZOLE (Broad),Microtubule poisons,Tubulin/micotubules,Check point or mitotic inhibitor,Cell cycle~mitotic progression
+CABAZITAXEL_NCI_Onc_AOD,CABAZITAXEL,NCI_Onc_AOD,CABAZITAXEL (NCI_Onc_AOD),Microtubule poisons,Tubulin/micotubules,Check point or mitotic inhibitor,Cell cycle~mitotic progression
+VINORELBINETARTRATE_NCI_Onc_AOD,VINORELBINE TARTRATE,NCI_Onc_AOD,VINORELBINE TARTRATE (NCI_Onc_AOD),Microtubule poisons,Tubulin/micotubules,Check point or mitotic inhibitor,Cell cycle~mitotic progression
+VINCRISTINESULFATE_NCI_Onc_AOD,VINCRISTINE SULFATE,NCI_Onc_AOD,VINCRISTINE SULFATE (NCI_Onc_AOD),Microtubule poisons,Tubulin/micotubules,Check point or mitotic inhibitor,Cell cycle~mitotic progression
+DOCETAXEL_NCI_Onc_AOD,DOCETAXEL,NCI_Onc_AOD,DOCETAXEL (NCI_Onc_AOD),Microtubule poisons,Tubulin/micotubules,Check point or mitotic inhibitor,Cell cycle~mitotic progression
+VINBLASTINESULFATE_NCI_Onc_AOD,VINBLASTINE SULFATE,NCI_Onc_AOD,VINBLASTINE SULFATE (NCI_Onc_AOD),Microtubule poisons,Tubulin/micotubules,Check point or mitotic inhibitor,Cell cycle~mitotic progression
+PACLITAXEL_NCI_Onc_AOD,PACLITAXEL,NCI_Onc_AOD,PACLITAXEL (NCI_Onc_AOD),Microtubule poisons,Tubulin/micotubules,Check point or mitotic inhibitor,Cell cycle~mitotic progression
+DBEQ_Broad,DBEQ,Broad,DBEQ (Broad),Migration inhibitors,p97,Invasion~motility,SNARE
+CURCUMIN_Broad,CURCUMIN,Broad,CURCUMIN (Broad),Natural product,NFKb,Anti-Inflammatory,modulator of ROS
+ISOLIQUIRITIGENIN_Broad,ISOLIQUIRITIGENIN,Broad,ISOLIQUIRITIGENIN (Broad),Natural product,,Others,
+EPIGALLOCATECHIN3MONOGALLATEEPIGALLOCATECHINGALLATE_Broad,EPIGALLOCATECHIN-3-MONOGALLATE[(-)-EPIGALLOCATECHIN GALLATE],Broad,EPIGALLOCATECHIN-3-MONOGALLATE[(-)-EPIGALLOCATECHIN GALLATE] (Broad),Natural product,,,
+ISOEVODIAMINE_Broad,ISOEVODIAMINE,Broad,ISOEVODIAMINE (Broad),Natural product,,,
+CYTOCHALASINB_Broad,CYTOCHALASIN B,Broad,CYTOCHALASIN B (Broad),Others,Actin,Cytoskeletal Signaling,Actin polymerization
+BEC_Broad,BEC,Broad,BEC (Broad),Others,Arginase,Muscle relaxation,NO-smooth muscle relaxation
+STF62247_Custom Clinical,STF-62247,Custom Clinical,STF-62247 (Custom Clinical),Others,Autophagy,Autophagy activator,Autophagy
+ZOLEDRONICACID_NCI_Onc_AOD,ZOLEDRONIC ACID,NCI_Onc_AOD,ZOLEDRONIC ACID (NCI_Onc_AOD),Others,Bone resorption,,
+GDC0449_Custom Clinical,GDC-0449,Custom Clinical,GDC-0449 (Custom Clinical),Others,Hedgehog,Patterning,Hedgehog signaling
+BLEBBISTATIN_Broad,(+/-)-BLEBBISTATIN,Broad,(+/-)-BLEBBISTATIN (Broad),Others,Myosin II,Check point or mitotic inhibitor,Cell cycle~mitotic progression
+ML029_Broad,ML029,Broad,ML029 (Broad),Others,NFKb,Anti-Inflammatory,NFKb singaling
+FSC231_Broad,FSC231,Broad,FSC231 (Broad),Others,PICK1,Adaptor protein,PLC/PKC/DAG
+PX12_Broad,PX-12,Broad,PX-12 (Broad),Others,TXN,ROS Scavenger,
+C6CERAMIDE_Broad,C6-CERAMIDE,Broad,C6-CERAMIDE (Broad),Others,,,
+16BETABROMOANDROSTERONE_Broad,16-BETA-BROMOANDROSTERONE,Broad,16-BETA-BROMOANDROSTERONE (Broad),Others,,,
+NUTLIN3_Broad,NUTLIN-3,Broad,NUTLIN-3 (Broad),p53 signaling,MDM2,Targeted modulator of apoptosis,DNA maintenance~Repair~Apoptosis
+SERDEMETAN_Broad,SERDEMETAN,Broad,SERDEMETAN (Broad),p53 signaling,MDM2,Targeted modulator of apoptosis,DNA maintenance~Repair~Apoptosis
+SJ172550_Broad,SJ 172550,Broad,SJ 172550 (Broad),p53 signaling,MDMX inhibitor,Targeted modulator of apoptosis,DNA maintenance~Repair~Apoptosis
+PRIMA1_Broad,PRIMA-1,Broad,PRIMA-1 (Broad),p53 signaling,p53,Targeted modulator of apoptosis,DNA maintenance~Repair~Apoptosis
+SCH529074_Broad,SCH 529074,Broad,SCH 529074 (Broad),p53 signaling,p53,Targeted modulator of apoptosis,DNA maintenance~Repair~Apoptosis
+PRIMA1MET_Broad,PRIMA­1MET,Broad,PRIMA­1MET (Broad),p53 signaling,p53,Targeted modulator of apoptosis,DNA maintenance~Repair~Apoptosis
+RITA_Broad,RITA,Broad,RITA (Broad),p53 signaling,p53,Targeted modulator of apoptosis,DNA maintenance~Repair~Apoptosis
+PIFITHRINMU_Broad,PIFITHRIN-MU,Broad,PIFITHRIN-MU (Broad),p53 signaling,p53,Targeted modulator of apoptosis,DNA maintenance~Repair~Apoptosis
+PIFITHRIN_Broad,PIFITHRIN­±,Broad,PIFITHRIN­± (Broad),p53 signaling,p53,Targeted modulator of apoptosis,DNA maintenance~Repair~Apoptosis
+PIFITHRINALPHA_Broad,PIFITHRIN-&ALPHA,Broad,PIFITHRIN-&ALPHA,p53 signaling,p53,Targeted modulator of apoptosis,DNA maintenance~Repair~Apoptosis
+CYCLOSPORINA_Broad,CYCLOSPORIN A,Broad,CYCLOSPORIN A (Broad),Phosphatase inhibitor,Calcineurin,S/T phosphatase,Ca ion dependant signaling
+FK506_Custom Clinical,FK-506,Custom Clinical,FK-506 (Custom Clinical),Phosphatase inhibitor,Calcineurin,S/T phosphatase,Ca ion dependant signaling
+TACROLIMUS_Broad,TACROLIMUS,Broad,TACROLIMUS (Broad),Phosphatase inhibitor,PPP3CA,,Circadian rhythm
+PRL3INHIBITORI_Broad,PRL-3 INHIBITOR I,Broad,PRL-3 INHIBITOR I (Broad),Phosphatase inhibitor,PTP4A3,Invasion~motility,TK inhibitor
+PRL3INHIBITOR_Broad,PRL­3 INHIBITOR,Broad,PRL­3 INHIBITOR (Broad),Phosphatase inhibitor,PTP4A3,Invasion~motility,TK inhibitor
+IXAZOMIBCITRATE_NCI_Onc_AOD,IXAZOMIB CITRATE,NCI_Onc_AOD,IXAZOMIB CITRATE (NCI_AOD9),Proteotoxic agent,20S proteasome,,
+R59022_Custom Clinical,R59022,Custom Clinical,R59022 (Custom Clinical),Proteotoxic agent,DAG,Membrane localization inhibitor,PLC/PKC/DAG
+SITAGLIPTIN_Broad,SITAGLIPTIN,Broad,SITAGLIPTIN (Broad),Proteotoxic agent,DPP-4,Peptidase,Glycemic regulation
+VER155008_Broad,VER 155008,Broad,VER 155008 (Broad),Proteotoxic agent,HSP70,Protein folding and repair,DNA maintenance~Repair~Apoptosis
+ELESCLOMOL_Custom Clinical,ELESCLOMOL,Custom Clinical,ELESCLOMOL (Custom Clinical),Proteotoxic agent,HSP70,Protein folding and repair,DNA maintenance~Repair~Apoptosis
+AT13387_Broad,AT13387,Broad,AT13387 (Broad),Proteotoxic agent,HSP90,Protein folding and repair,DNA maintenance~Repair~Apoptosis
+17AAG_Broad,17-AAG,Broad,17-AAG (Broad),Proteotoxic agent,HSP90,Protein folding and repair,DNA maintenance~Repair~Apoptosis
+17AAG_Custom Clinical,17-AAG,Custom Clinical,17-AAG (Custom Clinical),Proteotoxic agent,HSP90,Protein folding and repair,DNA maintenance~Repair~Apoptosis
+17DMAG_Custom Clinical,17-DMAG,Custom Clinical,17-DMAG (Custom Clinical),Proteotoxic agent,HSP90,Protein folding and repair,DNA maintenance~Repair~Apoptosis
+GELDENAMYCIN_Custom Clinical,GELDENAMYCIN,Custom Clinical,GELDENAMYCIN (Custom Clinical),Proteotoxic agent,HSP90,Protein folding and repair,DNA maintenance~Repair~Apoptosis
+NVPAUY922_Custom Clinical,NVP AUY922,Custom Clinical,NVP AUY922 (Custom Clinical),Proteotoxic agent,HSP90,Protein folding and repair,DNA maintenance~Repair~Apoptosis
+PD166793_Custom Clinical,PD 166793,Custom Clinical,PD 166793 (Custom Clinical),Proteotoxic agent,MMP,Invasion~motility,Proteases
+MLN4924_Broad,MLN4924,Broad,MLN4924 (Broad),Proteotoxic agent,NAE1,Check point or mitotic inhibitor,Cell cycle~mitotic progression
+PEVONEDISTAT_Broad,PEVONEDISTAT,Broad,PEVONEDISTAT (Broad),Proteotoxic agent,NAE1,Check point or mitotic inhibitor,Cell cycle~mitotic progression
+MLN2238_Broad,MLN2238,Broad,MLN2238 (Broad),Proteotoxic agent,Proteasome,Proteasome,DNA maintenance~Repair~Apoptosis
+MG132_Broad,MG-132,Broad,MG-132 (Broad),Proteotoxic agent,Proteasome,Proteasome,DNA maintenance~Repair~Apoptosis
+BORTEZOMIB_Broad,BORTEZOMIB,Broad,BORTEZOMIB (Broad),Proteotoxic agent,Proteasome,Proteasome,DNA maintenance~Repair~Apoptosis
+BORTEZOMIB_Custom Clinical,BORTEZOMIB,Custom Clinical,BORTEZOMIB (Custom Clinical),Proteotoxic agent,Proteasome,Proteasome,DNA maintenance~Repair~Apoptosis
+BORTEZOMIB_NCI_Onc_AOD,BORTEZOMIB,NCI_Onc_AOD,BORTEZOMIB (NCI_Onc_AOD),Proteotoxic agent,Proteasome,Proteasome,DNA maintenance~Repair~Apoptosis
+CARFILZOMIB_NCI_Onc_AOD,CARFILZOMIB,NCI_Onc_AOD,CARFILZOMIB (NCI_Onc_AOD),Proteotoxic agent,Proteasome,Proteasome,DNA maintenance~Repair~Apoptosis
+RO4929097_Broad,RO4929097,Broad,RO4929097 (Broad),Proteotoxic agent,secretase,Proteases,
+SEMAGACESTAT_Broad,SEMAGACESTAT,Broad,SEMAGACESTAT (Broad),Proteotoxic agent,secretase,Proteases,
+MK0752_Broad,MK-0752,Broad,MK-0752 (Broad),Proteotoxic agent,secretase,Proteases,
+PYR41_Broad,PYR 41,Broad,PYR 41 (Broad),Proteotoxic agent,Ub E1 Activating enzyme,Protein stability,DNA maintenance~Repair~Apoptosis
+SMER3_Broad,SMER 3,Broad,SMER 3 (Broad),Proteotoxic agent,Ub E3 Ligase inhibitor,Ubiqutin pathway,Proteosome pathway
+NSC632839HYDROCHLORIDE_Broad,NSC 632839 HYDROCHLORIDE,Broad,NSC 632839 HYDROCHLORIDE (Broad),Proteotoxic agent,USP,Protein degredation,Ubiquti
+SPAUTIN1_Broad,SPAUTIN 1,Broad,SPAUTIN 1 (Broad),Proteotoxic agent,USP10,Ubiqutin pathway,Proteosome pathway
+IU1_Broad,IU1,Broad,IU1 (Broad),Proteotoxic agent,USP14,Protein stability,DNA maintenance~Repair~Apoptosis
+HBX41108_Broad,HBX 41108,Broad,HBX 41108 (Broad),Proteotoxic agent,USP7,Ubiqutin pathway,Proteosome pathway
+A804598_Broad,A 804598,Broad,A 804598 (Broad),Purinergic Receptor,P2RX7,Ion homeostasis,Lysis
+MYRICETIN_Broad,MYRICETIN,Broad,MYRICETIN (Broad),ROS,ROS,ROS Scavenger,Herbal supplement~food product~Natural product
+AMINOLEVULINICACIDHYDROCHLORIDE_NCI_Onc_AOD,AMINOLEVULINIC ACID HYDROCHLORIDE,NCI_Onc_AOD,AMINOLEVULINIC ACID HYDROCHLORIDE (NCI_Onc_AOD),ROS,ROS,ROS,DNA maintenance~Repair~Apoptosis
+DEXRAZOXANE_NCI_Onc_AOD,DEXRAZOXANE,NCI_Onc_AOD,DEXRAZOXANE (NCI_Onc_AOD),ROS,ROS,ROS,DNA maintenance~Repair~Apoptosis
+THALIDOMIDE_Broad,THALIDOMIDE,Broad,THALIDOMIDE (Broad),ROS,ROS,Anti-Inflammatory,Prosteglandin production~differentiation~inflammation
+LENALIDOMIDE_Custom Clinical,LENALIDOMIDE,Custom Clinical,LENALIDOMIDE (Custom Clinical),ROS,ROS,Anti-Inflammatory,Prosteglandin production~differentiation~inflammation
+THALIDOMIDE_NCI_Onc_AOD,THALIDOMIDE,NCI_Onc_AOD,THALIDOMIDE (NCI_Onc_AOD),ROS,ROS,Anti-Inflammatory,Prosteglandin production~differentiation~inflammation
+LENALIDOMIDE_NCI_Onc_AOD,LENALIDOMIDE,NCI_Onc_AOD,LENALIDOMIDE (NCI_Onc_AOD),ROS,ROS,Anti-Inflammatory,Prosteglandin production~differentiation~inflammation
+BRD1812_Broad,BRD1812,Broad,BRD1812 (Broad),Signaling protein inhibitor,Wnt,Wnt,Wnt/B-catenin
+DEXAMETHASONE_Broad,DEXAMETHASONE,Broad,DEXAMETHASONE (Broad),Steroid,interleukin receptor,Anti-Inflammatory,JAK/STAT
+APALUTAMIDE_NCI_Onc_AOD,APALUTAMIDE,NCI_Onc_AOD,APALUTAMIDE (NCI_AOD9),Transcription factor,Androgen Receptor,,
+ENZALUTAMIDE_NCI_Onc_AOD,ENZALUTAMIDE,NCI_Onc_AOD,ENZALUTAMIDE (NCI_Onc_AOD),Transcription factor,AR,Endocrine and Hormone therapy,AR/PR/GR/ER
+TRETINOIN_Broad,TRETINOIN,Broad,TRETINOIN (Broad),Transcription factor,ATRA,ATRA Inhibitor,RAR/RXR/LXR
+TRETINOIN_NCI_Onc_AOD,TRETINOIN,NCI_Onc_AOD,TRETINOIN (NCI_Onc_AOD),Transcription factor,ATRA,ATRA Inhibitor,RAR/RXR/LXR
+CCT036477_Broad,CCT036477,Broad,CCT036477 (Broad),Transcription factor,b-Catenin,transcriptional down regulation,Wnt/B-catenin
+ABIRATERONE_Broad,ABIRATERONE,Broad,ABIRATERONE (Broad),Transcription factor,CYP17,Endocrine and Hormone therapy,AR/PR/GR/ER
+ABIRATERONE_NCI_Onc_AOD,ABIRATERONE,NCI_Onc_AOD,ABIRATERONE (NCI_Onc_AOD),Transcription factor,CYP17,Endocrine and Hormone therapy,AR/PR/GR/ER
+TAMOXIFEN_Broad,TAMOXIFEN,Broad,TAMOXIFEN (Broad),Transcription factor,ER,Endocrine and Hormone therapy,AR/PR/GR/ER
+FULVESTRANT_Broad,FULVESTRANT,Broad,FULVESTRANT (Broad),Transcription factor,ER,Endocrine and Hormone therapy,AR/PR/GR/ER
+FULVESTRANT_NCI_Onc_AOD,FULVESTRANT,NCI_Onc_AOD,FULVESTRANT (NCI_Onc_AOD),Transcription factor,ER,Endocrine and Hormone therapy,AR/PR/GR/ER
+RALOXIFENE_NCI_Onc_AOD,RALOXIFENE,NCI_Onc_AOD,RALOXIFENE (NCI_Onc_AOD),Transcription factor,ER,Endocrine and Hormone therapy,AR/PR/GR/ER
+ESTRAMUSTINEPHOSPHATESODIUM_NCI_Onc_AOD,ESTRAMUSTINE PHOSPHATE SODIUM,NCI_Onc_AOD,ESTRAMUSTINE PHOSPHATE SODIUM (NCI_Onc_AOD),Transcription factor,ER,Endocrine and Hormone therapy,AR/PR/GR/ER
+TAMOXIFENCITRATE_NCI_Onc_AOD,TAMOXIFEN CITRATE,NCI_Onc_AOD,TAMOXIFEN CITRATE (NCI_Onc_AOD),Transcription factor,ER,Endocrine and Hormone therapy,AR/PR/GR/ER
+GANT61_Broad,GANT 61,Broad,GANT 61 (Broad),Transcription factor,GLI1,Systems level patterning,Hedgehog pathway
+CID5951923_Broad,CID 5951923,Broad,CID 5951923 (Broad),Transcription factor,KLF5,Transcriptional regulation,Development~metabolism~pleiotipic effects
+MI2_Broad,MI-2,Broad,MI-2 (Broad),Transcription factor,MEN1,Transcriptional co-repression,
+ISX9_Broad,ISX 9,Broad,ISX 9 (Broad),Transcription factor,NEUROD1,Neuronal modulator,Neuronal differentiation
+NEURONALDIFFERENTIATIONINDUCERIII_Broad,NEURONAL DIFFERENTIATION INDUCER III,Broad,NEURONAL DIFFERENTIATION INDUCER III (Broad),Transcription factor,NEUROD1,Transcriptional co-repression,Neuronal differentiation
+GSK4112_Broad,GSK 4112,Broad,GSK 4112 (Broad),Transcription factor,NR1D1,Transcriptional co-activator,Circadian rhythm
+SR8278_Broad,SR 8278,Broad,SR 8278 (Broad),Transcription factor,NR1D1,Circadian rhythm,
+AZD2281_Custom Clinical,AZD 2281,Custom Clinical,AZD 2281 (Custom Clinical),Transcription factor,PPAR,PPAR inhibitor,Peroxisome biogenesis singaling cascades
+BSI201_Custom Clinical,BSI-201,Custom Clinical,BSI-201 (Custom Clinical),Transcription factor,PPAR,PPAR inhibitor,Peroxisome biogenesis singaling cascades
+AG014699_Custom Clinical,AG014699,Custom Clinical,AG014699 (Custom Clinical),Transcription factor,PPAR,PPAR inhibitor,Peroxisome biogenesis singaling cascades
+MEGESTROLACETATE_NCI_Onc_AOD,MEGESTROL ACETATE,NCI_Onc_AOD,MEGESTROL ACETATE (NCI_Onc_AOD),Transcription factor,PR,Endocrine and Hormone therapy,AR/PR/GR/ER
+AM580_Broad,AM 580,Broad,AM 580 (Broad),Transcription factor,RAR,RAR/RXR inhibitor,RAR activator
+CH55_Broad,CH 55,Broad,CH 55 (Broad),Transcription factor,RAR,RAR/RXR inhibitor,RAR activator
+CD1530_Broad,CD 1530,Broad,CD 1530 (Broad),Transcription factor,RAR,RAR/RXR inhibitor,RAR activator
+LE135_Broad,LE 135,Broad,LE 135 (Broad),Transcription factor,RAR,RAR/RXR inhibitor,RAR inhibitor
+BMS195614_Broad,BMS 195614,Broad,BMS 195614 (Broad),Transcription factor,RAR,RAR/RXR inhibitor,RAR inhibitor
+BMS270394_Broad,BMS 270394,Broad,BMS 270394 (Broad),Transcription factor,RAR,RAR/RXR inhibitor,RAR inhibitor
+CD437_Broad,CD-437,Broad,CD-437 (Broad),Transcription factor,RAR,RAR/RXR inhibitor,RAR inhibitor
+LE135_Custom Clinical,LE 135,Custom Clinical,LE 135 (Custom Clinical),Transcription factor,RAR,RAR/RXR inhibitor,RAR inhibitor
+BEXAROTENE_Broad,BEXAROTENE,Broad,BEXAROTENE (Broad),Transcription factor,RXR,RXR inhibitor,RAR/RXR/LXR
+BEXAROTENE_Custom Clinical,BEXAROTENE,Custom Clinical,BEXAROTENE (Custom Clinical),Transcription factor,RXR,RXR inhibitor,RAR/RXR/LXR
+CUCURBITACINI_Broad,CUCURBITACIN I,Broad,CUCURBITACIN I (Broad),Transcription factor,STAT3,NFKb/STAT signaling,JAK/STAT
+S3I201NSC74859_Broad,S3I-201 (NSC 74859),Broad,S3I-201 (NSC 74859) (Broad),Transcription factor,STAT3,Transcriptional co-activator,JAK/STAT
+NICLOSAMIDE_Broad,NICLOSAMIDE,Broad,NICLOSAMIDE (Broad),Transcription factor,STAT3,Transcriptional co-activator,JAK/STAT
+SR1001_Broad,SR 1001,Broad,SR 1001 (Broad),Transcription factor,ROR_alpha,,
+HOMOHARRINGTONINE_Broad,HOMOHARRINGTONINE,Broad,HOMOHARRINGTONINE (Broad),Cytotoxic agent,Protein synthesis,,
+BRDK92856060_Broad,BRD-K92856060,Broad,BRD-K92856060 (Broad),,,,
+DTRIM24_Custom Clinical,D-TRIM24,Custom Clinical,D-TRIM24 (CustomClinincal),Transcription factor,TRIM24,,
+TOMIVOSERIBMCE_Custom Clinical,TOMIVOSERIB(MCE),Custom Clinical,TOMIVOSERIB(MCE) (CustomClinincal),Kinase inhibitor,MNK; eIF4E,,
+NIRAPARIBHYDROCHLORIDE_NCI_Onc_AOD,NIRAPARIB HYDROCHLORIDE,NCI_Onc_AOD,NIRAPARIB HYDROCHLORIDE (NCI_AOD9),Genotoxic agent,PARP,,
+PEMETREXEDDISODIUMSALTHEPTAHYDRATE_NCI_Onc_AOD,"PEMETREXED, DISODIUM SALT, HEPTAHYDRATE",NCI_Onc_AOD,"PEMETREXED, DISODIUM SALT, HEPTAHYDRATE (NCI_AOD9)",Cytotoxic agent,DHFR,Autophagy activator,
+ETRIM24_Custom Clinical,E-TRIM24,Custom Clinical,E-TRIM24 (CustomClinincal),Transcription factor,TRIM24,,
+URIDINETRIACETATE_NCI_Onc_AOD,URIDINE TRIACETATE,NCI_Onc_AOD,URIDINE TRIACETATE (NCI_AOD9),Nucleoside analogue,unridine,,
+CERITINIB_NCI_Onc_AOD,CERITINIB,NCI_Onc_AOD,CERITINIB (NCI_AOD9),Kinase inhibitor,ALK,,
+LAROTRECTINIB_NCI_Onc_AOD,LAROTRECTINIB,NCI_Onc_AOD,LAROTRECTINIB (NCI_AOD9),Kinase inhibitor,TRK,,

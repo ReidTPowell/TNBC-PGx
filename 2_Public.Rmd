@@ -1,0 +1,264 @@
+---
+title: "Untitled"
+author: "Reid T. Powell"
+date: "2023-10-17"
+output: html_document
+---
+
+
+```{r}
+RNA_all <- read.csv("./data/public/depmap/Expression_Public_23Q2.csv",row.names=1)
+subsample = which(stringr::str_detect(RNA_all$lineage_1,"Breast"))
+RNA_all = RNA_all[subsample,8:ncol(RNA_all)]
+```
+
+```{r}
+Rx <- read.csv("./data/public/depmap/Drug_sensitivity_AUC_(Sanger_GDSC1)_subsetted_NAsdropped.csv",row.names=1)
+#Rx = RNA_all[,8:ncol(Rx)]
+```
+
+```{r}
+ART_RNA <- read.csv("./data/primary/RNA_combat.220304.csv",row.names=1)
+ART_RX  <- read.csv("./data/primary/Drug_AUC.csv",row.names=1)
+
+ART_complete = intersect(colnames(ART_RX),colnames(ART_RNA))
+ART_RNA = scale(ART_RNA[,ART_complete])
+ART_RX = ART_RX[,ART_complete]
+```
+
+
+```{r}
+ccl_complete = intersect(row.names(RNA_all),row.names(Rx))
+RNA_all = RNA_all[ccl_complete,]
+Rx = Rx[ccl_complete,]
+```
+
+
+```{r}
+library(fgsea)
+db = gmtPathways("R:\\TAMU-IBT_Powell\\Code\\R_scripts\\ssGSEA2.0-master\\db\\msigdb\\canonical.gmt")
+```
+
+
+```{r}
+library(stringr)
+Query = 'PEVONEDISTAT'
+
+y = Rx[,which(str_detect(colnames(Rx),Query))]
+names(y) = row.names(Rx)
+y = y[!is.na(y)]
+subset = names(y)
+
+x = t(scale(t(RNA_all[subset,])))
+```
+
+In vitro drug-gene correlation based pathway enrichment analysis
+```{r}
+library("pathfindR")
+library("stringr")
+library("dplyr")
+
+tmp = cbind(y,x)
+tmp = apply(tmp[, -1], 2, function(x) {cor.test(tmp[, 1], x, method = "pearson", use = "pairwise")})
+
+p.vals <- as.matrix(unlist(sapply(tmp, "[[", "p.value")))
+r.vals <- as.matrix(unlist(sapply(tmp, "[[", "estimate")))
+
+tmp = as.data.frame(cbind(colnames(x),
+                          r_val = r.vals,
+                          p_val = p.vals))
+
+tmp[, 2:3] <- sapply(tmp[, 2:3], as.numeric)
+
+colnames(tmp) = c("gene_symbol","pearson","P_value")
+rownames(tmp) <- NULL
+
+tmp$pearson = as.numeric(tmp$pearson)
+tmp$P_value = as.numeric(tmp$P_value)
+
+tmp = tmp[intersect(which(tmp$pearson >= 0.25), which(tmp$P_value <= 0.05)),]
+
+pfr_name = "./Reports/Corr_DepMap_RNA_Pevonedistat_pathfindR"
+unlink(pfr_name, recursive = TRUE)
+
+pathfindR <- run_pathfindR(tmp,
+                           iterations = 10,
+                           gene_sets = "Reactome",
+                           p_val_threshold = 0.05,
+                           search_method = "GR",
+                           plot_enrichment_chart = FALSE,
+                           output_dir = pfr_name,
+                           silent_option = TRUE)
+```
+
+
+```{r}
+library(foreach)
+library(doParallel)
+library(caret)
+
+# Number of bootstrap samples
+num_bootstrap_samples <- 10
+n = floor(0.9*dim(x)[1])
+
+# Register parallel backend (adjust the number of cores as needed)
+# This example uses parallel execution on 4 cores, but you can change it.
+cl <- makeCluster(10)
+registerDoParallel(cl)
+
+# Storage for cross-validation results
+cv_results <- foreach(i = 1:num_bootstrap_samples, .packages = c('glmnet','caret')) %dopar% {
+
+  set.seed(i)
+  cv_result = list()
+  #select by geneSet
+  for(j in names(db)){
+    try({
+          #init
+          tmp =c()
+          
+          #Select Geneset using msigdb
+          geneSet = intersect(colnames(x),db[[j]])
+          
+          # Create a bootstrap sample
+          sample_indices <- sample(1:n, replace = TRUE)
+          X_bootstrap <- x[sample_indices,geneSet]
+          y_bootstrap <- y[sample_indices]
+         
+          # Fit a glmnet model with LOOCV
+          control=trainControl(method = "LOOCV",
+                               number=n,
+                               allowParallel = FALSE)
+          
+          lasso <- train(X_bootstrap,
+                         y_bootstrap,
+                         method = "glmnet",
+                         lambda= 0,
+                         tuneGrid = expand.grid(alpha = 1,  lambda = 0),
+                         trControl=control)
+          
+         #test_pred = predict(lasso,t(scale(ART_RNA)))
+         #test_actual = unlist(ART_RX["PEVONEDISTAT_Broad",])
+          
+         importance = varImp(lasso)
+          
+         tmp["RMSE"] = lasso[["results"]][["RMSE"]]
+         tmp["Rsq"] = lasso[["results"]][["Rsquared"]]
+         tmp["Pearson"] = cor(y_bootstrap,lasso[["pred"]][["pred"]],method="pearson")
+         tmp["impNames"] = paste(row.names(importance[["importance"]]),collapse = ";")
+         tmp["impValues"] = paste(importance[["importance"]][["Overall"]],collapse = ";")
+         tmp["Sample"] = paste(names(y_bootstrap),collapse = ";")
+         tmp["actual"] = paste(y_bootstrap,collapse = ";")
+         tmp["predicted"] = paste(lasso[["pred"]][["pred"]],collapse = ";")
+         cv_result[[j]] = tmp
+      }, silent = FALSE, outFile = getOption("try.outFile", default = stderr()))
+  }
+  do.call(rbind, cv_result)
+}
+
+# Stop the parallel cluster
+stopCluster(cl)
+# 
+# # Extract and analyze results
+# for (i in 1:num_bootstrap_samples) {
+#   cat("Bootstrap Sample", i, "\n")
+#   print(cv_results[[i]])
+# }
+
+```
+
+```{r}
+df = as.data.frame(do.call(rbind, cv_results))
+df[,"group"] = as.factor(row.names(do.call(rbind, cv_results)))
+rownames(df) = NULL
+write.csv(df,'./Reports/DepMap_GDSC1_Pevonedistat_BootCV.csv')
+```
+
+
+
+```{r}
+library(foreach)
+library(doParallel)
+library(caret)
+
+# Number of bootstrap samples
+num_bootstrap_samples <- 10
+n = floor(0.9*dim(x)[1])
+
+# Register parallel backend (adjust the number of cores as needed)
+# This example uses parallel execution on 4 cores, but you can change it.
+cl <- makeCluster(10)
+registerDoParallel(cl)
+
+# Storage for cross-validation results
+cv_results <- foreach(i = 1:num_bootstrap_samples, .packages = c('glmnet','caret')) %dopar% {
+
+  set.seed(i)
+  cv_result = list()
+  #select by geneSet
+    try({
+          #init
+          tmp =c()
+          
+          #Select Geneset using msigdb
+          geneSet = Reduce (intersect, list(colnames(x),db[["REACTOME_POST_TRANSLATIONAL_PROTEIN_MODIFICATION"]],row.names(ART_RNA)))
+          
+          # Create a bootstrap sample
+          sample_indices <- sample(1:n, replace = TRUE)
+          X_bootstrap <- x[sample_indices,geneSet]
+          y_bootstrap <- y[sample_indices]
+         
+          # Fit a glmnet model with LOOCV
+          control=trainControl(method = "LOOCV",
+                               number=n,
+                               allowParallel = FALSE)
+          
+          lasso <- train(X_bootstrap,
+                         y_bootstrap,
+                         method = "glmnet",
+                         lambda= 0,
+                         tuneGrid = expand.grid(alpha = 1,  lambda = 0),
+                         trControl=control)
+          
+         test_pred = predict(lasso,t(ART_RNA[geneSet,]))
+         test_actual = unlist(ART_RX["PEVONEDISTAT_Broad",])
+
+         importance = varImp(lasso)
+          
+         tmp["RMSE"] = lasso[["results"]][["RMSE"]]
+         tmp["Rsq"] = lasso[["results"]][["Rsquared"]]
+         tmp["Pearson"] = cor(y_bootstrap,lasso[["pred"]][["pred"]],method="pearson")
+         tmp["impNames"] = paste(row.names(importance[["importance"]]),collapse = ";")
+         tmp["impValues"] = paste(importance[["importance"]][["Overall"]],collapse = ";")
+         tmp["Sample"] = paste(names(y_bootstrap),collapse = ";")
+         tmp["actual"] = paste(y_bootstrap,collapse = ";")
+         tmp["predicted"] = paste(lasso[["pred"]][["pred"]],collapse = ";")
+         tmp
+         #cv_result[[j]] = tmp
+      }, silent = FALSE, outFile = getOption("try.outFile", default = stderr()))
+  #do.call(rbind, cv_result)
+}
+
+# Stop the parallel cluster
+stopCluster(cl)
+```
+
+
+
+```{r}
+df = as.data.frame(do.call(rbind, cv_results))
+df[,"group"] = as.factor(row.names(do.call(rbind, cv_results)))
+rownames(df) = NULL
+write.csv(df,'./Reports/DepMap_GDSC1_Pevonedistat_BootCV.csv')
+```
+
+
+
+
+```{r}
+library(dplyr)
+
+df %>% group_by(group) %>%
+  summarize(mean = mean(df[,1]))
+```
+

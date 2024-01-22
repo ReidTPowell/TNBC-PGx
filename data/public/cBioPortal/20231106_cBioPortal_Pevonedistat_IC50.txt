@@ -1,0 +1,35 @@
+Sample Id	Lineage Molecular Subtype	Pevonedistat: Treatment response: IC50	Mutations	Copy Number Alterations	Lineage Sub-subtype
+EFM192A_BREAST	HER2_amp	3.834005	-	-	ERpos_HER2pos
+HCC202_BREAST	HER2_amp	4.037941	-	-	ERneg_HER2pos
+HCC2218_BREAST	HER2_amp	19.282694	-	-	ERneg_HER2pos
+MDAMB175VII_BREAST	HER2_amp	5.118447	-	-	ERpos_HER2neg
+MDAMB361_BREAST	HER2_amp	0.744049	-	-	ERpos_HER2pos
+MDAMB453_BREAST	HER2_amp	2.388749	-	-	ERneg_HER2neg
+BT20_BREAST	basal_A	10.241755	-	-	ERneg_HER2neg
+CAL851_BREAST	basal_A	1.614217	-	-	ERneg_HER2neg
+HCC1143_BREAST	basal_A	2.671729	-	-	ERneg_HER2neg
+HCC1187_BREAST	basal_A	0.220076	-	-	ERneg_HER2neg
+HCC1569_BREAST	basal_A	0.205283	-	-	ERneg_HER2pos
+HCC1806_BREAST	basal_A	0.029757	-	-	ERneg_HER2neg
+HCC1937_BREAST	basal_A	1.217098	-	-	ERneg_HER2neg
+HCC2157_BREAST	basal_A	12.458984	-	-	ERneg_HER2neg
+HCC38_BREAST	basal_A	0.690573	-	-	ERneg_HER2neg
+HCC70_BREAST	basal_A	0.260903	-	-	ERneg_HER2neg
+HDQP1_BREAST	basal_A	4.732365	-	-	ERneg_HER2neg
+MDAMB468_BREAST	basal_A	0.369066	-	-	ERneg_HER2neg
+BT549_BREAST	basal_B	0.671601	-	-	ERneg_HER2neg
+CAL120_BREAST	basal_B	0.638956	-	-	ERneg_HER2neg
+CAL51_BREAST	basal_B	0.212558	-	-	ERneg_HER2neg
+HS578T_BREAST	basal_B	0.983444	-	-	ERneg_HER2neg
+MDAMB157_BREAST	basal_B	0.605166	-	-	ERneg_HER2neg
+MDAMB231_BREAST	basal_B	1.091737	-	-	ERneg_HER2neg
+MDAMB436_BREAST	basal_B	1.142611	-	-	ERneg_HER2neg
+BT483_BREAST	luminal	97.00427	-	-	ERpos_HER2neg
+CAMA1_BREAST	luminal	1.526609	-	-	ERpos_HER2neg
+EFM19_BREAST	luminal	21.683075	-	-	ERpos_HER2neg
+HCC1428_BREAST	luminal	0.055396	-	-	ERpos_HER2neg
+HCC1500_BREAST	luminal	15.562124	-	-	ERpos_HER2neg
+MCF7_BREAST	luminal	0.273626	-	-	ERpos_HER2neg
+MFM223_BREAST	luminal	0.527534	-	Not Profiled	ERneg_HER2neg
+T47D_BREAST	luminal	9.158386	-	-	ERpos_HER2neg
+DU4475_BREAST	luminal_HER2_amp	0.073147	-	-	ERneg_HER2neg
