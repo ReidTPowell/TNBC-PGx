@@ -1,1 +1,3 @@
+#ignore files that are too large for upload
 .Reports/
+./data/public/Expression_Public_23Q2.csv
