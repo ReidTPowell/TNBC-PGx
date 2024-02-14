@@ -18,14 +18,6 @@ TNBC PGx notebook.RData   	  Binary of the notebook data
 Readme.md                 	  This file
 </pre>
 
-**Data Description:**<br>
-<pre>
-*Drug_AUC.csv            Table of area under the curve values for the in vitro high throughput screen. 0 is in-active, 1 is fully-active.
-*Drug_metadata.csv       Table of drug annotations
-*PDX_metadata.csv        Table of PDX annotations
-*RNA_combat.220304.csv   Table of combat normalized gene expression values.
-</pre>
-
 **Code:**\
 All code was developed using R 4.3.1 using RStudios. All code was developed on a Dell Precision 7920 with an Intel Xeon 8C/16T 3.56 Ghz Processor and 128 Gb RAM.\
 Approximate runtime for the complete notebook is with in a hour. Modeling steps can take a few hours to a day depending on parrallization settings.
