@@ -1,7 +1,7 @@
 # TNBC-PGx
 This is page is the data and code repository for the manuscript entitled:\
-*Neddylation as a therapeutic target in chemoresistant triple negative breast cancer.*\
-Powell and Rinkenbaugh et al. 2023 [Submitted/In Review]\
+*Targeting neddylation and sumoylation in chemoresistant triple negative breast cancer.*\
+Powell and Rinkenbaugh et al. 2024 [Submitted/In Review]
 
 **Content:**<br>
 <pre>
