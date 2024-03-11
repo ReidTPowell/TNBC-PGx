@@ -1,7 +1,7 @@
 # TNBC-PGx
 This is page is the data and code repository for the manuscript entitled:\
-*Neddylation as a therapeutic target in chemoresistant triple negative breast cancer.*\
-Powell and Rinkenbaugh et al. 2023 [Submitted/In Review]\
+*Targeting neddylation and sumoylation in chemoresistant triple negative breast cancer.*\
+Powell and Rinkenbaugh et al. 2024 [Submitted/In Review]
 
 **Content:**<br>
 <pre>
@@ -16,14 +16,6 @@ Powell and Rinkenbaugh et al. 2023 [Submitted/In Review]\
 1_Validation.Rmd    		  Annotated Notebook to regenerate key figures for the validation/PEV time studies studies
 TNBC PGx notebook.RData   	  Binary of the notebook data
 Readme.md                 	  This file
-</pre>
-
-**Data Description:**<br>
-<pre>
-*Drug_AUC.csv            Table of area under the curve values for the in vitro high throughput screen. 0 is in-active, 1 is fully-active.
-*Drug_metadata.csv       Table of drug annotations
-*PDX_metadata.csv        Table of PDX annotations
-*RNA_combat.220304.csv   Table of combat normalized gene expression values.
 </pre>
 
 **Code:**\
